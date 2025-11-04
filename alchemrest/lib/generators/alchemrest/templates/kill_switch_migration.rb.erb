@@ -1,0 +1,17 @@
+class CreateAlchemrestKillSwitches < ActiveRecord::Migration<%= migration_version %>
+  disable_ddl_transaction!
+
+  def self.up
+    create_table :alchemrest_kill_switches, id: :uuid do |t|
+      t.string  :service_name, null: false
+      t.boolean :enabled, null: false, default: false
+      t.timestamps
+    end
+
+    add_index :alchemrest_kill_switches, [:service_name], name: "index_alchemrest_kill_switches_on_service_name", unique: true, algorithm: :concurrently
+  end
+
+  def self.down
+    drop_table :alchemrest_kill_switches
+  end
+end

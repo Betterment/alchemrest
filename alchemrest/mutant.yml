@@ -1,0 +1,16 @@
+---
+integration:
+  name: rspec
+requires:
+  - alchemrest
+matcher:
+  subjects:
+    - Alchemrest*
+mutation:
+  timeout: 1.0
+coverage_criteria:
+  timeout: true
+environment_variables:
+  # we need to include this to avoid segfault when working with psql
+  PGGSSENCMODE: disable
+usage: opensource

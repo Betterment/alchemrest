@@ -1,0 +1,5 @@
+project_type: ruby_gem
+ruby_version: 3.2.2
+databases:
+  - type: postgresql
+    version: "15.2"

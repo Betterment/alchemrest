@@ -1,0 +1,5 @@
+--dir=.
+--ignore=lib/
+--ignore=spec/
+--ignore=vendor/
+--ignore=alchemrest-sentry.gemspec

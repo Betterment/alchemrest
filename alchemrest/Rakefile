@@ -1,0 +1,29 @@
+# frozen_string_literal: true
+
+begin
+  require 'bundler/setup'
+rescue LoadError
+  puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
+end
+
+Bundler::GemHelper.install_tasks
+Bundler::GemHelper.tag_prefix = "#{Bundler::GemHelper.gemspec.name}-"
+
+require 'rubocop/rake_task'
+RuboCop::RakeTask.new
+
+require 'rspec/core'
+require 'rspec/core/rake_task'
+RSpec::Core::RakeTask.new(:spec)
+
+def default_task
+  if ENV['APPRAISAL_INITIALIZED'] || ENV['CI']
+    %i(rubocop spec)
+  else
+    require 'appraisal'
+    Appraisal::Task.new
+    %i(appraisal)
+  end
+end
+
+task(:default).clear.enhance(default_task)

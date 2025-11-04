@@ -1,0 +1,145 @@
+#!/bin/bash
+
+# mutant-check: Clean output formatter for Mutant mutation testing
+#
+# This script runs `mutant run --since origin/main --fail-fast` and formats 
+# the output for easier reading by:
+# - Preserving ANSI color codes 
+# - Removing verbose test execution details ([killfork] output)
+# - Adding clear visual separators between mutations
+# - Showing clean diff output with actual code changes
+#
+# IMPORTANT: This script only works with --fail-fast mode, which stops after
+# finding the first uncovered mutation. It processes one mutation at a time.
+# 
+# Usage: ./bin/mutant-check
+
+set -euo pipefail
+
+# Use script to create a pseudo-TTY to preserve colors, but only capture stdout/stderr  
+script -q /dev/null bundle exec mutant run --since origin/main --fail-fast 2>&1 | sed 's/\x04//g' |
+  awk '
+    BEGIN { 
+      in_killfork = 0
+      found_mutation = 0
+      just_printed_mutation = 0
+      in_diff = 0
+      diff_line_count = 0
+      second_mutant_env = 0
+      buffer = ""
+    }
+    
+    # Skip [killfork] lines except when we need to extract diff
+    /^\[killfork\]/ { 
+      # Check if next content is a diff line
+      line = $0
+      sub(/^\[killfork\] /, "", line)  # Remove [killfork] prefix
+      
+      # If this is a diff line, process it
+      if (in_diff && (line ~ /^@@/ || line ~ /^[ +-]/ || line ~ /^[[:space:]]*$/)) {
+        if (line ~ /^@@/ || line ~ /^[ +-]/) {
+          print line
+        }
+        next
+      }
+      
+      # Otherwise skip killfork lines
+      next 
+    }
+    
+    # Detect start of Killfork section
+    /^Killfork:/ { 
+      in_killfork = 1
+      next 
+    }
+    
+    # Skip "Log messages" line
+    /^Log messages \(combined stderr and stdout\):/ { 
+      in_killfork = 1
+      next 
+    }
+    
+    # Detect evil: mutation line - this marks a found mutation
+    /^evil:/ {
+      found_mutation = 1
+      just_printed_mutation = 1
+      # Print separator and header before mutation
+      print "======================="
+      print ""
+      print "Mutation Found  "
+      print "++++++++++++++++++++++"
+      # Print the mutation line without "evil:" prefix
+      sub(/^evil:/, "", $0)
+      print $0
+      next
+    }
+    
+    # Skip separator after evil: line (we do not want to print the dashes)
+    just_printed_mutation && /^-+$/ && !in_diff {
+      just_printed_mutation = 0
+      in_killfork = 1  # We are about to enter killfork section
+      next
+    }
+    
+    # Detect diff start inside killfork or directly
+    /^@@/ || (/^\[killfork\] @@/ && in_killfork) {
+      if (!in_diff) {
+        in_diff = 1
+        diff_line_count = 0
+        in_killfork = 0  # Exit killfork mode when diff starts
+      }
+      # Remove killfork prefix if present
+      line = $0
+      sub(/^\[killfork\] /, "", line)
+      print line
+      diff_line_count++
+      next
+    }
+    
+    # Process diff content (including colored lines and context lines)  
+    in_diff {
+      # End the diff when we hit a separator or the final mutant environment
+      if (/^-+$/ || /^Mutant environment:/) {
+        in_diff = 0
+        in_killfork = 0
+        if (/^Mutant environment:/) {
+          print " "
+          print "======================="
+          second_mutant_env = 1
+          print $0
+          next
+        } else {
+          print " "
+          next
+        }
+      }
+      # Print any line in diff mode
+      line = $0
+      sub(/^\[killfork\] /, "", line)
+      print line
+      next
+    }
+    
+    # Skip lines while in killfork section (except diff lines handled above)
+    in_killfork { next }
+    
+    # Buffer "Uncovered mutations" line to print at the end
+    /^Uncovered mutations detected/ {
+      buffer = $0
+      next
+    }
+    
+    # Print all other lines
+    { 
+      if (!in_killfork && !in_diff) {
+        print $0
+      }
+    }
+    
+    END {
+      # Print buffered line at the end
+      if (buffer != "") {
+        print buffer
+      }
+    }
+  '

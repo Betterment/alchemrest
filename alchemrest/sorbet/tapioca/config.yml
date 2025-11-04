@@ -1,0 +1,45 @@
+gem:
+  doc: false
+  exclude:
+    - activerecord
+    - appraisal
+    - betterlint
+    - combustion
+    - moneta
+    - mutant-license
+    - mutant-rspec
+    - pg
+    - pry
+    - rspec
+    - rspec_junit_formatter
+    - rubocop-rspec
+    - sorbet
+    - timecop
+dsl:
+  app_root: "./spec/internal"
+  environment: test
+  exclude:
+    - Tapioca::Dsl::Compilers::ActionControllerHelpers
+    - Tapioca::Dsl::Compilers::ActionText
+    - Tapioca::Dsl::Compilers::ActiveModelAttributes
+    - Tapioca::Dsl::Compilers::ActiveModelSecurePassword
+    - Tapioca::Dsl::Compilers::ActiveModelValidationsConfirmation
+    - Tapioca::Dsl::Compilers::ActiveRecordAssociations
+    - Tapioca::Dsl::Compilers::ActiveRecordColumns
+    - Tapioca::Dsl::Compilers::ActiveRecordDelegatedTypes
+    - Tapioca::Dsl::Compilers::ActiveRecordEnum
+    - Tapioca::Dsl::Compilers::ActiveRecordFixtures
+    - Tapioca::Dsl::Compilers::ActiveRecordRelations
+    - Tapioca::Dsl::Compilers::ActiveRecordScope
+    - Tapioca::Dsl::Compilers::ActiveRecordSecureToken
+    - Tapioca::Dsl::Compilers::ActiveRecordStore
+    - Tapioca::Dsl::Compilers::ActiveSupportConcern
+    - Tapioca::Dsl::Compilers::ActiveSupportCurrentAttributes
+    - Tapioca::Dsl::Compilers::ActiveSupportTimeExt
+    - Tapioca::Dsl::Compilers::MixedInClassAttributes
+    - Tapioca::Dsl::Compilers::UrlHelpers
+  # Add your `dsl` command parameters here:
+  #
+  # exclude:
+  # - SomeGeneratorName
+  # workers: 5

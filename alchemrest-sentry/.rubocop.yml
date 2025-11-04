@@ -1,0 +1,22 @@
+inherit_from: .rubocop_todo.yml
+
+inherit_gem:
+  betterlint: config/default.yml
+  memosa: config/rubocop.yml
+
+inherit_mode:
+  merge:
+    - Exclude
+
+Style/SuperArguments:
+  Enabled: false
+
+AllCops:
+  Exclude:
+    - 'gemfiles/*'
+    - 'vendor/bundle/**/*'
+    - .pryrc
+  TargetRubyVersion: 3.2
+
+Capybara/RSpec/PredicateMatcher:
+  Enabled: false

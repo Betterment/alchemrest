@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -euo pipefail
+
+bin/tapioca gems --verify
+bin/tapioca dsl
+bin/srb tc
