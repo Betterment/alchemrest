@@ -6,7 +6,7 @@ You probably want to read [Working with Results](./working_with_results.md) firs
 
 ## Welcome to Bank.com
 
-To walk through these patterns, we'll imagine we're integrating with the fictional bank.com/api and walk through how we might iteratively build up a robust integration with this third party system. We're focusing on just the error handling pieces here, so we won't show the full AlchemREST setup, but this example is based on the example used for our [iteration tests found here](../spec/dummy/bank_api). You can also see these same examples in our [error handling integration test](../spec/integration/error_handling.rb). Our first order of business is to write some code that will let us get a user by id from this API. We'll define a request and add a method to our root so we can call code like this
+To walk through these patterns, we'll imagine we're integrating with the fictional bank.com/api and walk through how we might iteratively build up a robust integration with this third party system. We're focusing on just the error handling pieces here, so we won't show the full AlchemREST setup, but this example is based on the example used for our [iteration tests found here](../alchemrest/examples/bank_api). You can also see these same examples in our [error handling integration test](../alchemrest/spec/integration/error_handling_spec.rb). Our first order of business is to write some code that will let us get a user by id from this API. We'll define a request and add a method to our root so we can call code like this
 
 ```ruby
 result = BankApi::Root.new(id: 1234).get_user
@@ -154,7 +154,7 @@ one of the ones that we handle because it doesn't match the second pattern state
 The good news is you'll still see the original error in your exception management system. It will look something like this
 
 ```shell
-Alchemrest::MorpherTransformError: Response does not match expected schema: - Morpher::Transform::Sequence/2/Alchemrest::Data::Transforms::LooseHash/[:status]/Alchemrest::Data::Transforms::Enum: Expected: enum value from ["open", "locked"] but got: "frozen
+Alchemrest::MorpherTransformError: Response does not match expected schema: - Morpher::Transform::Sequence/2/Alchemrest::Transforms::LooseHash/[:status]/Alchemrest::Transforms::Enum: Expected: enum value from ["open", "locked"] but got: "frozen
 ```
 
 This message tells you that the underlying library we use for data transformation, Morpher, couldn't transform the data because it expected the value of the `[:status]` field to be "open" or "locked". You can reach out to Bank.com and ask them about this new, unexpected status and then decide what to do.

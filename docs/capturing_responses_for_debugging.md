@@ -150,7 +150,7 @@ So you can see how the simple configuration dsl rolls up into a powerful transfo
 
 For really complex customization needs, you can write your own implementation. It just needs to return an object that implements the `call(response)` method. This gives you a lot of flexibility to define your own objects, use a lambda, or anything else.
 
-However, you're probably best off making use of Morpher, and particularly two transforms defined by `Alchemrest`. The first is what you see above, the `Alchemrest::Data::Transforms::Sanitize` transform. This is what's responsible for doing the parameter filtering described above. By default, it aggressively filters all out any of the items defined in `filter_parameters`, but if it's too aggressive, you can explicitly mark certain paths as safe, and opt them out of filtering. You can do this by passing the `safe` kwarg to `Sanitize.new` like this
+However, you're probably best off making use of Morpher, and particularly two transforms defined by `Alchemrest`. The first is what you see above, the `Alchemrest::Transforms::Sanitize` transform. This is what's responsible for doing the parameter filtering described above. By default, it aggressively filters all out any of the items defined in `filter_parameters`, but if it's too aggressive, you can explicitly mark certain paths as safe, and opt them out of filtering. You can do this by passing the `safe` kwarg to `Sanitize.new` like this
 
 ```ruby
 Alchemrest::Response::Pipeline::Sanitize.new(

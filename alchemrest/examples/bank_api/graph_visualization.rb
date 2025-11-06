@@ -37,8 +37,8 @@ module BankApi
         end
       end
       graph.sub_graphs.each do |key, sub_graph|
-        io.puts "- #{key}"
-        print_graph!(sub_graph, io, indent: 2)
+        io.puts("- #{key}".indent(indent))
+        print_graph!(sub_graph, io, indent: indent + 2)
       end
     end
   end

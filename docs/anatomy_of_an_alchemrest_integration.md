@@ -4,7 +4,7 @@ The [README](../README.md) does a quick overview of the different parts of an Al
 
 For the purpose of this work, we'll imagine a fictional company, Bank.com, which offers a banking API you can use to manage users, create accounts, and perform transactions.
 
-The examples in this file are also available in the [Dummy Integration](../spec/dummy/bank_api) we use for integration testing. You can review the example integration code in that folder, as well as [Integration Tests](../spec/integration) that use it for real.
+The examples in this file are also available in the [Dummy Integration](../alchemrest/examples/bank_api) we use for integration testing. You can review the example integration code in that folder, as well as [Integration Tests](../alchemrest/spec/integration) that use it for real.
 
 ## App Level Configuration
 
@@ -245,9 +245,9 @@ The `schema` macro does some meta programming via the Morpher library that sets 
 * The incoming hash has a key named `date_of_birth` with an iso string that can be parsed into a date time
 * If the hash has a key named `nickname`, it's a string (although it doesn't have to have that key).
 
-You can see these validations by looking at `Alchemrest::Data::Transforms`, which contains all the schema helper methods exposed by `s` in the example above. Each of these methods loosely wraps a Morpher transform that validates the data is in a particular expected format, and then optionally transforms it
+You can see these validations by looking at `Alchemrest::Transforms`, which contains all the schema helper methods exposed by `s` in the example above. Each of these methods loosely wraps a Morpher transform that validates the data is in a particular expected format, and then optionally transforms it
 
-So for example the `date_of_birth` value is passed through the `s.time(:iso)` method, which creates an instance of `Alchemrest::Data::Transforms::IsoTime`. This transform makes sure the string is an iso time string, and then converts it into a date time using `Time.iso8601`. You can see how the `Alchemrest::Data::Transform` provides a number of helpers for different data types that build up and invoke the transforms for you. Note, you can create your own custom transforms and use them directly, which we cover in the [Custom Transformations](./custom_transformations.md) section of this documentation
+So for example the `date_of_birth` value is passed through the `s.time(:iso)` method, which creates an instance of `Alchemrest::Transforms::IsoTime`. This transform makes sure the string is an iso time string, and then converts it into a date time using `Time.iso8601`. You can see how the `Alchemrest::Data::Transform` provides a number of helpers for different data types that build up and invoke the transforms for you. Note, you can create your own custom transforms and use them directly, which we cover in the [Custom Transformations](./custom_transformations.md) section of this documentation
 
 Sometimes you may want to create an instance of a data model without going through the request process, particular for testing. You can do this using the `self.from_hash` method. This will run the same transformations and validations as the request code, so it ensures your tests remain accurate as your model evolves.
 

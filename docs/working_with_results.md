@@ -122,7 +122,7 @@ end
 
 Note error details doesn't even have to be a string, it could be a hash for more complex scenarios, which would allow for even more complex matching in the case of multiple errors on a single response
 
-For even more customization around pattern matching, see the [Pattern Matching Under the Hood](./pattern_matching_under_the_hood.md)
+For even more customization around pattern matching, see the [Advanced Pattern Matching](./advanced_pattern_matching.md)
 
 ### Chaining Results with the `Alchemrest::Result.for`
 

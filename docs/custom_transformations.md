@@ -1,6 +1,6 @@
 # Custom Transformations with Morpher
 
-As covered in [Working with Data](./working_with_data.md), AlchemREST converts JSON data into our domain data classes using Morpher. We ship with a series of prebuilt Morpher transforms and related helpers found in [Alchemrest::Data::Transforms](../lib/alchemrest/data/transforms.rb). In this documentation, we cover what to do if you need to create a custom transformation that's not included in these helpers. You can either define and use this helper directly in your application, or if you think it has broad use, you can open a pull request and add it as one of the built-in transformations
+As covered in [Working with Data](./working_with_data.md), AlchemREST converts JSON data into our domain data classes using Morpher. We ship with a series of prebuilt Morpher transforms and related helpers found in [Alchemrest::Transforms](../alchemrest/lib/alchemrest/transforms.rb). In this documentation, we cover what to do if you need to create a custom transformation that's not included in these helpers. You can either define and use this helper directly in your application, or if you think it has broad use, you can open a pull request and add it as one of the built-in transformations
 
 Before reading this documentation you should probably make sure you have already reviewed [Working with Data](./working_with_data.md) and [Error Handling Patterns](./error_handling_patterns.md) to ensure you are well grounded in basic AlchemREST patterns
 

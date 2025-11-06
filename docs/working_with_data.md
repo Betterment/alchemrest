@@ -4,7 +4,7 @@ Data classes are a key part of using AlchemREST. In general the goal of data cla
 
 AlchemREST is designed to be flexible about how you implement your data classes, and you don't have to use the tools that ship with AlchemREST to build and manage your data, but we have a baked in set of tools which make use of the [Morpher](https://github.com/mbj/morpher) transformations library to give us tooling for safe and flexible transformations of data.
 
-As we walk through using data classes, we'll use examples that imagine we're integrating with a banking api offered by the fictional company Bank.com. The AlchemREST integration for this api can be found in [Dummy Integration](../spec/dummy/bank_api). All the examples covered in this document can also be found in our [Integration Tests](../spec/integration).
+As we walk through using data classes, we'll use examples that imagine we're integrating with a banking api offered by the fictional company Bank.com. The AlchemREST integration for this api can be found in [Dummy Integration](../alchemrest/examples/bank_api). All the examples covered in this document can also be found in our [Integration Tests](../alchemrest/spec/integration).
 
 ## Basic Setup
 
@@ -44,7 +44,7 @@ Before we try to understand how transformations work, it's important to note Alc
 
 Let's take a look at the class above and walk through the set of transformations we're using here so you can get a sense of how to use this core part of AlchemREST.
 
-Starting at the top, you can see we've first sorted our keys into two categories, `required` and `optional`. Any keys listed in `required` have to be present in the response, even if their value is null. Any keys in optional, don't have to be there. For optional columns, the attributes will still exist on the model, they'll just be nil (ie `user.nickname => nil`) If a required key is missing,
+Starting at the top, you can see we've first sorted our keys into two categories, `required` and `optional`. Any keys listed in `required` have to be present in the response, even if their value is null. Any keys in optional, don't have to be there. For optional columns, the attributes will still exist on the model, they'll just be nil (ie `user.nickname => nil`).
 
 One important thing to note is that if the response includes some kind of extra column, like `address`, we do not treat that as an error. If you don't want to allow optional keys, then you can use the option `allow_additional_properties: false`, which you add as an additional key alongside `required` and `optional`
 
@@ -62,7 +62,7 @@ So let's look at each of the transforms in our `required` block. First you see `
 
 Now let's look at the next line. Here we have `status: s.enum(%w(open locked)`. This is a little more interesting. Here we call the function `enum`, and pass in a list of strings. This will return a `Alchemrest::Transforms::Enum` transformation initialized with the list of strings provided. The `Enum` transform validates that the input data is one of the provided values, and then symbolizes it. Additionally `Enum` supports a hash as an initialization parameter, in which case it will validate that the input is in the list of keys, and it will transform the output to the corresponding value.
 
-These first two examples are relatively simple, but this next one is more interesting. `date_of_birth: s.from.string.to(Time).using(:utc)` Here, we're making use of a flexible interface we call "Chainable Transforms". We'll cover this more in its own section [Chainable Transforms](../chainable_transforms.md), but we'll do a quick run down now.
+These first two examples are relatively simple, but this next one is more interesting. `date_of_birth: s.from.string.to(Time).using(:utc)` Here, we're making use of a flexible interface we call "Chainable Transforms". We'll cover this more in its own section [Chainable Transforms](./chainable_transforms.md), but we'll do a quick run down now.
 
 The idea behind chainable transforms is you start by identifying what your input data looks like using `s.from.string` or `s.from.number`. After that you can further constrain your data by chaining on a series of where statements. So `s.from.string.where.max_length(10)` will validate that your input data is a string which is 10 characters or less. Next, you can transform the data by using a `to` call, like `s.from.string.where.max_length.to(Time)`.
 
@@ -70,7 +70,7 @@ So now let's come back to our example above `date_of_birth: s.from.string.to(Tim
 
 Now let's look at the last line `account_ids: s.integer.array`. This shows off another useful feature of transforms. All transforms, both the "Chainable Transforms" and the more simplistic one have an interface that let you handle derived types. So for example, something that is either a number or null would be `s.number.maybe`. An array of numbers would be `s.number.array`.
 
-Full documentation on all the built in transformations can be found in the comments for [Alchemrest::Data::Transforms](../lib/alchemrest/data/transforms.rb) and the above mentioned [Chainable Transforms](../chainable_transforms.md). You can also create custom transformations. We cover this topic in [Custom Transformations](../custom_transformations.md)
+Full documentation on all the built in transformations can be found in the comments for [Alchemrest::Transforms](../alchemrest/lib/alchemrest/transforms.rb) and the above mentioned [Chainable Transforms](./chainable_transforms.md). You can also create custom transformations. We cover this topic in [Custom Transformations](./custom_transformations.md)
 
 ### Nested data
 
@@ -130,12 +130,12 @@ The key "discriminator" indicates which field of the nested object will define t
 As noted above, when things go wrong we return an instance of `Alchemrest::MorpherTransformError` wrapped in an `Alchemrest::Result::Error`. Generally, we assume that you'll see these errors when you call `unwrap_or_raise!` and `unwrap_or_rescue`. When this happens, we try to generate an error message that helps you understand that the response didn't match the expected schema. So for example, imagine that we get a user response where the status field is `reactivated`. The transformation we've defined for this field is `status: s.enum(%w(open locked))`, meaning we only expect the values to be “open” and “locked”. This will generate an error that looks like.
 
 ```shell
-Response does not match expected schema - Morpher::Transform::Sequence/2/Alchemrest::Data::Transforms::LooseHash/[:status]/Alchemrest::Data::Transforms::Enum: Expected: enum value from ["open", "locked"] but got: "reactivated"
+Response does not match expected schema - Morpher::Transform::Sequence/2/Alchemrest::Transforms::LooseHash/[:status]/Alchemrest::Transforms::Enum: Expected: enum value from ["open", "locked"] but got: "reactivated"
 ```
 
 This string is showing you the path to the error, and then the error itself. Each `/` in the string represents a step in the transformation process.
 
-The first part `Morpher::Transform::Sequence/2/Alchemrest::Data::Transforms::LooseHash` is some boilerplate involved in every `Alchemrest::Data` transformation. After that you get the value `:status` indicating the problem is with the status attribute, and then `Alchemrest::Data::Transforms::Enum` indicating it failed the enum transformation/checks. Finally we get the actual error message, indicating what value the API did provide.
+The first part `Morpher::Transform::Sequence/2/Alchemrest::Transforms::LooseHash` is some boilerplate involved in every `Alchemrest::Data` transformation. After that you get the value `:status` indicating the problem is with the status attribute, and then `Alchemrest::Transforms::Enum` indicating it failed the enum transformation/checks. Finally we get the actual error message, indicating what value the API did provide.
 
 For nested models, you'll be able to see the full path through the model tree, to the field that's failing.
 
