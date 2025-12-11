@@ -16,6 +16,14 @@ RSpec.describe "docs/introspection" do
           - source_type => T.any(String, Symbol)
           - card_number => String
           - expiration_date => ActiveSupport::TimeWithZone
+          - secondary_user => T.nilable(BankApi::Data::User)
+        - secondary_user
+          BankApi::Data::User
+          - name => String
+          - status => T.any(String, Symbol)
+          - date_of_birth => ActiveSupport::TimeWithZone
+          - account_ids => T::Array[Integer]
+          - nickname => T.nilable(String)
         BankApi::Data::Ach
         - source_type => T.any(String, Symbol)
         - trace_number => String
@@ -30,6 +38,14 @@ RSpec.describe "docs/introspection" do
         - source_type => T.any(String, Symbol)
         - card_number => String
         - expiration_date => ActiveSupport::TimeWithZone
+        - secondary_user => T.nilable(BankApi::Data::User)
+        - secondary_user
+          BankApi::Data::User
+          - name => String
+          - status => T.any(String, Symbol)
+          - date_of_birth => ActiveSupport::TimeWithZone
+          - account_ids => T::Array[Integer]
+          - nickname => T.nilable(String)
         BankApi::Data::Check
         - source_type => T.any(String, Symbol)
         - check_number => Integer
