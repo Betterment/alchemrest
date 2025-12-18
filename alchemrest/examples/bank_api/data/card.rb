@@ -13,7 +13,7 @@ module BankApi
           },
           optional: {
             secondary_user: s.one_of(User),
-          }
+          },
         }
       end
     end
