@@ -333,7 +333,7 @@ GEM
       diff-lcs (~> 1.6)
       parser (>= 3.3.0)
       prism (>= 1.4)
-    uri (1.0.3)
+    uri (1.0.4)
     useragent (0.16.11)
     webmock (3.24.0)
       addressable (>= 2.8.0)
