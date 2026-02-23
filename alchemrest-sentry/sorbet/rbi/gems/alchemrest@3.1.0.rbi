@@ -10,50 +10,50 @@
 # source://alchemrest-sentry/1.0.0/lib/alchemrest/sentry.rb#5
 module Alchemrest
   class << self
-    # source://alchemrest//lib/alchemrest.rb#102
+    # source://alchemrest//lib/alchemrest.rb#103
     def deprecator; end
 
-    # source://alchemrest//lib/alchemrest.rb#106
+    # source://alchemrest//lib/alchemrest.rb#107
     def filter_parameters; end
 
-    # source://alchemrest//lib/alchemrest.rb#110
+    # source://alchemrest//lib/alchemrest.rb#111
     def filter_parameters=(params); end
 
-    # source://alchemrest//lib/alchemrest.rb#135
+    # source://alchemrest//lib/alchemrest.rb#136
     def handle_rescued_result(error); end
 
-    # source://alchemrest//lib/alchemrest.rb#151
+    # source://alchemrest//lib/alchemrest.rb#152
     def kill_switch_adapter; end
 
-    # source://alchemrest//lib/alchemrest.rb#155
+    # source://alchemrest//lib/alchemrest.rb#156
     def kill_switch_adapter=(adapter); end
 
-    # source://alchemrest//lib/alchemrest.rb#93
+    # source://alchemrest//lib/alchemrest.rb#94
     sig { returns(Logger) }
     def logger; end
 
-    # source://alchemrest//lib/alchemrest.rb#97
+    # source://alchemrest//lib/alchemrest.rb#98
     def logger=(logger); end
 
-    # source://alchemrest//lib/alchemrest.rb#122
+    # source://alchemrest//lib/alchemrest.rb#123
     def on_response_captured(&block); end
 
-    # source://alchemrest//lib/alchemrest.rb#118
+    # source://alchemrest//lib/alchemrest.rb#119
     def on_result_rescued(&block); end
 
-    # source://alchemrest//lib/alchemrest.rb#114
+    # source://alchemrest//lib/alchemrest.rb#115
     def parameter_filter; end
 
-    # source://alchemrest//lib/alchemrest.rb#143
+    # source://alchemrest//lib/alchemrest.rb#144
     def rescuable_exceptions; end
 
-    # source://alchemrest//lib/alchemrest.rb#147
+    # source://alchemrest//lib/alchemrest.rb#148
     def rescuable_exceptions=(exceptions); end
 
-    # source://alchemrest//lib/alchemrest.rb#131
+    # source://alchemrest//lib/alchemrest.rb#132
     def restore_default_response_capture_behavior; end
 
-    # source://alchemrest//lib/alchemrest.rb#127
+    # source://alchemrest//lib/alchemrest.rb#128
     def restore_default_result_rescue_behavior; end
   end
 end
@@ -281,10 +281,10 @@ class Alchemrest::ClientError < ::Alchemrest::ResponseError; end
 # source://alchemrest//lib/alchemrest/error.rb#107
 class Alchemrest::ConfigurationNotReadyError < ::Alchemrest::Error; end
 
-# source://alchemrest//lib/alchemrest.rb#89
+# source://alchemrest//lib/alchemrest.rb#90
 Alchemrest::DEFAULT_FILTER_PARAMETERS = T.let(T.unsafe(nil), Array)
 
-# source://alchemrest//lib/alchemrest.rb#87
+# source://alchemrest//lib/alchemrest.rb#88
 Alchemrest::DEFAULT_RESCUABLE_EXCEPTIONS = T.let(T.unsafe(nil), Array)
 
 # source://alchemrest//lib/alchemrest/data/field.rb#4
@@ -679,33 +679,33 @@ class Alchemrest::HttpRequest < ::SimpleDelegator
   include ::Alchemrest::HttpRequest::MemosaMethods
   extend ::Memosa
 
-  # source://alchemrest//lib/alchemrest/http_request.rb#16
+  # source://alchemrest//lib/alchemrest/http_request.rb#9
   def initialize(request, client); end
 
-  # source://alchemrest//lib/alchemrest/http_request.rb#29
+  # source://alchemrest//lib/alchemrest/http_request.rb#26
   def execute!; end
 
-  # source://alchemrest//lib/alchemrest/http_request.rb#25
+  # source://alchemrest//lib/alchemrest/http_request.rb#22
   def headers; end
 
-  # source://alchemrest//lib/alchemrest/http_request.rb#21
+  # source://alchemrest//lib/alchemrest/http_request.rb#18
   def url; end
 
   private
 
-  # source://alchemrest//lib/alchemrest/http_request.rb#41
+  # source://alchemrest//lib/alchemrest/http_request.rb#38
   def build_response(raw_response); end
 
   # source://memosa/0.8.3/lib/memosa.rb#44
   def circuit_breaker; end
 
-  # source://alchemrest//lib/alchemrest/http_request.rb#72
+  # source://alchemrest//lib/alchemrest/http_request.rb#65
   def handle_faraday_error(error); end
 
-  # source://alchemrest//lib/alchemrest/http_request.rb#49
+  # source://alchemrest//lib/alchemrest/http_request.rb#46
   def make_request!; end
 
-  # source://alchemrest//lib/alchemrest/http_request.rb#64
+  # source://alchemrest//lib/alchemrest/http_request.rb#61
   def modify_faraday_request(req); end
 end
 
@@ -716,9 +716,6 @@ module Alchemrest::HttpRequest::MemosaMethods
   # source://memosa/0.8.3/lib/memosa.rb#44
   def circuit_breaker; end
 end
-
-# source://alchemrest//lib/alchemrest/http_request.rb#9
-Alchemrest::HttpRequest::USING_BODY_WITH_GET_REQUEST_MESSAGE = T.let(T.unsafe(nil), String)
 
 # source://alchemrest//lib/alchemrest/error.rb#105
 class Alchemrest::InvalidConfigurationError < ::Alchemrest::Error; end
@@ -940,8 +937,14 @@ class Alchemrest::Request
     def endpoint(http_method, template, &block); end
 
     # source://alchemrest//lib/alchemrest/request.rb#10
-    sig { params(domain_type: T.class_of(Alchemrest::Data), path_to_payload: T::Array[T.any(Symbol, String)]).void }
-    def returns(domain_type, path_to_payload: T.unsafe(nil)); end
+    sig do
+      params(
+        domain_type: T.class_of(Alchemrest::Data),
+        path_to_payload: T::Array[T.any(Symbol, String)],
+        allow_empty_response: T::Boolean
+      ).void
+    end
+    def returns(domain_type, path_to_payload: T.unsafe(nil), allow_empty_response: T.unsafe(nil)); end
   end
 end
 
@@ -971,6 +974,9 @@ end
 # source://alchemrest//lib/alchemrest/request/returns.rb#5
 class Alchemrest::Request::Returns < ::Module
   include ::Equalizer::Methods
+
+  # source://concord/0.1.6/lib/concord.rb#67
+  def allow_empty_response; end
 
   # source://concord/0.1.6/lib/concord.rb#67
   def domain_type; end
@@ -1032,7 +1038,7 @@ class Alchemrest::Response < ::SimpleDelegator
   sig { returns(T.untyped) }
   def body; end
 
-  # source://alchemrest//lib/alchemrest/response.rb#51
+  # source://alchemrest//lib/alchemrest/response.rb#55
   def circuit_open?; end
 
   # source://alchemrest//lib/alchemrest/response.rb#31
@@ -1050,13 +1056,16 @@ class Alchemrest::Response < ::SimpleDelegator
   sig { returns(T::Hash[T.untyped, T.untyped]) }
   def headers; end
 
+  # source://alchemrest//lib/alchemrest/response.rb#43
+  def no_content_response?; end
+
   # source://alchemrest//lib/alchemrest/response.rb#39
   def not_found_error?; end
 
   sig { returns(String) }
   def reason_phrase; end
 
-  # source://alchemrest//lib/alchemrest/response.rb#43
+  # source://alchemrest//lib/alchemrest/response.rb#47
   def request_failed?; end
 
   # source://alchemrest//lib/alchemrest/response.rb#27
@@ -1068,7 +1077,7 @@ class Alchemrest::Response < ::SimpleDelegator
   sig { returns(T::Boolean) }
   def success?; end
 
-  # source://alchemrest//lib/alchemrest/response.rb#47
+  # source://alchemrest//lib/alchemrest/response.rb#51
   def timeout?; end
 
   # source://alchemrest//lib/alchemrest/response.rb#14
@@ -1088,16 +1097,16 @@ class Alchemrest::Response::Pipeline
   # source://alchemrest//lib/alchemrest/response/pipeline.rb#18
   def initialize(*steps); end
 
-  # source://alchemrest//lib/alchemrest/response/pipeline.rb#40
+  # source://alchemrest//lib/alchemrest/response/pipeline.rb#41
   def append(step); end
 
   # source://alchemrest//lib/alchemrest/response/pipeline.rb#22
   def call(response); end
 
-  # source://alchemrest//lib/alchemrest/response/pipeline.rb#33
+  # source://alchemrest//lib/alchemrest/response/pipeline.rb#34
   def insert_after(step_class, step); end
 
-  # source://alchemrest//lib/alchemrest/response/pipeline.rb#44
+  # source://alchemrest//lib/alchemrest/response/pipeline.rb#45
   def replace_with(step_class, step); end
 
   # source://concord/0.1.6/lib/concord.rb#67
@@ -1105,7 +1114,7 @@ class Alchemrest::Response::Pipeline
 
   private
 
-  # source://alchemrest//lib/alchemrest/response/pipeline.rb#56
+  # source://alchemrest//lib/alchemrest/response/pipeline.rb#57
   def build_error_result(error); end
 end
 
@@ -1113,14 +1122,33 @@ end
 class Alchemrest::Response::Pipeline::ExtractPayload < ::Alchemrest::Response::Pipeline::Transform
   include ::Equalizer::Methods
 
-  # source://alchemrest//lib/alchemrest/response/pipeline/extract_payload.rb#15
-  def initialize(path_to_payload = T.unsafe(nil)); end
+  # source://alchemrest//lib/alchemrest/response/pipeline/extract_payload.rb#17
+  def initialize(_path_to_payload = T.unsafe(nil), _allow_empty_response = T.unsafe(nil)); end
 
-  # source://alchemrest//lib/alchemrest/response/pipeline/extract_payload.rb#19
+  # source://concord/0.1.6/lib/concord.rb#67
+  def allow_empty_response; end
+
+  # source://alchemrest//lib/alchemrest/response/pipeline/extract_payload.rb#21
   def call(response); end
 
-  # source://alchemrest//lib/alchemrest/response/pipeline/extract_payload.rb#28
+  # source://alchemrest//lib/alchemrest/response/pipeline/extract_payload.rb#37
   def extract_payload(response); end
+
+  # source://concord/0.1.6/lib/concord.rb#67
+  def path_to_payload; end
+
+  private
+
+  # source://alchemrest//lib/alchemrest/response/pipeline/extract_payload.rb#58
+  def allow_empty_response?; end
+end
+
+# source://alchemrest//lib/alchemrest/response/pipeline/final.rb#6
+class Alchemrest::Response::Pipeline::Final
+  include ::Equalizer::Methods
+
+  # source://concord/0.1.6/lib/concord.rb#67
+  def value; end
 end
 
 # source://alchemrest//lib/alchemrest/response/pipeline/omit.rb#6
@@ -1184,6 +1212,9 @@ Alchemrest::Response::Pipeline::Sanitize::PRIMITIVE = T.let(T.unsafe(nil), Morph
 class Alchemrest::Response::Pipeline::Transform < ::Morpher::Transform
   # source://alchemrest//lib/alchemrest/response/pipeline/transform.rb#13
   def failure(error); end
+
+  # source://alchemrest//lib/alchemrest/response/pipeline/transform.rb#20
+  def final(value); end
 end
 
 # source://alchemrest//lib/alchemrest/response/pipeline/was_successful.rb#10
@@ -1406,7 +1437,19 @@ class Alchemrest::Root
 
   class << self
     # source://alchemrest//lib/alchemrest/root.rb#16
-    def define_request(name, request_class, with_params: T.unsafe(nil), &block); end
+    sig do
+      params(
+        name: Symbol,
+        request_class: T.class_of(Alchemrest::Request),
+        block: T.nilable(
+        T.proc
+         .params(request: Alchemrest::RequestDefinition::Builder)
+         .bind(T.attached_class)
+         .void,
+      )
+      ).void
+    end
+    def define_request(name, request_class, &block); end
 
     # source://alchemrest//lib/alchemrest/root.rb#35
     def error_handler; end
@@ -1477,7 +1520,7 @@ module Alchemrest::Transforms
     # source://alchemrest//lib/alchemrest/transforms.rb#16
     def integer; end
 
-    # source://alchemrest//lib/alchemrest/transforms.rb#115
+    # source://alchemrest//lib/alchemrest/transforms.rb#89
     def many_of(klass); end
 
     # source://alchemrest//lib/alchemrest/transforms.rb#60
@@ -1486,14 +1529,11 @@ module Alchemrest::Transforms
     # source://alchemrest//lib/alchemrest/transforms.rb#39
     def number; end
 
-    # source://alchemrest//lib/alchemrest/transforms.rb#106
+    # source://alchemrest//lib/alchemrest/transforms.rb#80
     def one_of(klass_or_hash); end
 
     # source://alchemrest//lib/alchemrest/transforms.rb#22
     def string; end
-
-    # source://alchemrest//lib/alchemrest/transforms.rb#84
-    def time(format); end
   end
 end
 
@@ -1956,16 +1996,27 @@ class Alchemrest::Transforms::IsoTime < ::Morpher::Transform
   include ::Equalizer::Methods
 
   # source://alchemrest//lib/alchemrest/transforms/iso_time.rb#10
-  def initialize(args = T.unsafe(nil)); end
-
-  # source://alchemrest//lib/alchemrest/transforms/iso_time.rb#14
   def call(input); end
 
-  # source://alchemrest//lib/alchemrest/transforms/iso_time.rb#26
-  def not_a_valid_iso_string(input); end
+  # source://anima/0.3.2/lib/anima.rb#142
+  def require_offset; end
 
   # source://anima/0.3.2/lib/anima.rb#142
-  def timezone; end
+  def to_timezone; end
+
+  private
+
+  # source://alchemrest//lib/alchemrest/transforms/iso_time.rb#31
+  def has_offset?(input); end
+
+  # source://alchemrest//lib/alchemrest/transforms/iso_time.rb#39
+  def missing_required_offset(input); end
+
+  # source://alchemrest//lib/alchemrest/transforms/iso_time.rb#48
+  def not_a_valid_iso_string(input); end
+
+  # source://alchemrest//lib/alchemrest/transforms/iso_time.rb#23
+  def parse(input); end
 
   class << self
     # source://anima/0.3.2/lib/anima.rb#136
@@ -2180,8 +2231,8 @@ class Alchemrest::Transforms::ToType::FromStringToTimeSelector < ::Alchemrest::T
   # source://alchemrest//lib/alchemrest/transforms/to_type/from_string_to_time_selector.rb#7
   def initialize(from); end
 
-  # source://alchemrest//lib/alchemrest/transforms/to_type/from_string_to_time_selector.rb#15
-  def using(key_or_transform_or_timezone); end
+  # source://alchemrest//lib/alchemrest/transforms/to_type/from_string_to_time_selector.rb#11
+  def using(timezone_identifier, require_offset: T.unsafe(nil)); end
 end
 
 # source://alchemrest//lib/alchemrest/transforms/to_type/transforms_selector.rb#6
