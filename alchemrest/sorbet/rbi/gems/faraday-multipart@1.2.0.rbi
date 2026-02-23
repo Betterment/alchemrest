@@ -8,57 +8,57 @@
 # source://faraday-multipart//lib/faraday/multipart/version.rb#3
 module Faraday
   class << self
-    # source://faraday/1.10.4/lib/faraday.rb#81
+    # source://faraday/1.10.5/lib/faraday.rb#81
     def default_adapter; end
 
-    # source://faraday/1.10.4/lib/faraday.rb#137
+    # source://faraday/1.10.5/lib/faraday.rb#137
     def default_adapter=(adapter); end
 
-    # source://faraday/1.10.4/lib/faraday.rb#155
+    # source://faraday/1.10.5/lib/faraday.rb#155
     def default_connection; end
 
-    # source://faraday/1.10.4/lib/faraday.rb#84
+    # source://faraday/1.10.5/lib/faraday.rb#84
     def default_connection=(_arg0); end
 
-    # source://faraday/1.10.4/lib/faraday.rb#162
+    # source://faraday/1.10.5/lib/faraday.rb#162
     def default_connection_options; end
 
-    # source://faraday/1.10.4/lib/faraday.rb#169
+    # source://faraday/1.10.5/lib/faraday.rb#169
     def default_connection_options=(options); end
 
-    # source://faraday/1.10.4/lib/faraday.rb#89
+    # source://faraday/1.10.5/lib/faraday.rb#89
     def ignore_env_proxy; end
 
-    # source://faraday/1.10.4/lib/faraday.rb#89
+    # source://faraday/1.10.5/lib/faraday.rb#89
     def ignore_env_proxy=(_arg0); end
 
-    # source://faraday/1.10.4/lib/faraday.rb#72
+    # source://faraday/1.10.5/lib/faraday.rb#72
     def lib_path; end
 
-    # source://faraday/1.10.4/lib/faraday.rb#72
+    # source://faraday/1.10.5/lib/faraday.rb#72
     def lib_path=(_arg0); end
 
-    # source://faraday/1.10.4/lib/faraday.rb#118
+    # source://faraday/1.10.5/lib/faraday.rb#118
     def new(url = T.unsafe(nil), options = T.unsafe(nil), &block); end
 
-    # source://faraday/1.10.4/lib/faraday.rb#128
+    # source://faraday/1.10.5/lib/faraday.rb#128
     def require_lib(*libs); end
 
-    # source://faraday/1.10.4/lib/faraday.rb#128
+    # source://faraday/1.10.5/lib/faraday.rb#128
     def require_libs(*libs); end
 
-    # source://faraday/1.10.4/lib/faraday.rb#142
+    # source://faraday/1.10.5/lib/faraday.rb#142
     def respond_to_missing?(symbol, include_private = T.unsafe(nil)); end
 
-    # source://faraday/1.10.4/lib/faraday.rb#68
+    # source://faraday/1.10.5/lib/faraday.rb#68
     def root_path; end
 
-    # source://faraday/1.10.4/lib/faraday.rb#68
+    # source://faraday/1.10.5/lib/faraday.rb#68
     def root_path=(_arg0); end
 
     private
 
-    # source://faraday/1.10.4/lib/faraday.rb#178
+    # source://faraday/1.10.5/lib/faraday.rb#178
     def method_missing(name, *args, &block); end
   end
 end
