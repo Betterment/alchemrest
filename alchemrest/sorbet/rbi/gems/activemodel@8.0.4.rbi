@@ -135,7 +135,7 @@ class ActiveModel::Attribute
   def type_cast(*_arg0); end
 
   # source://activemodel//lib/active_model/attribute.rb#41
-  def value; end
+  def value(&_); end
 
   # source://activemodel//lib/active_model/attribute.rb#29
   def value_before_type_cast; end
@@ -1152,10 +1152,10 @@ class ActiveModel::Error
 
     private
 
-    # source://activesupport/8.0.1/lib/active_support/class_attribute.rb#15
+    # source://activesupport/8.0.4/lib/active_support/class_attribute.rb#15
     def __class_attr_i18n_customize_full_message; end
 
-    # source://activesupport/8.0.1/lib/active_support/class_attribute.rb#17
+    # source://activesupport/8.0.4/lib/active_support/class_attribute.rb#17
     def __class_attr_i18n_customize_full_message=(new_value); end
   end
 end
@@ -2341,7 +2341,7 @@ class ActiveModel::Type::Value
   def scale; end
 
   # source://activemodel//lib/active_model/type/value.rb#28
-  def serializable?(value); end
+  def serializable?(value, &_); end
 
   # source://activemodel//lib/active_model/type/value.rb#65
   def serialize(value); end
@@ -2394,21 +2394,21 @@ ActiveModel::VERSION::STRING = T.let(T.unsafe(nil), String)
 # source://activemodel//lib/active_model/gem_version.rb#12
 ActiveModel::VERSION::TINY = T.let(T.unsafe(nil), Integer)
 
-# source://activemodel//lib/active_model/validations.rb#503
+# source://activemodel//lib/active_model/validations.rb#505
 class ActiveModel::ValidationContext
-  # source://activemodel//lib/active_model/validations.rb#504
+  # source://activemodel//lib/active_model/validations.rb#506
   def context; end
 
-  # source://activemodel//lib/active_model/validations.rb#504
+  # source://activemodel//lib/active_model/validations.rb#506
   def context=(_arg0); end
 end
 
-# source://activemodel//lib/active_model/validations.rb#493
+# source://activemodel//lib/active_model/validations.rb#495
 class ActiveModel::ValidationError < ::StandardError
-  # source://activemodel//lib/active_model/validations.rb#496
+  # source://activemodel//lib/active_model/validations.rb#498
   def initialize(model); end
 
-  # source://activemodel//lib/active_model/validations.rb#494
+  # source://activemodel//lib/active_model/validations.rb#496
   def model; end
 end
 
@@ -2427,50 +2427,50 @@ module ActiveModel::Validations
   mixes_in_class_methods ::ActiveModel::Translation
   mixes_in_class_methods ::ActiveModel::Validations::HelperMethods
 
-  # source://activemodel//lib/active_model/validations.rb#328
+  # source://activemodel//lib/active_model/validations.rb#330
   def errors; end
 
-  # source://activemodel//lib/active_model/validations.rb#372
+  # source://activemodel//lib/active_model/validations.rb#374
   def freeze; end
 
-  # source://activemodel//lib/active_model/validations.rb#408
+  # source://activemodel//lib/active_model/validations.rb#410
   def invalid?(context = T.unsafe(nil)); end
 
   def read_attribute_for_validation(*_arg0); end
 
-  # source://activemodel//lib/active_model/validations.rb#361
+  # source://activemodel//lib/active_model/validations.rb#363
   def valid?(context = T.unsafe(nil)); end
 
-  # source://activemodel//lib/active_model/validations.rb#361
+  # source://activemodel//lib/active_model/validations.rb#363
   def validate(context = T.unsafe(nil)); end
 
-  # source://activemodel//lib/active_model/validations.rb#417
+  # source://activemodel//lib/active_model/validations.rb#419
   def validate!(context = T.unsafe(nil)); end
 
   # source://activemodel//lib/active_model/validations/with.rb#144
   def validates_with(*args, &block); end
 
-  # source://activemodel//lib/active_model/validations.rb#454
+  # source://activemodel//lib/active_model/validations.rb#456
   def validation_context; end
 
   private
 
-  # source://activemodel//lib/active_model/validations.rb#463
+  # source://activemodel//lib/active_model/validations.rb#465
   def context_for_validation; end
 
-  # source://activemodel//lib/active_model/validations.rb#467
+  # source://activemodel//lib/active_model/validations.rb#469
   def init_internals; end
 
-  # source://activemodel//lib/active_model/validations.rb#310
+  # source://activemodel//lib/active_model/validations.rb#312
   def initialize_dup(other); end
 
-  # source://activemodel//lib/active_model/validations.rb#478
+  # source://activemodel//lib/active_model/validations.rb#480
   def raise_validation_error; end
 
-  # source://activemodel//lib/active_model/validations.rb#473
+  # source://activemodel//lib/active_model/validations.rb#475
   def run_validations!; end
 
-  # source://activemodel//lib/active_model/validations.rb#459
+  # source://activemodel//lib/active_model/validations.rb#461
   def validation_context=(context); end
 
   module GeneratedClassMethods
@@ -2576,16 +2576,16 @@ end
 
 # source://activemodel//lib/active_model/validations.rb#53
 module ActiveModel::Validations::ClassMethods
-  # source://activemodel//lib/active_model/validations.rb#282
+  # source://activemodel//lib/active_model/validations.rb#284
   def attribute_method?(attribute); end
 
-  # source://activemodel//lib/active_model/validations.rb#246
+  # source://activemodel//lib/active_model/validations.rb#248
   def clear_validators!; end
 
-  # source://activemodel//lib/active_model/validations.rb#287
+  # source://activemodel//lib/active_model/validations.rb#289
   def inherited(base); end
 
-  # source://activemodel//lib/active_model/validations.rb#160
+  # source://activemodel//lib/active_model/validations.rb#162
   def validate(*args, &block); end
 
   # source://activemodel//lib/active_model/validations/validates.rb#111
@@ -2594,16 +2594,16 @@ module ActiveModel::Validations::ClassMethods
   # source://activemodel//lib/active_model/validations/validates.rb#153
   def validates!(*attributes); end
 
-  # source://activemodel//lib/active_model/validations.rb#88
+  # source://activemodel//lib/active_model/validations.rb#89
   def validates_each(*attr_names, &block); end
 
   # source://activemodel//lib/active_model/validations/with.rb#88
   def validates_with(*args, &block); end
 
-  # source://activemodel//lib/active_model/validations.rb#204
+  # source://activemodel//lib/active_model/validations.rb#206
   def validators; end
 
-  # source://activemodel//lib/active_model/validations.rb#266
+  # source://activemodel//lib/active_model/validations.rb#268
   def validators_on(*attributes); end
 
   private
@@ -2614,11 +2614,11 @@ module ActiveModel::Validations::ClassMethods
   # source://activemodel//lib/active_model/validations/validates.rb#162
   def _validates_default_keys; end
 
-  # source://activemodel//lib/active_model/validations.rb#296
+  # source://activemodel//lib/active_model/validations.rb#298
   def predicate_for_validation_context(context); end
 end
 
-# source://activemodel//lib/active_model/validations.rb#92
+# source://activemodel//lib/active_model/validations.rb#93
 ActiveModel::Validations::ClassMethods::VALID_OPTIONS_FOR_VALIDATE = T.let(T.unsafe(nil), Array)
 
 # source://activemodel//lib/active_model/validations/clusivity.rb#8
