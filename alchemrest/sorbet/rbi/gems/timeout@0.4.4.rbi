@@ -9,14 +9,14 @@
 module Timeout
   private
 
-  # source://timeout//lib/timeout.rb#167
+  # source://timeout//lib/timeout.rb#170
   def timeout(sec, klass = T.unsafe(nil), message = T.unsafe(nil), &block); end
 
   class << self
     # source://timeout//lib/timeout.rb#124
     def ensure_timeout_thread_created; end
 
-    # source://timeout//lib/timeout.rb#167
+    # source://timeout//lib/timeout.rb#170
     def timeout(sec, klass = T.unsafe(nil), message = T.unsafe(nil), &block); end
 
     private
@@ -43,7 +43,7 @@ class Timeout::ExitException < ::Exception
   def exception(*_arg0); end
 end
 
-# source://timeout//lib/timeout.rb#136
+# source://timeout//lib/timeout.rb#139
 Timeout::GET_TIME = T.let(T.unsafe(nil), Method)
 
 # source://timeout//lib/timeout.rb#48
