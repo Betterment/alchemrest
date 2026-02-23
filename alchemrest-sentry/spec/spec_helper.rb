@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+Warning[:deprecated] = true
+
 require "pry"
 require "sentry-ruby"
 require "sentry/test_helper"
