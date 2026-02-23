@@ -8,57 +8,57 @@
 # source://faraday//lib/faraday/version.rb#3
 module Faraday
   class << self
-    # source://faraday//lib/faraday.rb#55
+    # source://faraday//lib/faraday.rb#56
     def default_adapter; end
 
-    # source://faraday//lib/faraday.rb#102
+    # source://faraday//lib/faraday.rb#103
     def default_adapter=(adapter); end
 
-    # source://faraday//lib/faraday.rb#59
+    # source://faraday//lib/faraday.rb#60
     def default_adapter_options; end
 
-    # source://faraday//lib/faraday.rb#59
+    # source://faraday//lib/faraday.rb#60
     def default_adapter_options=(_arg0); end
 
-    # source://faraday//lib/faraday.rb#120
+    # source://faraday//lib/faraday.rb#121
     def default_connection; end
 
-    # source://faraday//lib/faraday.rb#62
+    # source://faraday//lib/faraday.rb#63
     def default_connection=(_arg0); end
 
-    # source://faraday//lib/faraday.rb#127
+    # source://faraday//lib/faraday.rb#128
     def default_connection_options; end
 
-    # source://faraday//lib/faraday.rb#134
+    # source://faraday//lib/faraday.rb#135
     def default_connection_options=(options); end
 
-    # source://faraday//lib/faraday.rb#67
+    # source://faraday//lib/faraday.rb#68
     def ignore_env_proxy; end
 
-    # source://faraday//lib/faraday.rb#67
+    # source://faraday//lib/faraday.rb#68
     def ignore_env_proxy=(_arg0); end
 
-    # source://faraday//lib/faraday.rb#46
+    # source://faraday//lib/faraday.rb#47
     def lib_path; end
 
-    # source://faraday//lib/faraday.rb#46
+    # source://faraday//lib/faraday.rb#47
     def lib_path=(_arg0); end
 
-    # source://faraday//lib/faraday.rb#96
+    # source://faraday//lib/faraday.rb#97
     def new(url = T.unsafe(nil), options = T.unsafe(nil), &block); end
 
-    # source://faraday//lib/faraday.rb#107
+    # source://faraday//lib/faraday.rb#108
     def respond_to_missing?(symbol, include_private = T.unsafe(nil)); end
 
-    # source://faraday//lib/faraday.rb#42
+    # source://faraday//lib/faraday.rb#43
     def root_path; end
 
-    # source://faraday//lib/faraday.rb#42
+    # source://faraday//lib/faraday.rb#43
     def root_path=(_arg0); end
 
     private
 
-    # source://faraday//lib/faraday.rb#143
+    # source://faraday//lib/faraday.rb#144
     def method_missing(name, *args, &block); end
   end
 end
@@ -235,16 +235,16 @@ class Faraday::AdapterRegistry
   def set(klass, name = T.unsafe(nil)); end
 end
 
-# source://faraday//lib/faraday/error.rb#96
+# source://faraday//lib/faraday/error.rb#130
 class Faraday::BadRequestError < ::Faraday::ClientError; end
 
-# source://faraday//lib/faraday.rb#34
+# source://faraday//lib/faraday.rb#35
 Faraday::CONTENT_TYPE = T.let(T.unsafe(nil), String)
 
-# source://faraday//lib/faraday/error.rb#92
+# source://faraday//lib/faraday/error.rb#126
 class Faraday::ClientError < ::Faraday::Error; end
 
-# source://faraday//lib/faraday/error.rb#120
+# source://faraday//lib/faraday/error.rb#154
 class Faraday::ConflictError < ::Faraday::ClientError; end
 
 # source://faraday//lib/faraday/connection.rb#15
@@ -284,10 +284,10 @@ class Faraday::Connection
   # source://faraday//lib/faraday/connection.rb#199
   def delete(url = T.unsafe(nil), params = T.unsafe(nil), headers = T.unsafe(nil)); end
 
-  # source://faraday//lib/faraday/connection.rb#499
+  # source://faraday//lib/faraday/connection.rb#500
   def dup; end
 
-  # source://faraday//lib/faraday/connection.rb#542
+  # source://faraday//lib/faraday/connection.rb#543
   def find_default_proxy; end
 
   # source://faraday//lib/faraday/connection.rb#199
@@ -353,10 +353,10 @@ class Faraday::Connection
   # source://faraday//lib/faraday/connection.rb#341
   def proxy=(new_value); end
 
-  # source://faraday//lib/faraday/connection.rb#550
+  # source://faraday//lib/faraday/connection.rb#551
   def proxy_for_request(url); end
 
-  # source://faraday//lib/faraday/connection.rb#522
+  # source://faraday//lib/faraday/connection.rb#523
   def proxy_from_env(url); end
 
   # source://faraday//lib/faraday/connection.rb#279
@@ -383,7 +383,7 @@ class Faraday::Connection
   # source://faraday//lib/faraday/connection.rb#34
   def ssl; end
 
-  # source://faraday//lib/faraday/connection.rb#560
+  # source://faraday//lib/faraday/connection.rb#561
   def support_parallel?(adapter); end
 
   # source://faraday//lib/faraday/connection.rb#199
@@ -398,7 +398,7 @@ class Faraday::Connection
   # source://forwardable/1.3.3/forwardable.rb#231
   def use(*args, **_arg1, &block); end
 
-  # source://faraday//lib/faraday/connection.rb#516
+  # source://faraday//lib/faraday/connection.rb#517
   def with_uri_credentials(uri); end
 end
 
@@ -408,7 +408,7 @@ Faraday::Connection::METHODS = T.let(T.unsafe(nil), Set)
 # source://faraday//lib/faraday/connection.rb#18
 Faraday::Connection::USER_AGENT = T.let(T.unsafe(nil), String)
 
-# source://faraday//lib/faraday/error.rb#151
+# source://faraday//lib/faraday/error.rb#188
 class Faraday::ConnectionFailed < ::Faraday::Error; end
 
 # source://faraday//lib/faraday/options/connection_options.rb#8
@@ -644,6 +644,20 @@ class Faraday::Error < ::StandardError
 
   # source://faraday//lib/faraday/error.rb#71
   def exc_msg_and_response!(exc, response = T.unsafe(nil)); end
+
+  private
+
+  # source://faraday//lib/faraday/error.rb#108
+  def build_error_message_from_env(env); end
+
+  # source://faraday//lib/faraday/error.rb#96
+  def build_error_message_from_hash(hash); end
+
+  # source://faraday//lib/faraday/error.rb#113
+  def build_status_error_message(status, method, url); end
+
+  # source://faraday//lib/faraday/error.rb#119
+  def fallback_error_message(status); end
 end
 
 # source://faraday//lib/faraday/encoders/flat_params_encoder.rb#6
@@ -669,10 +683,10 @@ module Faraday::FlatParamsEncoder
   end
 end
 
-# source://faraday//lib/faraday/error.rb#104
+# source://faraday//lib/faraday/error.rb#138
 class Faraday::ForbiddenError < ::Faraday::ClientError; end
 
-# source://faraday//lib/faraday/error.rb#163
+# source://faraday//lib/faraday/error.rb#200
 class Faraday::InitializationError < ::Faraday::Error; end
 
 # source://faraday//lib/faraday/logging/formatter.rb#6
@@ -842,9 +856,9 @@ module Faraday::NestedParamsEncoder
   end
 end
 
-# source://faraday//lib/faraday/error.rb#143
+# source://faraday//lib/faraday/error.rb#180
 class Faraday::NilStatusError < ::Faraday::ServerError
-  # source://faraday//lib/faraday/error.rb#144
+  # source://faraday//lib/faraday/error.rb#181
   def initialize(exc, response = T.unsafe(nil)); end
 end
 
@@ -940,10 +954,10 @@ class Faraday::Options < ::Struct
   end
 end
 
-# source://faraday//lib/faraday/error.rb#159
+# source://faraday//lib/faraday/error.rb#196
 class Faraday::ParsingError < ::Faraday::Error; end
 
-# source://faraday//lib/faraday/error.rb#112
+# source://faraday//lib/faraday/error.rb#146
 class Faraday::ProxyAuthError < ::Faraday::ClientError; end
 
 # source://faraday//lib/faraday/options/proxy_options.rb#8
@@ -1070,7 +1084,7 @@ class Faraday::RackBuilder
   # source://faraday//lib/faraday/rack_builder.rb#233
   def adapter_set?; end
 
-  # source://faraday//lib/faraday/rack_builder.rb#245
+  # source://faraday//lib/faraday/rack_builder.rb#241
   def assert_index(index); end
 
   # source://faraday//lib/faraday/rack_builder.rb#229
@@ -1079,16 +1093,13 @@ class Faraday::RackBuilder
   # source://faraday//lib/faraday/rack_builder.rb#67
   def initialize_dup(original); end
 
-  # source://faraday//lib/faraday/rack_builder.rb#237
-  def is_adapter?(klass); end
-
   # source://faraday//lib/faraday/rack_builder.rb#223
   def raise_if_adapter(klass); end
 
   # source://faraday//lib/faraday/rack_builder.rb#219
   def raise_if_locked; end
 
-  # source://faraday//lib/faraday/rack_builder.rb#241
+  # source://faraday//lib/faraday/rack_builder.rb#237
   def use_symbol(mod, key, *_arg2, **_arg3, &_arg4); end
 end
 
@@ -1331,10 +1342,10 @@ class Faraday::RequestOptions < ::Faraday::Options
   end
 end
 
-# source://faraday//lib/faraday/error.rb#116
+# source://faraday//lib/faraday/error.rb#150
 class Faraday::RequestTimeoutError < ::Faraday::ClientError; end
 
-# source://faraday//lib/faraday/error.rb#108
+# source://faraday//lib/faraday/error.rb#142
 class Faraday::ResourceNotFound < ::Faraday::ClientError; end
 
 # source://faraday//lib/faraday/response.rb#7
@@ -1348,7 +1359,7 @@ class Faraday::Response
   # source://forwardable/1.3.3/forwardable.rb#231
   def [](*args, **_arg1, &block); end
 
-  # source://faraday//lib/faraday/response.rb#80
+  # source://faraday//lib/faraday/response.rb#84
   def apply_request(request_env); end
 
   # source://faraday//lib/faraday/response.rb#32
@@ -1357,22 +1368,22 @@ class Faraday::Response
   # source://faraday//lib/faraday/response.rb#16
   def env; end
 
-  # source://faraday//lib/faraday/response.rb#49
+  # source://faraday//lib/faraday/response.rb#53
   def finish(env); end
 
-  # source://faraday//lib/faraday/response.rb#36
+  # source://faraday//lib/faraday/response.rb#40
   def finished?; end
 
   # source://faraday//lib/faraday/response.rb#26
   def headers; end
 
-  # source://faraday//lib/faraday/response.rb#70
+  # source://faraday//lib/faraday/response.rb#74
   def marshal_dump; end
 
-  # source://faraday//lib/faraday/response.rb#74
+  # source://faraday//lib/faraday/response.rb#78
   def marshal_load(env); end
 
-  # source://faraday//lib/faraday/response.rb#40
+  # source://faraday//lib/faraday/response.rb#44
   def on_complete(&block); end
 
   # source://faraday//lib/faraday/response.rb#22
@@ -1381,11 +1392,14 @@ class Faraday::Response
   # source://faraday//lib/faraday/response.rb#18
   def status; end
 
-  # source://faraday//lib/faraday/response.rb#57
+  # source://faraday//lib/faraday/response.rb#61
   def success?; end
 
-  # source://faraday//lib/faraday/response.rb#61
+  # source://faraday//lib/faraday/response.rb#65
   def to_hash; end
+
+  # source://faraday//lib/faraday/response.rb#36
+  def url; end
 end
 
 # source://faraday//lib/faraday/response/json.rb#8
@@ -1459,7 +1473,7 @@ Faraday::Response::RaiseError::DEFAULT_OPTIONS = T.let(T.unsafe(nil), Hash)
 # source://faraday//lib/faraday/response/raise_error.rb#10
 Faraday::Response::RaiseError::ServerErrorStatuses = T.let(T.unsafe(nil), Range)
 
-# source://faraday//lib/faraday/error.rb#155
+# source://faraday//lib/faraday/error.rb#192
 class Faraday::SSLError < ::Faraday::Error; end
 
 # source://faraday//lib/faraday/options/ssl_options.rb#56
@@ -1518,23 +1532,26 @@ class Faraday::SSLOptions < ::Faraday::Options
   end
 end
 
-# source://faraday//lib/faraday/error.rb#132
+# source://faraday//lib/faraday/error.rb#169
 class Faraday::ServerError < ::Faraday::Error; end
 
-# source://faraday//lib/faraday/error.rb#136
+# source://faraday//lib/faraday/error.rb#173
 class Faraday::TimeoutError < ::Faraday::ServerError
-  # source://faraday//lib/faraday/error.rb#137
+  # source://faraday//lib/faraday/error.rb#174
   def initialize(exc = T.unsafe(nil), response = T.unsafe(nil)); end
 end
 
-# source://faraday//lib/faraday/error.rb#128
+# source://faraday//lib/faraday/error.rb#165
 class Faraday::TooManyRequestsError < ::Faraday::ClientError; end
 
-# source://faraday//lib/faraday/error.rb#100
+# source://faraday//lib/faraday/error.rb#134
 class Faraday::UnauthorizedError < ::Faraday::ClientError; end
 
-# source://faraday//lib/faraday/error.rb#124
-class Faraday::UnprocessableEntityError < ::Faraday::ClientError; end
+# source://faraday//lib/faraday/error.rb#158
+class Faraday::UnprocessableContentError < ::Faraday::ClientError; end
+
+# source://faraday//lib/faraday/error.rb#162
+Faraday::UnprocessableEntityError = Faraday::UnprocessableContentError
 
 # source://faraday//lib/faraday/utils/headers.rb#4
 module Faraday::Utils
