@@ -5,7 +5,6 @@
 # Please instead update this file by running `bin/tapioca gem uri`.
 
 
-# source://uri//lib/uri/common.rb#856
 module Kernel
   private
 
@@ -18,7 +17,6 @@ module Kernel
   end
 end
 
-# source://uri//lib/uri.rb#90
 module URI
   class << self
     # source://uri//lib/uri/common.rb#47
@@ -82,7 +80,6 @@ module URI
   end
 end
 
-# source://uri//lib/uri/ftp.rb#22
 class URI::FTP < ::URI::Generic
   # source://uri//lib/uri/ftp.rb#133
   def initialize(scheme, userinfo, host, port, registry, path, opaque, query, fragment, parser = T.unsafe(nil), arg_check = T.unsafe(nil)); end
@@ -124,7 +121,6 @@ class URI::FTP < ::URI::Generic
   end
 end
 
-# source://uri//lib/uri/file.rb#10
 class URI::File < ::URI::Generic
   # source://uri//lib/uri/file.rb#82
   def check_password(user); end
@@ -162,92 +158,94 @@ URI::File::COMPONENT = T.let(T.unsafe(nil), Array)
 # source://uri//lib/uri/file.rb#12
 URI::File::DEFAULT_PORT = T.let(T.unsafe(nil), T.untyped)
 
-# source://uri//lib/uri/generic.rb#21
 class URI::Generic
   include ::URI
 
   # source://uri//lib/uri/generic.rb#169
   def initialize(scheme, userinfo, host, port, registry, path, opaque, query, fragment, parser = T.unsafe(nil), arg_check = T.unsafe(nil)); end
 
-  # source://uri//lib/uri/generic.rb#1109
+  # source://uri//lib/uri/generic.rb#1124
   def +(oth); end
 
-  # source://uri//lib/uri/generic.rb#1261
+  # source://uri//lib/uri/generic.rb#1274
   def -(oth); end
 
-  # source://uri//lib/uri/generic.rb#1386
+  # source://uri//lib/uri/generic.rb#1399
   def ==(oth); end
 
-  # source://uri//lib/uri/generic.rb#972
+  # source://uri//lib/uri/generic.rb#987
   def absolute; end
 
-  # source://uri//lib/uri/generic.rb#972
+  # source://uri//lib/uri/generic.rb#987
   def absolute?; end
 
-  # source://uri//lib/uri/generic.rb#1465
+  # source://uri//lib/uri/generic.rb#579
+  def authority; end
+
+  # source://uri//lib/uri/generic.rb#1478
   def coerce(oth); end
 
   # source://uri//lib/uri/generic.rb#313
   def component; end
 
-  # source://uri//lib/uri/generic.rb#583
+  # source://uri//lib/uri/generic.rb#589
   def decoded_password; end
 
-  # source://uri//lib/uri/generic.rb#578
+  # source://uri//lib/uri/generic.rb#584
   def decoded_user; end
 
   # source://uri//lib/uri/generic.rb#39
   def default_port; end
 
-  # source://uri//lib/uri/generic.rb#1400
+  # source://uri//lib/uri/generic.rb#1413
   def eql?(oth); end
 
-  # source://uri//lib/uri/generic.rb#1491
+  # source://uri//lib/uri/generic.rb#1504
   def find_proxy(env = T.unsafe(nil)); end
 
   # source://uri//lib/uri/generic.rb#283
   def fragment; end
 
-  # source://uri//lib/uri/generic.rb#929
+  # source://uri//lib/uri/generic.rb#944
   def fragment=(v); end
 
-  # source://uri//lib/uri/generic.rb#1395
+  # source://uri//lib/uri/generic.rb#1408
   def hash; end
 
-  # source://uri//lib/uri/generic.rb#961
+  # source://uri//lib/uri/generic.rb#976
   def hierarchical?; end
 
   # source://uri//lib/uri/generic.rb#243
   def host; end
 
-  # source://uri//lib/uri/generic.rb#639
+  # source://uri//lib/uri/generic.rb#652
   def host=(v); end
 
-  # source://uri//lib/uri/generic.rb#654
+  # source://uri//lib/uri/generic.rb#668
   def hostname; end
 
-  # source://uri//lib/uri/generic.rb#671
+  # source://uri//lib/uri/generic.rb#685
   def hostname=(v); end
 
-  # source://uri//lib/uri/generic.rb#1442
+  # source://uri//lib/uri/generic.rb#1455
   def inspect; end
 
-  # source://uri//lib/uri/generic.rb#1109
+  # source://uri//lib/uri/generic.rb#1124
   def merge(oth); end
 
-  # source://uri//lib/uri/generic.rb#1081
+  # source://uri//lib/uri/generic.rb#1096
   def merge!(oth); end
 
-  # source://uri//lib/uri/generic.rb#1318
+  # source://uri//lib/uri/generic.rb#1331
   def normalize; end
 
-  # source://uri//lib/uri/generic.rb#1327
+  # source://uri//lib/uri/generic.rb#1340
   def normalize!; end
 
   # source://uri//lib/uri/generic.rb#277
   def opaque; end
 
-  # source://uri//lib/uri/generic.rb#901
+  # source://uri//lib/uri/generic.rb#916
   def opaque=(v); end
 
   # source://uri//lib/uri/generic.rb#289
@@ -262,34 +260,34 @@ class URI::Generic
   # source://uri//lib/uri/generic.rb#260
   def path; end
 
-  # source://uri//lib/uri/generic.rb#815
+  # source://uri//lib/uri/generic.rb#830
   def path=(v); end
 
   # source://uri//lib/uri/generic.rb#250
   def port; end
 
-  # source://uri//lib/uri/generic.rb#729
+  # source://uri//lib/uri/generic.rb#743
   def port=(v); end
 
   # source://uri//lib/uri/generic.rb#266
   def query; end
 
-  # source://uri//lib/uri/generic.rb#839
+  # source://uri//lib/uri/generic.rb#854
   def query=(v); end
 
   # source://uri//lib/uri/generic.rb#252
   def registry; end
 
-  # source://uri//lib/uri/generic.rb#745
+  # source://uri//lib/uri/generic.rb#760
   def registry=(v); end
 
-  # source://uri//lib/uri/generic.rb#984
+  # source://uri//lib/uri/generic.rb#999
   def relative?; end
 
-  # source://uri//lib/uri/generic.rb#1261
+  # source://uri//lib/uri/generic.rb#1274
   def route_from(oth); end
 
-  # source://uri//lib/uri/generic.rb#1301
+  # source://uri//lib/uri/generic.rb#1314
   def route_to(oth); end
 
   # source://uri//lib/uri/generic.rb#221
@@ -298,13 +296,13 @@ class URI::Generic
   # source://uri//lib/uri/generic.rb#360
   def scheme=(v); end
 
-  # source://uri//lib/uri/generic.rb#1431
+  # source://uri//lib/uri/generic.rb#1444
   def select(*components); end
 
-  # source://uri//lib/uri/generic.rb#1342
+  # source://uri//lib/uri/generic.rb#1355
   def to_s; end
 
-  # source://uri//lib/uri/generic.rb#1342
+  # source://uri//lib/uri/generic.rb#1355
   def to_str; end
 
   # source://uri//lib/uri/generic.rb#568
@@ -321,25 +319,28 @@ class URI::Generic
 
   protected
 
-  # source://uri//lib/uri/generic.rb#1407
+  # source://uri//lib/uri/generic.rb#1420
   def component_ary; end
 
-  # source://uri//lib/uri/generic.rb#613
+  # source://uri//lib/uri/generic.rb#627
+  def set_authority(user, password, host, port = T.unsafe(nil)); end
+
+  # source://uri//lib/uri/generic.rb#619
   def set_host(v); end
 
-  # source://uri//lib/uri/generic.rb#883
+  # source://uri//lib/uri/generic.rb#898
   def set_opaque(v); end
 
   # source://uri//lib/uri/generic.rb#534
   def set_password(v); end
 
-  # source://uri//lib/uri/generic.rb#789
+  # source://uri//lib/uri/generic.rb#804
   def set_path(v); end
 
-  # source://uri//lib/uri/generic.rb#702
+  # source://uri//lib/uri/generic.rb#716
   def set_port(v); end
 
-  # source://uri//lib/uri/generic.rb#740
+  # source://uri//lib/uri/generic.rb#755
   def set_registry(v); end
 
   # source://uri//lib/uri/generic.rb#334
@@ -353,22 +354,22 @@ class URI::Generic
 
   private
 
-  # source://uri//lib/uri/generic.rb#594
+  # source://uri//lib/uri/generic.rb#600
   def check_host(v); end
 
-  # source://uri//lib/uri/generic.rb#861
+  # source://uri//lib/uri/generic.rb#876
   def check_opaque(v); end
 
   # source://uri//lib/uri/generic.rb#417
   def check_password(v, user = T.unsafe(nil)); end
 
-  # source://uri//lib/uri/generic.rb#757
+  # source://uri//lib/uri/generic.rb#772
   def check_path(v); end
 
-  # source://uri//lib/uri/generic.rb#683
+  # source://uri//lib/uri/generic.rb#697
   def check_port(v); end
 
-  # source://uri//lib/uri/generic.rb#735
+  # source://uri//lib/uri/generic.rb#750
   def check_registry(v); end
 
   # source://uri//lib/uri/generic.rb#320
@@ -383,19 +384,19 @@ class URI::Generic
   # source://uri//lib/uri/generic.rb#551
   def escape_userpass(v); end
 
-  # source://uri//lib/uri/generic.rb#1000
+  # source://uri//lib/uri/generic.rb#1015
   def merge_path(base, rel); end
 
   # source://uri//lib/uri/generic.rb#299
   def replace!(oth); end
 
-  # source://uri//lib/uri/generic.rb#1193
+  # source://uri//lib/uri/generic.rb#1206
   def route_from0(oth); end
 
-  # source://uri//lib/uri/generic.rb#1154
+  # source://uri//lib/uri/generic.rb#1167
   def route_from_path(src, dst); end
 
-  # source://uri//lib/uri/generic.rb#991
+  # source://uri//lib/uri/generic.rb#1006
   def split_path(path); end
 
   # source://uri//lib/uri/generic.rb#542
@@ -414,7 +415,7 @@ class URI::Generic
     # source://uri//lib/uri/generic.rb#32
     def default_port; end
 
-    # source://uri//lib/uri/generic.rb#1557
+    # source://uri//lib/uri/generic.rb#1570
     def use_proxy?(hostname, addr, port, no_proxy); end
 
     # source://uri//lib/uri/generic.rb#63
@@ -422,7 +423,6 @@ class URI::Generic
   end
 end
 
-# source://uri//lib/uri/http.rb#22
 class URI::HTTP < ::URI::Generic
   # source://uri//lib/uri/http.rb#97
   def authority; end
@@ -442,7 +442,6 @@ end
 # source://uri//lib/uri/common.rb#130
 URI::INITIAL_SCHEMES = T.let(T.unsafe(nil), Hash)
 
-# source://uri//lib/uri/ldap.rb#23
 class URI::LDAP < ::URI::Generic
   # source://uri//lib/uri/ldap.rb#108
   def initialize(*arg); end
@@ -514,7 +513,6 @@ class URI::LDAP < ::URI::Generic
   end
 end
 
-# source://uri//lib/uri/mailto.rb#17
 class URI::MailTo < ::URI::Generic
   include ::URI::RFC2396_REGEXP
 
@@ -564,7 +562,6 @@ class URI::MailTo < ::URI::Generic
   end
 end
 
-# source://uri//lib/uri/rfc2396_parser.rb#64
 class URI::RFC2396_Parser
   include ::URI::RFC2396_REGEXP
 
@@ -616,7 +613,6 @@ end
 # source://uri//lib/uri/rfc2396_parser.rb#324
 URI::RFC2396_Parser::TO_S = T.let(T.unsafe(nil), UnboundMethod)
 
-# source://uri//lib/uri/rfc3986_parser.rb#3
 class URI::RFC3986_Parser
   # source://uri//lib/uri/rfc3986_parser.rb#73
   def initialize; end
@@ -678,7 +674,6 @@ URI::RFC3986_Parser::SEG_NC = T.let(T.unsafe(nil), String)
 # source://uri//lib/uri/rfc3986_parser.rb#28
 URI::RFC3986_Parser::USERINFO = T.let(T.unsafe(nil), Regexp)
 
-# source://uri//lib/uri/common.rb#94
 module URI::Schemes; end
 
 # source://uri//lib/uri/common.rb#107
@@ -714,7 +709,6 @@ URI::Schemes::WSS = URI::WSS
 # source://uri//lib/uri/common.rb#312
 URI::TBLENCURICOMP_ = T.let(T.unsafe(nil), Hash)
 
-# source://uri//lib/uri/common.rb#62
 module URI::Util
   private
 
@@ -727,7 +721,6 @@ module URI::Util
   end
 end
 
-# source://uri//lib/uri/ws.rb#22
 class URI::WS < ::URI::Generic
   # source://uri//lib/uri/ws.rb#74
   def request_uri; end
@@ -738,7 +731,6 @@ class URI::WS < ::URI::Generic
   end
 end
 
-# source://uri//lib/uri/wss.rb#17
 class URI::WSS < ::URI::WS; end
 
 # source://uri//lib/uri/wss.rb#19
