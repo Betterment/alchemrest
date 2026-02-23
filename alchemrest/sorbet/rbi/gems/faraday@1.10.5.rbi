@@ -293,10 +293,10 @@ class Faraday::Connection
   # source://faraday//lib/faraday/connection.rb#201
   def delete(url = T.unsafe(nil), params = T.unsafe(nil), headers = T.unsafe(nil)); end
 
-  # source://faraday//lib/faraday/connection.rb#564
+  # source://faraday//lib/faraday/connection.rb#566
   def dup; end
 
-  # source://faraday//lib/faraday/connection.rb#620
+  # source://faraday//lib/faraday/connection.rb#622
   def find_default_proxy; end
 
   # source://faraday//lib/faraday/connection.rb#201
@@ -362,10 +362,10 @@ class Faraday::Connection
   # source://faraday//lib/faraday/connection.rb#405
   def proxy=(new_value); end
 
-  # source://faraday//lib/faraday/connection.rb#628
+  # source://faraday//lib/faraday/connection.rb#630
   def proxy_for_request(url); end
 
-  # source://faraday//lib/faraday/connection.rb#595
+  # source://faraday//lib/faraday/connection.rb#597
   def proxy_from_env(url); end
 
   # source://faraday//lib/faraday/connection.rb#282
@@ -386,7 +386,7 @@ class Faraday::Connection
   # source://forwardable/1.3.3/forwardable.rb#231
   def scheme=(*args, **_arg1, &block); end
 
-  # source://faraday//lib/faraday/connection.rb#587
+  # source://faraday//lib/faraday/connection.rb#589
   def set_authorization_header(header_type, *args); end
 
   # source://faraday//lib/faraday/connection.rb#443
@@ -395,7 +395,7 @@ class Faraday::Connection
   # source://faraday//lib/faraday/connection.rb#36
   def ssl; end
 
-  # source://faraday//lib/faraday/connection.rb#638
+  # source://faraday//lib/faraday/connection.rb#640
   def support_parallel?(adapter); end
 
   # source://faraday//lib/faraday/deprecate.rb#86
@@ -413,7 +413,7 @@ class Faraday::Connection
   # source://forwardable/1.3.3/forwardable.rb#231
   def use(*args, **_arg1, &block); end
 
-  # source://faraday//lib/faraday/connection.rb#581
+  # source://faraday//lib/faraday/connection.rb#583
   def with_uri_credentials(uri); end
 end
 
