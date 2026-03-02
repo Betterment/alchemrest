@@ -50,8 +50,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'sorbet'
   spec.add_development_dependency 'tapioca', '>= 0.16.6'
   spec.add_development_dependency "webmock"
-
-  # For more information and examples about making a new gem, check out our
-  # guide at: https://bundler.io/guides/creating_gem.html
-  spec.metadata['rubygems_mfa_required'] = 'true'
 end
