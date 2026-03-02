@@ -9,16 +9,20 @@ Gem::Specification.new do |spec|
   spec.email = ["andrew.swerlick@betterment.com", "james.boyer@betterment.com"]
 
   spec.summary = %(
-    A tool to help you transform third party api's into a set of classes and models
-    designed to work nicely with your domain."
+    A library to help you transform third party api's into a set of classes and models
+    designed to work nicely with your domain.
   )
+  spec.description = %(
+    Betterment's library for building robust, reliable, performant integrations with
+    third party apis, with a focus on making APIs work with the rest of your domain layer
+    not against it.
+  )
+  spec.license = "MIT"
   spec.homepage = "https://github.com/Betterment/alchemrest"
   spec.required_ruby_version = ">= 3.2"
 
-  spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/Betterment/alchemrest"
+  spec.metadata['rubygems_mfa_required'] = 'true'
   spec.metadata["changelog_uri"] = "https://github.com/Betterment/alchemrest/CHANGELOG.md"
-  spec.metadata['allowed_push_host'] = 'http://rubygems.org'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
@@ -64,8 +68,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'tapioca', '>= 0.16.6'
   spec.add_development_dependency "timecop"
   spec.add_development_dependency "webmock"
-
-  # For more information and examples about making a new gem, check out our
-  # guide at: https://bundler.io/guides/creating_gem.html
-  spec.metadata['rubygems_mfa_required'] = 'true'
 end
