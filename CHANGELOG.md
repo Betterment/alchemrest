@@ -17,6 +17,13 @@ and this project aims to adhere to [Semantic Versioning](http://semver.org/spec/
 
 ### Fixed <!-- for any bug fixes. -->
 
+## [3.2.1] - 2026-03-11
+
+### Changed
+
+- Published to RubyGems.org as an open source gem
+- Bumped version to take precedence over retired internal packages
+
 ## [3.1.1] - 2025-10-30
 
 ### Changed
