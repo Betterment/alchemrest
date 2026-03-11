@@ -21,6 +21,9 @@ module Benchmark
   # source://benchmark//lib/benchmark.rb#303
   def measure(label = T.unsafe(nil)); end
 
+  # source://benchmark//lib/benchmark.rb#335
+  def ms; end
+
   # source://benchmark//lib/benchmark.rb#322
   def realtime; end
 
@@ -37,109 +40,112 @@ module Benchmark
     # source://benchmark//lib/benchmark.rb#303
     def measure(label = T.unsafe(nil)); end
 
+    # source://benchmark//lib/benchmark.rb#335
+    def ms; end
+
     # source://benchmark//lib/benchmark.rb#322
     def realtime; end
   end
 end
 
-# source://benchmark//lib/benchmark.rb#334
+# source://benchmark//lib/benchmark.rb#347
 class Benchmark::Job
-  # source://benchmark//lib/benchmark.rb#342
+  # source://benchmark//lib/benchmark.rb#355
   def initialize(width); end
 
-  # source://benchmark//lib/benchmark.rb#350
+  # source://benchmark//lib/benchmark.rb#363
   def item(label = T.unsafe(nil), &blk); end
 
-  # source://benchmark//lib/benchmark.rb#362
+  # source://benchmark//lib/benchmark.rb#375
   def list; end
 
-  # source://benchmark//lib/benchmark.rb#350
+  # source://benchmark//lib/benchmark.rb#363
   def report(label = T.unsafe(nil), &blk); end
 
-  # source://benchmark//lib/benchmark.rb#365
+  # source://benchmark//lib/benchmark.rb#378
   def width; end
 end
 
-# source://benchmark//lib/benchmark.rb#372
+# source://benchmark//lib/benchmark.rb#385
 class Benchmark::Report
-  # source://benchmark//lib/benchmark.rb#380
+  # source://benchmark//lib/benchmark.rb#393
   def initialize(width = T.unsafe(nil), format = T.unsafe(nil)); end
 
-  # source://benchmark//lib/benchmark.rb#399
+  # source://benchmark//lib/benchmark.rb#412
   def format; end
 
-  # source://benchmark//lib/benchmark.rb#389
+  # source://benchmark//lib/benchmark.rb#402
   def item(label = T.unsafe(nil), *format, &blk); end
 
-  # source://benchmark//lib/benchmark.rb#399
+  # source://benchmark//lib/benchmark.rb#412
   def list; end
 
-  # source://benchmark//lib/benchmark.rb#389
+  # source://benchmark//lib/benchmark.rb#402
   def report(label = T.unsafe(nil), *format, &blk); end
 
-  # source://benchmark//lib/benchmark.rb#399
+  # source://benchmark//lib/benchmark.rb#412
   def width; end
 end
 
-# source://benchmark//lib/benchmark.rb#408
+# source://benchmark//lib/benchmark.rb#421
 class Benchmark::Tms
-  # source://benchmark//lib/benchmark.rb#443
+  # source://benchmark//lib/benchmark.rb#456
   def initialize(utime = T.unsafe(nil), stime = T.unsafe(nil), cutime = T.unsafe(nil), cstime = T.unsafe(nil), real = T.unsafe(nil), label = T.unsafe(nil)); end
 
-  # source://benchmark//lib/benchmark.rb#491
+  # source://benchmark//lib/benchmark.rb#504
   def *(x); end
 
-  # source://benchmark//lib/benchmark.rb#478
+  # source://benchmark//lib/benchmark.rb#491
   def +(other); end
 
-  # source://benchmark//lib/benchmark.rb#485
+  # source://benchmark//lib/benchmark.rb#498
   def -(other); end
 
-  # source://benchmark//lib/benchmark.rb#498
+  # source://benchmark//lib/benchmark.rb#511
   def /(x); end
 
-  # source://benchmark//lib/benchmark.rb#452
+  # source://benchmark//lib/benchmark.rb#465
   def add(&blk); end
 
-  # source://benchmark//lib/benchmark.rb#462
+  # source://benchmark//lib/benchmark.rb#475
   def add!(&blk); end
 
-  # source://benchmark//lib/benchmark.rb#426
+  # source://benchmark//lib/benchmark.rb#439
   def cstime; end
 
-  # source://benchmark//lib/benchmark.rb#423
+  # source://benchmark//lib/benchmark.rb#436
   def cutime; end
 
-  # source://benchmark//lib/benchmark.rb#517
+  # source://benchmark//lib/benchmark.rb#530
   def format(format = T.unsafe(nil), *args); end
 
-  # source://benchmark//lib/benchmark.rb#435
+  # source://benchmark//lib/benchmark.rb#448
   def label; end
 
-  # source://benchmark//lib/benchmark.rb#429
+  # source://benchmark//lib/benchmark.rb#442
   def real; end
 
-  # source://benchmark//lib/benchmark.rb#420
+  # source://benchmark//lib/benchmark.rb#433
   def stime; end
 
-  # source://benchmark//lib/benchmark.rb#542
+  # source://benchmark//lib/benchmark.rb#555
   def to_a; end
 
-  # source://benchmark//lib/benchmark.rb#549
+  # source://benchmark//lib/benchmark.rb#562
   def to_h; end
 
-  # source://benchmark//lib/benchmark.rb#532
+  # source://benchmark//lib/benchmark.rb#545
   def to_s; end
 
-  # source://benchmark//lib/benchmark.rb#432
+  # source://benchmark//lib/benchmark.rb#445
   def total; end
 
-  # source://benchmark//lib/benchmark.rb#417
+  # source://benchmark//lib/benchmark.rb#430
   def utime; end
 
   protected
 
-  # source://benchmark//lib/benchmark.rb#570
+  # source://benchmark//lib/benchmark.rb#583
   def memberwise(op, x); end
 end
 
