@@ -7,7 +7,7 @@
 
 # typed: true
 
-# source://alchemrest-sentry/1.1.1/lib/alchemrest/sentry.rb#5
+# source://alchemrest-sentry/1.0.0/lib/alchemrest/sentry.rb#5
 module Alchemrest
   class << self
     # source://alchemrest//lib/alchemrest.rb#103
@@ -785,16 +785,16 @@ class Alchemrest::KillSwitch::Adapters::ActiveRecord::Record < ::ActiveRecord::B
   class << self
     private
 
-    # source://activesupport/8.0.4/lib/active_support/class_attribute.rb#15
+    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#15
     def __class_attr__validators; end
 
-    # source://activesupport/8.0.4/lib/active_support/class_attribute.rb#17
+    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#17
     def __class_attr__validators=(new_value); end
 
-    # source://activesupport/8.0.4/lib/active_support/class_attribute.rb#15
+    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#15
     def __class_attr_defined_enums; end
 
-    # source://activesupport/8.0.4/lib/active_support/class_attribute.rb#17
+    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#17
     def __class_attr_defined_enums=(new_value); end
   end
 end

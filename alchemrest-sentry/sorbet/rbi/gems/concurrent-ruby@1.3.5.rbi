@@ -854,7 +854,7 @@ end
 # source://concurrent-ruby//lib/concurrent-ruby/concurrent/errors.rb#9
 class Concurrent::CancelledOperationError < ::Concurrent::Error; end
 
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/collection/timeout_queue.rb#2
+# source://concurrent-ruby//lib/concurrent-ruby/concurrent/map.rb#7
 module Concurrent::Collection; end
 
 # source://concurrent-ruby//lib/concurrent-ruby/concurrent/collection/copy_on_notify_observer_set.rb#12
@@ -1143,12 +1143,6 @@ class Concurrent::Collection::RubyNonConcurrentPriorityQueue
     def from_list(list, opts = T.unsafe(nil)); end
   end
 end
-
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/collection/timeout_queue.rb#15
-class Concurrent::Collection::TimeoutQueue < ::Thread::Queue; end
-
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/collection/timeout_queue.rb#5
-Concurrent::Collection::TimeoutQueueImplementation = Thread::Queue
 
 # source://concurrent-ruby//lib/concurrent-ruby/concurrent/concern/dereferenceable.rb#2
 module Concurrent::Concern; end
@@ -1509,9 +1503,9 @@ class Concurrent::FiberLocals < ::Concurrent::AbstractLocals
   def locals!; end
 end
 
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/fixed_thread_pool.rb#199
+# source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/fixed_thread_pool.rb#201
 class Concurrent::FixedThreadPool < ::Concurrent::ThreadPoolExecutor
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/fixed_thread_pool.rb#213
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/fixed_thread_pool.rb#215
   def initialize(num_threads, opts = T.unsafe(nil)); end
 end
 
@@ -1823,7 +1817,7 @@ class Concurrent::LockFreeStack::Node
   end
 end
 
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/lock_local_var.rb#22
+# source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/lock_local_var.rb#21
 Concurrent::LockLocalVar = Concurrent::FiberLocalVar
 
 # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mvar.rb#38
@@ -3592,158 +3586,150 @@ class Concurrent::RubyExecutorService < ::Concurrent::AbstractExecutorService
   def stopped_event; end
 end
 
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_single_thread_executor.rb#9
+# source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_single_thread_executor.rb#8
 class Concurrent::RubySingleThreadExecutor < ::Concurrent::RubyThreadPoolExecutor
-  include ::Concurrent::SerialExecutorService
-
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_single_thread_executor.rb#13
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_single_thread_executor.rb#11
   def initialize(opts = T.unsafe(nil)); end
 end
 
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#13
+# source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#12
 class Concurrent::RubyThreadPoolExecutor < ::Concurrent::RubyExecutorService
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#47
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#45
   def initialize(opts = T.unsafe(nil)); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#67
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#65
   def active_count; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#74
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#72
   def can_overflow?; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#62
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#60
   def completed_task_count; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#38
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#36
   def idletime; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#52
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#50
   def largest_length; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#79
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#77
   def length; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#32
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#30
   def max_length; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#41
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#39
   def max_queue; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#35
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#33
   def min_length; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#139
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#118
   def prune_pool; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#104
-  def prune_worker(worker); end
-
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#84
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#82
   def queue_length; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#124
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#103
   def ready_worker(worker, last_message); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#89
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#87
   def remaining_capacity; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#116
-  def remove_worker(worker); end
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#98
+  def remove_busy_worker(worker); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#57
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#55
   def scheduled_task_count; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#44
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#42
   def synchronous; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#129
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#108
   def worker_died(worker); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#134
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#113
   def worker_task_completed; end
 
   private
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#257
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#241
   def ns_add_busy_worker; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#217
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#201
   def ns_assign_worker(*args, &task); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#235
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#219
   def ns_enqueue(*args, &task); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#178
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#160
   def ns_execute(*args, &task); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#146
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#125
   def ns_initialize(opts); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#205
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#189
   def ns_kill_execution; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#173
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#155
   def ns_limited_queue?; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#305
-  def ns_prunable_capacity; end
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#280
+  def ns_prune_pool; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#269
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#253
   def ns_ready_worker(worker, last_message, success = T.unsafe(nil)); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#287
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#271
   def ns_remove_busy_worker(worker); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#294
-  def ns_remove_ready_worker(worker); end
-
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#314
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#296
   def ns_reset_if_forked; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#190
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#174
   def ns_shutdown_execution; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#247
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#231
   def ns_worker_died(worker); end
 end
 
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#17
+# source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#15
 Concurrent::RubyThreadPoolExecutor::DEFAULT_MAX_POOL_SIZE = T.let(T.unsafe(nil), Integer)
 
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#23
+# source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#21
 Concurrent::RubyThreadPoolExecutor::DEFAULT_MAX_QUEUE_SIZE = T.let(T.unsafe(nil), Integer)
 
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#20
+# source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#18
 Concurrent::RubyThreadPoolExecutor::DEFAULT_MIN_POOL_SIZE = T.let(T.unsafe(nil), Integer)
 
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#29
+# source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#27
 Concurrent::RubyThreadPoolExecutor::DEFAULT_SYNCHRONOUS = T.let(T.unsafe(nil), FalseClass)
 
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#26
+# source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#24
 Concurrent::RubyThreadPoolExecutor::DEFAULT_THREAD_IDLETIMEOUT = T.let(T.unsafe(nil), Integer)
 
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#328
+# source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#310
 class Concurrent::RubyThreadPoolExecutor::Worker
   include ::Concurrent::Concern::Logging
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#331
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#313
   def initialize(pool, id); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#342
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#324
   def <<(message); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#350
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#332
   def kill; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#346
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#328
   def stop; end
 
   private
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#356
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#338
   def create_worker(queue, pool, idletime); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#381
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb#358
   def run_task(pool, task, args); end
 end
 
@@ -4419,55 +4405,55 @@ class Concurrent::TimerSet < ::Concurrent::RubyExecutorService
   # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/executor_service.rb#166
   def <<(task); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/timer_set.rb#75
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/timer_set.rb#74
   def ns_initialize(opts); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/timer_set.rb#95
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/timer_set.rb#94
   def ns_post_task(task); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/timer_set.rb#132
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/timer_set.rb#129
   def ns_reset_if_forked; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/timer_set.rb#123
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/timer_set.rb#122
   def ns_shutdown_execution; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/timer_set.rb#90
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/timer_set.rb#89
   def post_task(task); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/timer_set.rb#146
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/timer_set.rb#143
   def process_tasks; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/timer_set.rb#116
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/timer_set.rb#115
   def remove_task(task); end
 end
 
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#166
+# source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#165
 class Concurrent::TimerTask < ::Concurrent::RubyExecutorService
   include ::Concurrent::Concern::Dereferenceable
   include ::Concurrent::Concern::Observable
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#210
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#209
   def initialize(opts = T.unsafe(nil), &task); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#236
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#235
   def execute; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#261
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#259
   def execution_interval; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#268
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#266
   def execution_interval=(value); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#278
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#276
   def interval_type; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#219
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#218
   def running?; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#283
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#281
   def timeout_interval; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#290
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#288
   def timeout_interval=(value); end
 
   private
@@ -4475,43 +4461,43 @@ class Concurrent::TimerTask < ::Concurrent::RubyExecutorService
   # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/executor_service.rb#166
   def <<(task); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#357
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#352
   def calculate_next_interval(start_time); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#339
-  def execute_task(completion, age_when_scheduled); end
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#336
+  def execute_task(completion); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#298
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#296
   def ns_initialize(opts, &task); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#327
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#324
   def ns_kill_execution; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#321
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#318
   def ns_shutdown_execution; end
 
   # source://concurrent-ruby//lib/concurrent-ruby/concurrent/executor/ruby_executor_service.rb#17
   def post(*args, &task); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#333
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#330
   def schedule_next_task(interval = T.unsafe(nil)); end
 
   class << self
-    # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#254
+    # source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#252
     def execute(opts = T.unsafe(nil), &task); end
   end
 end
 
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#182
+# source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#181
 Concurrent::TimerTask::DEFAULT_INTERVAL_TYPE = T.let(T.unsafe(nil), Symbol)
 
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#171
+# source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#170
 Concurrent::TimerTask::EXECUTION_INTERVAL = T.let(T.unsafe(nil), Integer)
 
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#174
+# source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#173
 Concurrent::TimerTask::FIXED_DELAY = T.let(T.unsafe(nil), Symbol)
 
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#179
+# source://concurrent-ruby//lib/concurrent-ruby/concurrent/timer_task.rb#178
 Concurrent::TimerTask::FIXED_RATE = T.let(T.unsafe(nil), Symbol)
 
 # source://concurrent-ruby//lib/concurrent-ruby/concurrent/tvar.rb#153
