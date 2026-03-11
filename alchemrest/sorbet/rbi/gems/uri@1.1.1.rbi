@@ -519,48 +519,48 @@ end
 class URI::MailTo < ::URI::Generic
   include ::URI::RFC2396_REGEXP
 
-  # source://uri//lib/uri/mailto.rb#136
+  # source://uri//lib/uri/mailto.rb#132
   def initialize(*arg); end
 
-  # source://uri//lib/uri/mailto.rb#170
+  # source://uri//lib/uri/mailto.rb#166
   def headers; end
 
-  # source://uri//lib/uri/mailto.rb#236
+  # source://uri//lib/uri/mailto.rb#232
   def headers=(v); end
 
-  # source://uri//lib/uri/mailto.rb#167
+  # source://uri//lib/uri/mailto.rb#163
   def to; end
 
-  # source://uri//lib/uri/mailto.rb#204
+  # source://uri//lib/uri/mailto.rb#200
   def to=(v); end
 
-  # source://uri//lib/uri/mailto.rb#272
+  # source://uri//lib/uri/mailto.rb#268
   def to_mailtext; end
 
-  # source://uri//lib/uri/mailto.rb#272
+  # source://uri//lib/uri/mailto.rb#268
   def to_rfc822text; end
 
-  # source://uri//lib/uri/mailto.rb#243
+  # source://uri//lib/uri/mailto.rb#239
   def to_s; end
 
   protected
 
-  # source://uri//lib/uri/mailto.rb#225
+  # source://uri//lib/uri/mailto.rb#221
   def set_headers(v); end
 
-  # source://uri//lib/uri/mailto.rb#198
+  # source://uri//lib/uri/mailto.rb#194
   def set_to(v); end
 
   private
 
-  # source://uri//lib/uri/mailto.rb#212
+  # source://uri//lib/uri/mailto.rb#208
   def check_headers(v); end
 
-  # source://uri//lib/uri/mailto.rb#173
+  # source://uri//lib/uri/mailto.rb#169
   def check_to(v); end
 
   class << self
-    # source://uri//lib/uri/mailto.rb#89
+    # source://uri//lib/uri/mailto.rb#85
     def build(args); end
   end
 end
