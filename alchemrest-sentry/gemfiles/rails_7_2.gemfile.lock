@@ -18,8 +18,8 @@ PATH
 PATH
   remote: ..
   specs:
-    alchemrest-sentry (1.1.1)
-      alchemrest (>= 3.0.0.pre.alpha)
+    alchemrest-sentry (1.1.2)
+      alchemrest (>= 3.2.1)
       sentry-ruby
       sorbet-runtime (>= 0.5.0)
 

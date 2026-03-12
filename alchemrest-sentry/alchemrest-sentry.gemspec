@@ -34,7 +34,7 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = %w(lib)
 
-  spec.add_dependency 'alchemrest', '>= 3.0.0-alpha'
+  spec.add_dependency 'alchemrest', '>= 3.2.1'
   spec.add_dependency 'sentry-ruby'
   spec.add_dependency 'sorbet-runtime', '>= 0.5.0'
 
