@@ -13,7 +13,7 @@ class BigDecimal < ::Numeric
   # source://bigdecimal//lib/bigdecimal.rb#97
   def power(y, prec = T.unsafe(nil)); end
 
-  # source://bigdecimal//lib/bigdecimal.rb#211
+  # source://bigdecimal//lib/bigdecimal.rb#212
   def sqrt(prec); end
 
   # source://bigdecimal//lib/bigdecimal/util.rb#110
@@ -42,18 +42,29 @@ end
 
 BigDecimal::VERSION = T.let(T.unsafe(nil), String)
 
-# source://bigdecimal//lib/bigdecimal.rb#237
+# source://bigdecimal//lib/bigdecimal.rb#240
 module BigMath
+  private
+
+  # source://bigdecimal//lib/bigdecimal.rb#310
+  def _exp_taylor(x, prec); end
+
+  # source://bigdecimal//lib/bigdecimal.rb#332
+  def exp(x, prec); end
+
+  # source://bigdecimal//lib/bigdecimal.rb#255
+  def log(x, prec); end
+
   class << self
-    # source://bigdecimal//lib/bigdecimal.rb#328
+    # source://bigdecimal//lib/bigdecimal.rb#332
     def exp(x, prec); end
 
-    # source://bigdecimal//lib/bigdecimal.rb#251
+    # source://bigdecimal//lib/bigdecimal.rb#255
     def log(x, prec); end
 
     private
 
-    # source://bigdecimal//lib/bigdecimal.rb#306
+    # source://bigdecimal//lib/bigdecimal.rb#310
     def _exp_taylor(x, prec); end
   end
 end
