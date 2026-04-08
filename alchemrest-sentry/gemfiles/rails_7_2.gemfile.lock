@@ -1,7 +1,7 @@
 PATH
   remote: ../../alchemrest
   specs:
-    alchemrest (3.2.1)
+    alchemrest (3.2.2)
       activerecord (>= 7.2, < 8.1)
       activesupport (>= 7.2, < 8.1)
       circuitbox (~> 2.0.0)
