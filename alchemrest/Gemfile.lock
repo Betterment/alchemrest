@@ -57,8 +57,8 @@ GEM
     adamantium (0.2.0)
       ice_nine (~> 0.11.0)
       memoizable (~> 0.4.0)
-    addressable (2.8.7)
-      public_suffix (>= 2.0.2, < 7.0)
+    addressable (2.9.0)
+      public_suffix (>= 2.0.2, < 8.0)
     anima (0.3.2)
       abstract_type (~> 0.0.7)
       adamantium (~> 0.2)
@@ -205,7 +205,7 @@ GEM
     psych (5.2.3)
       date
       stringio
-    public_suffix (6.0.1)
+    public_suffix (7.0.5)
     racc (1.8.1)
     rack (3.1.14)
     rack-session (2.1.1)
