@@ -75,6 +75,43 @@ end
 class Alchemrest::EndpointDefinition
 end
 
+module Alchemrest::Transforms
+  class << self
+    sig { returns(T.untyped) }
+    def integer; end
+
+    sig { returns(T.untyped) }
+    def string; end
+
+    sig { returns(T.untyped) }
+    def float; end
+
+    sig { returns(T.untyped) }
+    def number; end
+
+    sig { returns(T.untyped) }
+    def boolean; end
+
+    sig { returns(T.untyped) }
+    def date; end
+
+    sig { returns(T.untyped) }
+    def from; end
+
+    sig { params(unit: Symbol).returns(T.untyped) }
+    def money(unit); end
+
+    sig { params(enum: T::Array[T.untyped]).returns(T.untyped) }
+    def enum(enum); end
+
+    sig { params(klass_or_hash: T.untyped).returns(T.untyped) }
+    def one_of(klass_or_hash); end
+
+    sig { params(klass: T.untyped).returns(T.untyped) }
+    def many_of(klass); end
+  end
+end
+
 class Alchemrest::Transforms::OutputType
   sig { returns(T.nilable(Alchemrest::Data::Graph)) }
   def graph; end
