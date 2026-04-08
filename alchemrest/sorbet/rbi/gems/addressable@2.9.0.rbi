@@ -11,297 +11,294 @@ module Addressable; end
 # source://addressable//lib/addressable/idna/pure.rb#21
 module Addressable::IDNA
   class << self
-    # source://addressable//lib/addressable/idna/pure.rb#117
+    # source://addressable//lib/addressable/idna/pure.rb#112
     def _deprecated_unicode_normalize_kc(value); end
 
-    # source://addressable//lib/addressable/idna/pure.rb#67
+    # source://addressable//lib/addressable/idna/pure.rb#62
     def to_ascii(input); end
 
-    # source://addressable//lib/addressable/idna/pure.rb#93
+    # source://addressable//lib/addressable/idna/pure.rb#88
     def to_unicode(input); end
 
     def unicode_normalize_kc(*args, **_arg1, &block); end
 
     private
 
-    # source://addressable//lib/addressable/idna/pure.rb#140
+    # source://addressable//lib/addressable/idna/pure.rb#135
     def lookup_unicode_lowercase(codepoint); end
 
-    # source://addressable//lib/addressable/idna/pure.rb#488
+    # source://addressable//lib/addressable/idna/pure.rb#4693
     def punycode_adapt(delta, numpoints, firsttime); end
 
-    # source://addressable//lib/addressable/idna/pure.rb#456
+    # source://addressable//lib/addressable/idna/pure.rb#4661
     def punycode_basic?(codepoint); end
 
-    # source://addressable//lib/addressable/idna/pure.rb#334
+    # source://addressable//lib/addressable/idna/pure.rb#4539
     def punycode_decode(punycode); end
 
-    # source://addressable//lib/addressable/idna/pure.rb#474
+    # source://addressable//lib/addressable/idna/pure.rb#4679
     def punycode_decode_digit(codepoint); end
 
-    # source://addressable//lib/addressable/idna/pure.rb#461
+    # source://addressable//lib/addressable/idna/pure.rb#4666
     def punycode_delimiter?(codepoint); end
 
-    # source://addressable//lib/addressable/idna/pure.rb#213
+    # source://addressable//lib/addressable/idna/pure.rb#4418
     def punycode_encode(unicode); end
 
-    # source://addressable//lib/addressable/idna/pure.rb#466
+    # source://addressable//lib/addressable/idna/pure.rb#4671
     def punycode_encode_digit(d); end
 
-    # source://addressable//lib/addressable/idna/pure.rb#132
+    # source://addressable//lib/addressable/idna/pure.rb#127
     def unicode_downcase(input); end
   end
 end
 
-# source://addressable//lib/addressable/idna/pure.rb#183
+# source://addressable//lib/addressable/idna/pure.rb#4388
 Addressable::IDNA::ACE_MAX_LENGTH = T.let(T.unsafe(nil), Integer)
 
-# source://addressable//lib/addressable/idna/pure.rb#40
+# source://addressable//lib/addressable/idna/pure.rb#35
 Addressable::IDNA::ACE_PREFIX = T.let(T.unsafe(nil), String)
 
-# source://addressable//lib/addressable/idna/pure.rb#172
-Addressable::IDNA::COMPOSITION_TABLE = T.let(T.unsafe(nil), Hash)
-
-# source://addressable//lib/addressable/idna/pure.rb#185
+# source://addressable//lib/addressable/idna/pure.rb#4390
 Addressable::IDNA::PUNYCODE_BASE = T.let(T.unsafe(nil), Integer)
 
-# source://addressable//lib/addressable/idna/pure.rb#189
+# source://addressable//lib/addressable/idna/pure.rb#4394
 Addressable::IDNA::PUNYCODE_DAMP = T.let(T.unsafe(nil), Integer)
 
-# source://addressable//lib/addressable/idna/pure.rb#192
+# source://addressable//lib/addressable/idna/pure.rb#4397
 Addressable::IDNA::PUNYCODE_DELIMITER = T.let(T.unsafe(nil), Integer)
 
-# source://addressable//lib/addressable/idna/pure.rb#190
+# source://addressable//lib/addressable/idna/pure.rb#4395
 Addressable::IDNA::PUNYCODE_INITIAL_BIAS = T.let(T.unsafe(nil), Integer)
 
-# source://addressable//lib/addressable/idna/pure.rb#191
+# source://addressable//lib/addressable/idna/pure.rb#4396
 Addressable::IDNA::PUNYCODE_INITIAL_N = T.let(T.unsafe(nil), Integer)
 
-# source://addressable//lib/addressable/idna/pure.rb#194
+# source://addressable//lib/addressable/idna/pure.rb#4399
 Addressable::IDNA::PUNYCODE_MAXINT = T.let(T.unsafe(nil), Integer)
 
-# source://addressable//lib/addressable/idna/pure.rb#196
+# source://addressable//lib/addressable/idna/pure.rb#4401
 Addressable::IDNA::PUNYCODE_PRINT_ASCII = T.let(T.unsafe(nil), String)
 
-# source://addressable//lib/addressable/idna/pure.rb#188
+# source://addressable//lib/addressable/idna/pure.rb#4393
 Addressable::IDNA::PUNYCODE_SKEW = T.let(T.unsafe(nil), Integer)
 
-# source://addressable//lib/addressable/idna/pure.rb#187
+# source://addressable//lib/addressable/idna/pure.rb#4392
 Addressable::IDNA::PUNYCODE_TMAX = T.let(T.unsafe(nil), Integer)
 
-# source://addressable//lib/addressable/idna/pure.rb#186
+# source://addressable//lib/addressable/idna/pure.rb#4391
 Addressable::IDNA::PUNYCODE_TMIN = T.let(T.unsafe(nil), Integer)
 
-# source://addressable//lib/addressable/idna/pure.rb#207
+# source://addressable//lib/addressable/idna/pure.rb#4412
 class Addressable::IDNA::PunycodeBadInput < ::StandardError; end
 
-# source://addressable//lib/addressable/idna/pure.rb#209
+# source://addressable//lib/addressable/idna/pure.rb#4414
 class Addressable::IDNA::PunycodeBigOutput < ::StandardError; end
 
-# source://addressable//lib/addressable/idna/pure.rb#211
+# source://addressable//lib/addressable/idna/pure.rb#4416
 class Addressable::IDNA::PunycodeOverflow < ::StandardError; end
 
-# source://addressable//lib/addressable/idna/pure.rb#163
+# source://addressable//lib/addressable/idna/pure.rb#151
 Addressable::IDNA::UNICODE_DATA = T.let(T.unsafe(nil), Hash)
 
-# source://addressable//lib/addressable/idna/pure.rb#150
+# source://addressable//lib/addressable/idna/pure.rb#145
 Addressable::IDNA::UNICODE_DATA_CANONICAL = T.let(T.unsafe(nil), Integer)
 
-# source://addressable//lib/addressable/idna/pure.rb#148
+# source://addressable//lib/addressable/idna/pure.rb#143
 Addressable::IDNA::UNICODE_DATA_COMBINING_CLASS = T.let(T.unsafe(nil), Integer)
 
-# source://addressable//lib/addressable/idna/pure.rb#151
+# source://addressable//lib/addressable/idna/pure.rb#146
 Addressable::IDNA::UNICODE_DATA_COMPATIBILITY = T.let(T.unsafe(nil), Integer)
 
-# source://addressable//lib/addressable/idna/pure.rb#149
+# source://addressable//lib/addressable/idna/pure.rb#144
 Addressable::IDNA::UNICODE_DATA_EXCLUSION = T.let(T.unsafe(nil), Integer)
 
-# source://addressable//lib/addressable/idna/pure.rb#153
+# source://addressable//lib/addressable/idna/pure.rb#148
 Addressable::IDNA::UNICODE_DATA_LOWERCASE = T.let(T.unsafe(nil), Integer)
 
-# source://addressable//lib/addressable/idna/pure.rb#154
+# source://addressable//lib/addressable/idna/pure.rb#149
 Addressable::IDNA::UNICODE_DATA_TITLECASE = T.let(T.unsafe(nil), Integer)
 
-# source://addressable//lib/addressable/idna/pure.rb#152
+# source://addressable//lib/addressable/idna/pure.rb#147
 Addressable::IDNA::UNICODE_DATA_UPPERCASE = T.let(T.unsafe(nil), Integer)
 
-# source://addressable//lib/addressable/idna/pure.rb#182
+# source://addressable//lib/addressable/idna/pure.rb#4387
 Addressable::IDNA::UNICODE_MAX_LENGTH = T.let(T.unsafe(nil), Integer)
 
-# source://addressable//lib/addressable/idna/pure.rb#36
-Addressable::IDNA::UNICODE_TABLE = T.let(T.unsafe(nil), String)
-
-# source://addressable//lib/addressable/idna/pure.rb#42
+# source://addressable//lib/addressable/idna/pure.rb#37
 Addressable::IDNA::UTF8_REGEX = T.let(T.unsafe(nil), Regexp)
 
-# source://addressable//lib/addressable/idna/pure.rb#53
+# source://addressable//lib/addressable/idna/pure.rb#48
 Addressable::IDNA::UTF8_REGEX_MULTIBYTE = T.let(T.unsafe(nil), Regexp)
 
 # source://addressable//lib/addressable/template.rb#27
 class Addressable::Template
-  # source://addressable//lib/addressable/template.rb#234
+  # source://addressable//lib/addressable/template.rb#236
   def initialize(pattern); end
 
-  # source://addressable//lib/addressable/template.rb#274
+  # source://addressable//lib/addressable/template.rb#276
   def ==(template); end
 
-  # source://addressable//lib/addressable/template.rb#274
+  # source://addressable//lib/addressable/template.rb#276
   def eql?(template); end
 
-  # source://addressable//lib/addressable/template.rb#591
+  # source://addressable//lib/addressable/template.rb#593
   def expand(mapping, processor = T.unsafe(nil), normalize_values = T.unsafe(nil)); end
 
-  # source://addressable//lib/addressable/template.rb#342
+  # source://addressable//lib/addressable/template.rb#344
   def extract(uri, processor = T.unsafe(nil)); end
 
-  # source://addressable//lib/addressable/template.rb#245
+  # source://addressable//lib/addressable/template.rb#247
   def freeze; end
 
-  # source://addressable//lib/addressable/template.rb#260
+  # source://addressable//lib/addressable/template.rb#262
   def inspect; end
 
-  # source://addressable//lib/addressable/template.rb#607
+  # source://addressable//lib/addressable/template.rb#609
   def keys; end
 
-  # source://addressable//lib/addressable/template.rb#413
+  # source://addressable//lib/addressable/template.rb#415
   def match(uri, processor = T.unsafe(nil)); end
 
-  # source://addressable//lib/addressable/template.rb#651
+  # source://addressable//lib/addressable/template.rb#653
   def named_captures; end
 
-  # source://addressable//lib/addressable/template.rb#607
+  # source://addressable//lib/addressable/template.rb#609
   def names; end
 
-  # source://addressable//lib/addressable/template.rb#524
+  # source://addressable//lib/addressable/template.rb#526
   def partial_expand(mapping, processor = T.unsafe(nil), normalize_values = T.unsafe(nil)); end
 
-  # source://addressable//lib/addressable/template.rb#254
+  # source://addressable//lib/addressable/template.rb#256
   def pattern; end
 
-  # source://addressable//lib/addressable/template.rb#641
+  # source://addressable//lib/addressable/template.rb#643
   def source; end
 
-  # source://addressable//lib/addressable/template.rb#630
+  # source://addressable//lib/addressable/template.rb#632
   def to_regexp; end
 
-  # source://addressable//lib/addressable/template.rb#618
+  # source://addressable//lib/addressable/template.rb#620
   def variable_defaults; end
 
-  # source://addressable//lib/addressable/template.rb#607
+  # source://addressable//lib/addressable/template.rb#609
   def variables; end
 
   private
 
-  # source://addressable//lib/addressable/template.rb#861
+  # source://addressable//lib/addressable/template.rb#863
   def join_values(operator, return_value); end
 
-  # source://addressable//lib/addressable/template.rb#924
+  # source://addressable//lib/addressable/template.rb#926
   def normalize_keys(mapping); end
 
-  # source://addressable//lib/addressable/template.rb#898
+  # source://addressable//lib/addressable/template.rb#900
   def normalize_value(value); end
 
-  # source://addressable//lib/addressable/template.rb#656
+  # source://addressable//lib/addressable/template.rb#658
   def ordered_variable_defaults; end
 
-  # source://addressable//lib/addressable/template.rb#968
+  # source://addressable//lib/addressable/template.rb#970
   def parse_new_template_pattern(pattern, processor = T.unsafe(nil)); end
 
-  # source://addressable//lib/addressable/template.rb#950
+  # source://addressable//lib/addressable/template.rb#952
   def parse_template_pattern(pattern, processor = T.unsafe(nil)); end
 
-  # source://addressable//lib/addressable/template.rb#753
+  # source://addressable//lib/addressable/template.rb#755
   def transform_capture(mapping, capture, processor = T.unsafe(nil), normalize_values = T.unsafe(nil)); end
 
-  # source://addressable//lib/addressable/template.rb#694
+  # source://addressable//lib/addressable/template.rb#696
   def transform_partial_capture(mapping, capture, processor = T.unsafe(nil), normalize_values = T.unsafe(nil)); end
 end
 
-# source://addressable//lib/addressable/template.rb#58
+# source://addressable//lib/addressable/template.rb#60
 Addressable::Template::EXPRESSION = T.let(T.unsafe(nil), Regexp)
 
-# source://addressable//lib/addressable/template.rb#85
+# source://addressable//lib/addressable/template.rb#87
 class Addressable::Template::InvalidTemplateOperatorError < ::StandardError; end
 
-# source://addressable//lib/addressable/template.rb#80
+# source://addressable//lib/addressable/template.rb#82
 class Addressable::Template::InvalidTemplateValueError < ::StandardError; end
 
-# source://addressable//lib/addressable/template.rb#70
+# source://addressable//lib/addressable/template.rb#72
 Addressable::Template::JOINERS = T.let(T.unsafe(nil), Hash)
 
-# source://addressable//lib/addressable/template.rb#62
+# source://addressable//lib/addressable/template.rb#64
 Addressable::Template::LEADERS = T.let(T.unsafe(nil), Hash)
 
-# source://addressable//lib/addressable/template.rb#96
+# source://addressable//lib/addressable/template.rb#98
 class Addressable::Template::MatchData
-  # source://addressable//lib/addressable/template.rb#103
+  # source://addressable//lib/addressable/template.rb#105
   def initialize(uri, template, mapping); end
 
-  # source://addressable//lib/addressable/template.rb#170
+  # source://addressable//lib/addressable/template.rb#172
   def [](key, len = T.unsafe(nil)); end
 
-  # source://addressable//lib/addressable/template.rb#143
+  # source://addressable//lib/addressable/template.rb#145
   def captures; end
 
-  # source://addressable//lib/addressable/template.rb#213
+  # source://addressable//lib/addressable/template.rb#215
   def inspect; end
 
-  # source://addressable//lib/addressable/template.rb#132
+  # source://addressable//lib/addressable/template.rb#134
   def keys; end
 
-  # source://addressable//lib/addressable/template.rb#125
+  # source://addressable//lib/addressable/template.rb#127
   def mapping; end
 
-  # source://addressable//lib/addressable/template.rb#132
+  # source://addressable//lib/addressable/template.rb#134
   def names; end
 
-  # source://addressable//lib/addressable/template.rb#222
+  # source://addressable//lib/addressable/template.rb#224
   def post_match; end
 
-  # source://addressable//lib/addressable/template.rb#222
+  # source://addressable//lib/addressable/template.rb#224
   def pre_match; end
 
-  # source://addressable//lib/addressable/template.rb#191
+  # source://addressable//lib/addressable/template.rb#193
   def string; end
 
-  # source://addressable//lib/addressable/template.rb#117
+  # source://addressable//lib/addressable/template.rb#119
   def template; end
 
-  # source://addressable//lib/addressable/template.rb#184
+  # source://addressable//lib/addressable/template.rb#186
   def to_a; end
 
-  # source://addressable//lib/addressable/template.rb#191
+  # source://addressable//lib/addressable/template.rb#193
   def to_s; end
 
-  # source://addressable//lib/addressable/template.rb#112
+  # source://addressable//lib/addressable/template.rb#114
   def uri; end
 
-  # source://addressable//lib/addressable/template.rb#143
+  # source://addressable//lib/addressable/template.rb#145
   def values; end
 
-  # source://addressable//lib/addressable/template.rb#205
+  # source://addressable//lib/addressable/template.rb#207
   def values_at(*indexes); end
 
-  # source://addressable//lib/addressable/template.rb#132
+  # source://addressable//lib/addressable/template.rb#134
   def variables; end
 end
 
 # source://addressable//lib/addressable/template.rb#40
 Addressable::Template::RESERVED = T.let(T.unsafe(nil), String)
 
-# source://addressable//lib/addressable/template.rb#90
+# source://addressable//lib/addressable/template.rb#42
+Addressable::Template::RESERVED_NO_COMMA = T.let(T.unsafe(nil), String)
+
+# source://addressable//lib/addressable/template.rb#92
 class Addressable::Template::TemplateOperatorAbortedError < ::StandardError; end
 
-# source://addressable//lib/addressable/template.rb#42
+# source://addressable//lib/addressable/template.rb#44
 Addressable::Template::UNRESERVED = T.let(T.unsafe(nil), String)
 
-# source://addressable//lib/addressable/template.rb#54
+# source://addressable//lib/addressable/template.rb#56
 Addressable::Template::VARIABLE_LIST = T.let(T.unsafe(nil), Regexp)
 
-# source://addressable//lib/addressable/template.rb#50
+# source://addressable//lib/addressable/template.rb#52
 Addressable::Template::VARNAME = T.let(T.unsafe(nil), Regexp)
 
-# source://addressable//lib/addressable/template.rb#52
+# source://addressable//lib/addressable/template.rb#54
 Addressable::Template::VARSPEC = T.let(T.unsafe(nil), Regexp)
 
 # source://addressable//lib/addressable/uri.rb#31
