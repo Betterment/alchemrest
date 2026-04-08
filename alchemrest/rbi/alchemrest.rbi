@@ -29,8 +29,8 @@ class Alchemrest::Data
   sig { params(blk: T.proc.bind(Alchemrest::Data::CaptureConfiguration).void).void }
   def self.configure_response_capture(&blk); end
 
-  sig { void }
-  def self.schema; end
+  sig { params(blk: T.proc.params(arg0: T.class_of(Alchemrest::Transforms)).returns(T.untyped)).void }
+  def self.schema(&blk); end
 
   sig { params(attributes: T.untyped).void }
   def initialize(**attributes); end
