@@ -5292,7 +5292,7 @@ class ActiveSupport::NumberHelper::NumberToDelimitedConverter < ::ActiveSupport:
 
   private
 
-  # source://activesupport//lib/active_support/number_helper/number_to_delimited_converter.rb#25
+  # source://activesupport//lib/active_support/number_helper/number_to_delimited_converter.rb#40
   def delimiter_pattern; end
 
   # source://activesupport//lib/active_support/number_helper/number_to_delimited_converter.rb#17
@@ -5823,22 +5823,22 @@ class ActiveSupport::SafeBuffer < ::String
   # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#88
   def bytesplice(*args, value); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#155
   def capitalize(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#159
   def capitalize!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#155
   def chomp(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#159
   def chomp!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#155
   def chop(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#159
   def chop!(*args); end
 
   # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#59
@@ -5847,55 +5847,55 @@ class ActiveSupport::SafeBuffer < ::String
   # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#80
   def concat(value); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#155
   def delete(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#159
   def delete!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#155
   def delete_prefix(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#159
   def delete_prefix!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#155
   def delete_suffix(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#159
   def delete_suffix!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#155
   def downcase(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#159
   def downcase!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#146
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#148
   def encode_with(coder); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#167
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#169
   def gsub(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#178
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#180
   def gsub!(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#134
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#136
   def html_safe?; end
 
   # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#92
   def insert(index, value); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#155
   def lstrip(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#159
   def lstrip!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#155
   def next(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#159
   def next!(*args); end
 
   # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#96
@@ -5904,25 +5904,25 @@ class ActiveSupport::SafeBuffer < ::String
   # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#100
   def replace(value); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#155
   def reverse(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#159
   def reverse!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#155
   def rstrip(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#159
   def rstrip!(*args); end
 
   # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#65
   def safe_concat(value); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#155
   def scrub(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#159
   def scrub!(*args); end
 
   # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#38
@@ -5931,72 +5931,72 @@ class ActiveSupport::SafeBuffer < ::String
   # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#51
   def slice!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#155
   def squeeze(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#159
   def squeeze!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#155
   def strip(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#159
   def strip!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#167
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#169
   def sub(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#178
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#180
   def sub!(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#155
   def succ(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#159
   def succ!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#155
   def swapcase(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#159
   def swapcase!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#142
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#144
   def to_param; end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#138
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#140
   def to_s; end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#155
   def tr(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#159
   def tr!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#155
   def tr_s(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#159
   def tr_s!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#155
   def unicode_normalize(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#159
   def unicode_normalize!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#155
   def upcase(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#159
   def upcase!(*args); end
 
   private
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#193
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#195
   def explicit_html_escape_interpolated_argument(arg); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#197
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#199
   def implicit_html_escape_interpolated_argument(arg); end
 
   # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#75
@@ -6004,10 +6004,10 @@ class ActiveSupport::SafeBuffer < ::String
 
   def original_concat(*_arg0); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#205
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#207
   def set_block_back_references(block, match_data); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#211
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#213
   def string_into_safe_buffer(new_string, is_html_safe); end
 end
 
@@ -6283,43 +6283,43 @@ class ActiveSupport::TestCase < ::Minitest::Test
   # source://activesupport//lib/active_support/callbacks.rb#924
   def _teardown_callbacks; end
 
-  # source://minitest/5.26.0/lib/minitest/assertions.rb#726
+  # source://minitest/5.27.0/lib/minitest/assertions.rb#729
   def assert_no_match(matcher, obj, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.26.0/lib/minitest/assertions.rb#655
+  # source://minitest/5.27.0/lib/minitest/assertions.rb#658
   def assert_not_empty(obj, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.26.0/lib/minitest/assertions.rb#666
+  # source://minitest/5.27.0/lib/minitest/assertions.rb#669
   def assert_not_equal(exp, act, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.26.0/lib/minitest/assertions.rb#678
+  # source://minitest/5.27.0/lib/minitest/assertions.rb#681
   def assert_not_in_delta(exp, act, delta = T.unsafe(nil), msg = T.unsafe(nil)); end
 
-  # source://minitest/5.26.0/lib/minitest/assertions.rb#690
-  def assert_not_in_epsilon(a, b, epsilon = T.unsafe(nil), msg = T.unsafe(nil)); end
+  # source://minitest/5.27.0/lib/minitest/assertions.rb#693
+  def assert_not_in_epsilon(exp, act, epsilon = T.unsafe(nil), msg = T.unsafe(nil)); end
 
-  # source://minitest/5.26.0/lib/minitest/assertions.rb#697
+  # source://minitest/5.27.0/lib/minitest/assertions.rb#700
   def assert_not_includes(collection, obj, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.26.0/lib/minitest/assertions.rb#708
+  # source://minitest/5.27.0/lib/minitest/assertions.rb#711
   def assert_not_instance_of(cls, obj, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.26.0/lib/minitest/assertions.rb#718
+  # source://minitest/5.27.0/lib/minitest/assertions.rb#721
   def assert_not_kind_of(cls, obj, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.26.0/lib/minitest/assertions.rb#736
+  # source://minitest/5.27.0/lib/minitest/assertions.rb#739
   def assert_not_nil(obj, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.26.0/lib/minitest/assertions.rb#771
+  # source://minitest/5.27.0/lib/minitest/assertions.rb#771
   def assert_not_operator(o1, op, o2 = T.unsafe(nil), msg = T.unsafe(nil)); end
 
-  # source://minitest/5.26.0/lib/minitest/assertions.rb#794
+  # source://minitest/5.27.0/lib/minitest/assertions.rb#794
   def assert_not_predicate(o1, op, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.26.0/lib/minitest/assertions.rb#803
+  # source://minitest/5.27.0/lib/minitest/assertions.rb#803
   def assert_not_respond_to(obj, meth, msg = T.unsafe(nil), include_all: T.unsafe(nil)); end
 
-  # source://minitest/5.26.0/lib/minitest/assertions.rb#812
+  # source://minitest/5.27.0/lib/minitest/assertions.rb#812
   def assert_not_same(exp, act, msg = T.unsafe(nil)); end
 
   # source://activesupport//lib/active_support/testing/file_fixtures.rb#20
@@ -6331,7 +6331,7 @@ class ActiveSupport::TestCase < ::Minitest::Test
   # source://activesupport//lib/active_support/test_case.rb#300
   def inspect; end
 
-  # source://minitest/5.26.0/lib/minitest.rb#378
+  # source://minitest/5.27.0/lib/minitest.rb#390
   def method_name; end
 
   class << self
@@ -7318,7 +7318,7 @@ ActiveSupport::VERSION::MAJOR = T.let(T.unsafe(nil), Integer)
 ActiveSupport::VERSION::MINOR = T.let(T.unsafe(nil), Integer)
 
 # source://activesupport//lib/active_support/gem_version.rb#13
-ActiveSupport::VERSION::PRE = T.let(T.unsafe(nil), T.untyped)
+ActiveSupport::VERSION::PRE = T.let(T.unsafe(nil), String)
 
 # source://activesupport//lib/active_support/gem_version.rb#15
 ActiveSupport::VERSION::STRING = T.let(T.unsafe(nil), String)
@@ -8507,46 +8507,46 @@ HashWithIndifferentAccess = ActiveSupport::HashWithIndifferentAccess
 # source://activesupport//lib/active_support/i18n_railtie.rb#8
 module I18n
   class << self
-    # source://i18n/1.14.7/lib/i18n/backend/cache.rb#64
+    # source://i18n/1.14.8/lib/i18n/backend/cache.rb#64
     def cache_key_digest; end
 
-    # source://i18n/1.14.7/lib/i18n/backend/cache.rb#68
+    # source://i18n/1.14.8/lib/i18n/backend/cache.rb#68
     def cache_key_digest=(key_digest); end
 
-    # source://i18n/1.14.7/lib/i18n/backend/cache.rb#56
+    # source://i18n/1.14.8/lib/i18n/backend/cache.rb#56
     def cache_namespace; end
 
-    # source://i18n/1.14.7/lib/i18n/backend/cache.rb#60
+    # source://i18n/1.14.8/lib/i18n/backend/cache.rb#60
     def cache_namespace=(namespace); end
 
-    # source://i18n/1.14.7/lib/i18n/backend/cache.rb#48
+    # source://i18n/1.14.8/lib/i18n/backend/cache.rb#48
     def cache_store; end
 
-    # source://i18n/1.14.7/lib/i18n/backend/cache.rb#52
+    # source://i18n/1.14.8/lib/i18n/backend/cache.rb#52
     def cache_store=(store); end
 
-    # source://i18n/1.14.7/lib/i18n/backend/fallbacks.rb#17
+    # source://i18n/1.14.8/lib/i18n/backend/fallbacks.rb#17
     def fallbacks; end
 
-    # source://i18n/1.14.7/lib/i18n/backend/fallbacks.rb#23
+    # source://i18n/1.14.8/lib/i18n/backend/fallbacks.rb#23
     def fallbacks=(fallbacks); end
 
-    # source://i18n/1.14.7/lib/i18n/interpolate/ruby.rb#23
+    # source://i18n/1.14.8/lib/i18n/interpolate/ruby.rb#23
     def interpolate(string, values); end
 
-    # source://i18n/1.14.7/lib/i18n/interpolate/ruby.rb#29
+    # source://i18n/1.14.8/lib/i18n/interpolate/ruby.rb#29
     def interpolate_hash(string, values); end
 
-    # source://i18n/1.14.7/lib/i18n.rb#38
+    # source://i18n/1.14.8/lib/i18n.rb#38
     def new_double_nested_cache; end
 
-    # source://i18n/1.14.7/lib/i18n/backend/cache.rb#72
+    # source://i18n/1.14.8/lib/i18n/backend/cache.rb#72
     def perform_caching?; end
 
-    # source://i18n/1.14.7/lib/i18n.rb#46
+    # source://i18n/1.14.8/lib/i18n.rb#46
     def reserve_key(key); end
 
-    # source://i18n/1.14.7/lib/i18n.rb#51
+    # source://i18n/1.14.8/lib/i18n.rb#51
     def reserved_keys_pattern; end
   end
 end
@@ -9236,7 +9236,7 @@ class String
   # source://activesupport//lib/active_support/core_ext/string/access.rb#46
   def from(position); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#225
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#227
   def html_safe; end
 
   # source://activesupport//lib/active_support/core_ext/string/inflections.rb#262
