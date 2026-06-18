@@ -17,6 +17,12 @@ and this project aims to adhere to [Semantic Versioning](http://semver.org/spec/
 
 ### Fixed <!-- for any bug fixes. -->
 
+## [3.2.3] - 2026-06-18
+
+### Fixed
+
+- `Alchemrest::Data.schema` now declares its block parameter, so Sorbet (and tapioca-generated gem RBIs) type it as accepting a block. Subclasses defining `schema do |s| ... end` no longer raise `Method \`Alchemrest::Data.schema\` does not take a block` under Sorbet.
+
 ## [3.2.1] - 2026-03-11
 
 ### Changed

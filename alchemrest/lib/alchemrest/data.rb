@@ -2,7 +2,7 @@
 
 module Alchemrest
   class Data
-    def self.schema
+    def self.schema(&)
       include Alchemrest::Data::Schema.new(**(yield Alchemrest::Transforms))
     end
   end
