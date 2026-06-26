@@ -632,14 +632,17 @@ end
 module Concurrent::AtomicNumericCompareAndSetWrapper
   # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic_reference/numeric_cas_wrapper.rb#10
   def compare_and_set(old_value, new_value); end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic_reference/numeric_cas_wrapper.rb#10
+  def compare_and_swap(old_value, new_value); end
 end
 
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/atomic_reference.rb#126
+# source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/atomic_reference.rb#133
 class Concurrent::AtomicReference < ::Concurrent::MutexAtomicReference
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/atomic_reference.rb#129
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/atomic_reference.rb#136
   def inspect; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/atomic_reference.rb#129
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/atomic_reference.rb#136
   def to_s; end
 end
 
@@ -854,7 +857,7 @@ end
 # source://concurrent-ruby//lib/concurrent-ruby/concurrent/errors.rb#9
 class Concurrent::CancelledOperationError < ::Concurrent::Error; end
 
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/collection/timeout_queue.rb#2
+# source://concurrent-ruby//lib/concurrent-ruby/concurrent/map.rb#7
 module Concurrent::Collection; end
 
 # source://concurrent-ruby//lib/concurrent-ruby/concurrent/collection/copy_on_notify_observer_set.rb#12
@@ -2184,37 +2187,36 @@ class Concurrent::MutexAtomicReference
   include ::Concurrent::AtomicNumericCompareAndSetWrapper
   extend ::Concurrent::Synchronization::SafeInitialization
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic_reference/mutex_atomic.rb#16
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic_reference/mutex_atomic.rb#15
   def initialize(value = T.unsafe(nil)); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic_reference/mutex_atomic.rb#45
-  def _compare_and_set(old_value, new_value); end
-
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic_reference/numeric_cas_wrapper.rb#10
-  def compare_and_swap(old_value, new_value); end
-
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic_reference/mutex_atomic.rb#23
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic_reference/mutex_atomic.rb#22
   def get; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic_reference/mutex_atomic.rb#35
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic_reference/mutex_atomic.rb#34
   def get_and_set(new_value); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic_reference/mutex_atomic.rb#29
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic_reference/mutex_atomic.rb#28
   def set(new_value); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic_reference/mutex_atomic.rb#35
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic_reference/mutex_atomic.rb#34
   def swap(new_value); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic_reference/mutex_atomic.rb#23
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic_reference/mutex_atomic.rb#22
   def value; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic_reference/mutex_atomic.rb#29
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic_reference/mutex_atomic.rb#28
   def value=(new_value); end
 
   protected
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic_reference/mutex_atomic.rb#59
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic_reference/mutex_atomic.rb#58
   def synchronize; end
+
+  private
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic_reference/mutex_atomic.rb#44
+  def _compare_and_set(old_value, new_value); end
 end
 
 # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/mutex_count_down_latch.rb#9
@@ -3336,71 +3338,71 @@ module Concurrent::ReInclude
   def included(base); end
 end
 
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#31
+# source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#32
 class Concurrent::ReadWriteLock < ::Concurrent::Synchronization::Object
   extend ::Concurrent::Synchronization::SafeInitialization
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#59
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#60
   def initialize; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#111
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#113
   def acquire_read_lock; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#160
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#166
   def acquire_write_lock; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#214
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#227
   def has_waiters?; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#140
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#144
   def release_read_lock; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#196
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#206
   def release_write_lock; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#75
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#77
   def with_read_lock; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#94
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#96
   def with_write_lock; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#207
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#220
   def write_locked?; end
 
   private
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#246
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#259
   def max_readers?(c = T.unsafe(nil)); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#251
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#264
   def max_writers?(c = T.unsafe(nil)); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#221
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#234
   def running_readers(c = T.unsafe(nil)); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#226
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#239
   def running_readers?(c = T.unsafe(nil)); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#231
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#244
   def running_writer?(c = T.unsafe(nil)); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#241
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#254
   def waiting_writer?(c = T.unsafe(nil)); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#236
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#249
   def waiting_writers(c = T.unsafe(nil)); end
 end
 
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#40
+# source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#41
 Concurrent::ReadWriteLock::MAX_READERS = T.let(T.unsafe(nil), Integer)
 
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#43
+# source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#44
 Concurrent::ReadWriteLock::MAX_WRITERS = T.let(T.unsafe(nil), Integer)
 
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#37
+# source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#38
 Concurrent::ReadWriteLock::RUNNING_WRITER = T.let(T.unsafe(nil), Integer)
 
-# source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#34
+# source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb#35
 Concurrent::ReadWriteLock::WAITING_WRITER = T.let(T.unsafe(nil), Integer)
 
 # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#53
@@ -3413,19 +3415,19 @@ class Concurrent::ReentrantReadWriteLock < ::Concurrent::Synchronization::Object
   # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#162
   def acquire_read_lock; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#257
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#264
   def acquire_write_lock; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#236
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#243
   def release_read_lock; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#329
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#336
   def release_write_lock; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#215
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#220
   def try_read_lock; end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#310
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#317
   def try_write_lock; end
 
   # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#126
@@ -3436,25 +3438,25 @@ class Concurrent::ReentrantReadWriteLock < ::Concurrent::Synchronization::Object
 
   private
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#370
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#377
   def max_readers?(c = T.unsafe(nil)); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#375
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#382
   def max_writers?(c = T.unsafe(nil)); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#345
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#352
   def running_readers(c = T.unsafe(nil)); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#350
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#357
   def running_readers?(c = T.unsafe(nil)); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#355
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#362
   def running_writer?(c = T.unsafe(nil)); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#365
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#372
   def waiting_or_running_writer?(c = T.unsafe(nil)); end
 
-  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#360
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb#367
   def waiting_writers(c = T.unsafe(nil)); end
 end
 
