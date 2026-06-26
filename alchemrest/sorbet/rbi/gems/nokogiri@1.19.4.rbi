@@ -29,10 +29,10 @@ module Nokogiri
     # source://nokogiri//lib/nokogiri.rb#96
     def install_default_aliases; end
 
-    # source://nokogiri//lib/nokogiri/version/info.rb#206
+    # source://nokogiri//lib/nokogiri/version/info.rb#216
     def jruby?; end
 
-    # source://nokogiri//lib/nokogiri/version/info.rb#211
+    # source://nokogiri//lib/nokogiri/version/info.rb#221
     def libxml2_patches; end
 
     # source://nokogiri//lib/nokogiri.rb#68
@@ -41,10 +41,10 @@ module Nokogiri
     # source://nokogiri//lib/nokogiri.rb#42
     def parse(string, url = T.unsafe(nil), encoding = T.unsafe(nil), options = T.unsafe(nil)); end
 
-    # source://nokogiri//lib/nokogiri/version/info.rb#201
+    # source://nokogiri//lib/nokogiri/version/info.rb#211
     def uses_gumbo?; end
 
-    # source://nokogiri//lib/nokogiri/version/info.rb#193
+    # source://nokogiri//lib/nokogiri/version/info.rb#203
     def uses_libxml?(requirement = T.unsafe(nil)); end
   end
 end
@@ -1221,6 +1221,7 @@ Nokogiri::HTML5::QuirksMode::QUIRKS = T.let(T.unsafe(nil), Integer)
 
 Nokogiri::LIBXML2_PATCHES = T.let(T.unsafe(nil), Array)
 Nokogiri::LIBXML_COMPILED_VERSION = T.let(T.unsafe(nil), String)
+Nokogiri::LIBXML_HTTP_ENABLED = T.let(T.unsafe(nil), TrueClass)
 Nokogiri::LIBXML_ICONV_ENABLED = T.let(T.unsafe(nil), TrueClass)
 Nokogiri::LIBXML_LOADED_VERSION = T.let(T.unsafe(nil), String)
 Nokogiri::LIBXML_MEMORY_MANAGEMENT = T.let(T.unsafe(nil), String)
@@ -1245,7 +1246,7 @@ end
 # source://nokogiri//lib/nokogiri/version/constant.rb#5
 Nokogiri::VERSION = T.let(T.unsafe(nil), String)
 
-# source://nokogiri//lib/nokogiri/version/info.rb#223
+# source://nokogiri//lib/nokogiri/version/info.rb#233
 Nokogiri::VERSION_INFO = T.let(T.unsafe(nil), Hash)
 
 # source://nokogiri//lib/nokogiri/version/info.rb#7
@@ -1268,19 +1269,25 @@ class Nokogiri::VersionInfo
   # source://nokogiri//lib/nokogiri/version/info.rb#48
   def libxml2?; end
 
+  # source://nokogiri//lib/nokogiri/version/info.rb#60
+  def libxml2_has_http?; end
+
   # source://nokogiri//lib/nokogiri/version/info.rb#52
   def libxml2_has_iconv?; end
 
-  # source://nokogiri//lib/nokogiri/version/info.rb#68
+  # source://nokogiri//lib/nokogiri/version/info.rb#56
+  def libxml2_has_zlib?; end
+
+  # source://nokogiri//lib/nokogiri/version/info.rb#76
   def libxml2_precompiled?; end
 
-  # source://nokogiri//lib/nokogiri/version/info.rb#60
+  # source://nokogiri//lib/nokogiri/version/info.rb#68
   def libxml2_using_packaged?; end
 
-  # source://nokogiri//lib/nokogiri/version/info.rb#64
+  # source://nokogiri//lib/nokogiri/version/info.rb#72
   def libxml2_using_system?; end
 
-  # source://nokogiri//lib/nokogiri/version/info.rb#56
+  # source://nokogiri//lib/nokogiri/version/info.rb#64
   def libxslt_has_datetime?; end
 
   # source://nokogiri//lib/nokogiri/version/info.rb#26
@@ -1292,13 +1299,13 @@ class Nokogiri::VersionInfo
   # source://nokogiri//lib/nokogiri/version/info.rb#18
   def ruby_minor; end
 
-  # source://nokogiri//lib/nokogiri/version/info.rb#88
+  # source://nokogiri//lib/nokogiri/version/info.rb#96
   def to_hash; end
 
-  # source://nokogiri//lib/nokogiri/version/info.rb#181
+  # source://nokogiri//lib/nokogiri/version/info.rb#191
   def to_markdown; end
 
-  # source://nokogiri//lib/nokogiri/version/info.rb#72
+  # source://nokogiri//lib/nokogiri/version/info.rb#80
   def warnings; end
 
   # source://nokogiri//lib/nokogiri/version/info.rb#14
@@ -1494,94 +1501,94 @@ end
 
 # source://nokogiri//lib/nokogiri/xml/document.rb#14
 class Nokogiri::XML::Document < ::Nokogiri::XML::Node
-  # source://nokogiri//lib/nokogiri/xml/document.rb#190
+  # source://nokogiri//lib/nokogiri/xml/document.rb#191
   def initialize(*args); end
 
-  # source://nokogiri//lib/nokogiri/xml/document.rb#437
+  # source://nokogiri//lib/nokogiri/xml/document.rb#438
   def <<(node_or_tags); end
 
-  # source://nokogiri//lib/nokogiri/xml/document.rb#437
+  # source://nokogiri//lib/nokogiri/xml/document.rb#438
   def add_child(node_or_tags); end
 
   def canonicalize(*_arg0); end
 
-  # source://nokogiri//lib/nokogiri/xml/document.rb#223
+  # source://nokogiri//lib/nokogiri/xml/document.rb#224
   def clone(level = T.unsafe(nil)); end
 
-  # source://nokogiri//lib/nokogiri/xml/document.rb#361
+  # source://nokogiri//lib/nokogiri/xml/document.rb#362
   def collect_namespaces; end
 
-  # source://nokogiri//lib/nokogiri/xml/document.rb#306
+  # source://nokogiri//lib/nokogiri/xml/document.rb#307
   def create_cdata(string, &block); end
 
-  # source://nokogiri//lib/nokogiri/xml/document.rb#311
+  # source://nokogiri//lib/nokogiri/xml/document.rb#312
   def create_comment(string, &block); end
 
-  # source://nokogiri//lib/nokogiri/xml/document.rb#276
+  # source://nokogiri//lib/nokogiri/xml/document.rb#277
   def create_element(name, *contents_or_attrs, &block); end
 
   def create_entity(*_arg0); end
 
-  # source://nokogiri//lib/nokogiri/xml/document.rb#301
+  # source://nokogiri//lib/nokogiri/xml/document.rb#302
   def create_text_node(string, &block); end
 
-  # source://nokogiri//lib/nokogiri/xml/document.rb#501
+  # source://nokogiri//lib/nokogiri/xml/document.rb#502
   def deconstruct_keys(keys); end
 
-  # source://nokogiri//lib/nokogiri/xml/document.rb#409
+  # source://nokogiri//lib/nokogiri/xml/document.rb#410
   def decorate(node); end
 
-  # source://nokogiri//lib/nokogiri/xml/document.rb#368
+  # source://nokogiri//lib/nokogiri/xml/document.rb#369
   def decorators(key); end
 
-  # source://nokogiri//lib/nokogiri/xml/document.rb#321
+  # source://nokogiri//lib/nokogiri/xml/document.rb#322
   def document; end
 
-  # source://nokogiri//lib/nokogiri/xml/document.rb#207
+  # source://nokogiri//lib/nokogiri/xml/document.rb#208
   def dup(level = T.unsafe(nil)); end
 
   def encoding; end
   def encoding=(_arg0); end
 
-  # source://nokogiri//lib/nokogiri/xml/document.rb#141
+  # source://nokogiri//lib/nokogiri/xml/document.rb#142
   def errors; end
 
-  # source://nokogiri//lib/nokogiri/xml/document.rb#141
+  # source://nokogiri//lib/nokogiri/xml/document.rb#142
   def errors=(_arg0); end
 
-  # source://nokogiri//lib/nokogiri/xml/document.rb#429
+  # source://nokogiri//lib/nokogiri/xml/document.rb#430
   def fragment(tags = T.unsafe(nil)); end
 
-  # source://nokogiri//lib/nokogiri/xml/document.rb#316
+  # source://nokogiri//lib/nokogiri/xml/document.rb#317
   def name; end
 
-  # source://nokogiri//lib/nokogiri/xml/document.rb#188
+  # source://nokogiri//lib/nokogiri/xml/document.rb#189
   def namespace_inheritance; end
 
-  # source://nokogiri//lib/nokogiri/xml/document.rb#188
+  # source://nokogiri//lib/nokogiri/xml/document.rb#189
   def namespace_inheritance=(_arg0); end
 
-  # source://nokogiri//lib/nokogiri/xml/document.rb#422
+  # source://nokogiri//lib/nokogiri/xml/document.rb#423
   def namespaces; end
 
   def remove_namespaces!; end
   def root; end
   def root=(_arg0); end
 
-  # source://nokogiri//lib/nokogiri/xml/document.rb#398
+  # source://nokogiri//lib/nokogiri/xml/document.rb#399
   def slop!; end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1364
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1415
   def to_xml(*args, &block); end
 
   def url; end
 
-  # source://nokogiri//lib/nokogiri/xml/document.rb#376
+  # source://nokogiri//lib/nokogiri/xml/document.rb#377
   def validate; end
 
   def version; end
 
-  # source://nokogiri//lib/nokogiri/xml/document.rb#457
+  # source://nokogiri//lib/nokogiri/xml/document.rb#458
   def xpath_doctype; end
 
   protected
@@ -1590,7 +1597,7 @@ class Nokogiri::XML::Document < ::Nokogiri::XML::Node
 
   private
 
-  # source://nokogiri//lib/nokogiri/xml/document.rb#509
+  # source://nokogiri//lib/nokogiri/xml/document.rb#510
   def inspect_attributes; end
 
   class << self
@@ -1604,12 +1611,12 @@ class Nokogiri::XML::Document < ::Nokogiri::XML::Node
 
     private
 
-    # source://nokogiri//lib/nokogiri/xml/document.rb#96
+    # source://nokogiri//lib/nokogiri/xml/document.rb#97
     def empty_doc?(string_or_io); end
   end
 end
 
-# source://nokogiri//lib/nokogiri/xml/document.rb#507
+# source://nokogiri//lib/nokogiri/xml/document.rb#508
 Nokogiri::XML::Document::IMPLIED_XPATH_CONTEXTS = T.let(T.unsafe(nil), Array)
 
 # source://nokogiri//lib/nokogiri/xml/document.rb#19
@@ -1824,25 +1831,25 @@ class Nokogiri::XML::Node
   # source://nokogiri//lib/nokogiri/xml/node.rb#292
   def <<(node_or_tags); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1340
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1391
   def <=>(other); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1330
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1381
   def ==(other); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#587
+  # source://nokogiri//lib/nokogiri/xml/node.rb#638
   def [](name); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#625
+  # source://nokogiri//lib/nokogiri/xml/node.rb#676
   def []=(name, value); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1324
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1375
   def accept(visitor); end
 
   # source://nokogiri//lib/nokogiri/xml/node.rb#184
   def add_child(node_or_tags); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#790
+  # source://nokogiri//lib/nokogiri/xml/node.rb#841
   def add_class(names); end
 
   def add_namespace(_arg0, _arg1); end
@@ -1857,20 +1864,20 @@ class Nokogiri::XML::Node
   # source://nokogiri//lib/nokogiri/xml/node.rb#354
   def after(node_or_tags); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1293
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1344
   def ancestors(selector = T.unsafe(nil)); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#834
+  # source://nokogiri//lib/nokogiri/xml/node.rb#885
   def append_class(names); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#587
+  # source://nokogiri//lib/nokogiri/xml/node.rb#638
   def attr(name); end
 
   def attribute(_arg0); end
   def attribute_nodes; end
   def attribute_with_ns(_arg0, _arg1); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#684
+  # source://nokogiri//lib/nokogiri/xml/node.rb#735
   def attributes; end
 
   # source://nokogiri//lib/nokogiri/xml/node.rb#340
@@ -1878,10 +1885,10 @@ class Nokogiri::XML::Node
 
   def blank?; end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1492
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1543
   def canonicalize(mode = T.unsafe(nil), inclusive_namespaces = T.unsafe(nil), with_comments = T.unsafe(nil)); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1214
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1265
   def cdata?; end
 
   def child; end
@@ -1890,13 +1897,13 @@ class Nokogiri::XML::Node
   # source://nokogiri//lib/nokogiri/xml/node.rb#385
   def children=(node_or_tags); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#744
+  # source://nokogiri//lib/nokogiri/xml/node.rb#795
   def classes; end
 
   # source://nokogiri//lib/nokogiri/xml/node.rb#162
   def clone(level = T.unsafe(nil), new_parent_doc = T.unsafe(nil)); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1209
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1260
   def comment?; end
 
   def content; end
@@ -1907,12 +1914,12 @@ class Nokogiri::XML::Node
   def create_external_subset(_arg0, _arg1, _arg2); end
   def create_internal_subset(_arg0, _arg1, _arg2); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1284
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1335
   def css_path; end
 
   def data_ptr?; end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1553
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1604
   def deconstruct_keys(keys); end
 
   # source://nokogiri//lib/nokogiri/xml/node.rb#168
@@ -1921,30 +1928,30 @@ class Nokogiri::XML::Node
   # source://nokogiri//lib/nokogiri/xml/node.rb#503
   def default_namespace=(url); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#718
+  # source://nokogiri//lib/nokogiri/xml/node.rb#769
   def delete(name); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1251
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1302
   def description; end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#530
-  def do_xinclude(options = T.unsafe(nil)); end
+  # source://nokogiri//lib/nokogiri/xml/node.rb#574
+  def do_xinclude(options = T.unsafe(nil), safe_copy: T.unsafe(nil)); end
 
   def document; end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1229
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1280
   def document?; end
 
   # source://nokogiri//lib/nokogiri/xml/node.rb#144
   def dup(level = T.unsafe(nil), new_parent_doc = T.unsafe(nil)); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#710
+  # source://nokogiri//lib/nokogiri/xml/node.rb#761
   def each; end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1265
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1316
   def elem?; end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1265
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1316
   def element?; end
 
   def element_children; end
@@ -1956,15 +1963,15 @@ class Nokogiri::XML::Node
   # source://nokogiri//lib/nokogiri/html5/node.rb#70
   def fragment(tags); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1244
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1295
   def fragment?; end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#587
+  # source://nokogiri//lib/nokogiri/xml/node.rb#638
   def get_attribute(name); end
 
   def has_attribute?(_arg0); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1224
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1275
   def html?; end
 
   # source://nokogiri//lib/nokogiri/html5/node.rb#31
@@ -1977,19 +1984,19 @@ class Nokogiri::XML::Node
   def internal_subset; end
   def key?(_arg0); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#704
+  # source://nokogiri//lib/nokogiri/xml/node.rb#755
   def keys; end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#967
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1018
   def kwattr_add(attribute_name, keywords); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1020
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1071
   def kwattr_append(attribute_name, keywords); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1063
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1114
   def kwattr_remove(attribute_name, keywords); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#913
+  # source://nokogiri//lib/nokogiri/xml/node.rb#964
   def kwattr_values(attribute_name); end
 
   def lang; end
@@ -1998,7 +2005,7 @@ class Nokogiri::XML::Node
   def line; end
   def line=(_arg0); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1090
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1141
   def matches?(selector); end
 
   def name; end
@@ -2012,7 +2019,7 @@ class Nokogiri::XML::Node
   def namespace_scopes; end
   def namespaced_key?(_arg0, _arg1); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1200
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1251
   def namespaces; end
 
   def native_content=(_arg0); end
@@ -2031,7 +2038,7 @@ class Nokogiri::XML::Node
   # source://nokogiri//lib/nokogiri/xml/node.rb#493
   def parent=(parent_node); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1105
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1156
   def parse(string_or_io, options = T.unsafe(nil)); end
 
   def path; end
@@ -2048,27 +2055,27 @@ class Nokogiri::XML::Node
   def previous_element; end
   def previous_sibling; end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1234
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1285
   def processing_instruction?; end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1259
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1310
   def read_only?; end
 
   def remove; end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#718
+  # source://nokogiri//lib/nokogiri/xml/node.rb#769
   def remove_attribute(name); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#884
+  # source://nokogiri//lib/nokogiri/xml/node.rb#935
   def remove_class(names = T.unsafe(nil)); end
 
   # source://nokogiri//lib/nokogiri/xml/node.rb#405
   def replace(node_or_tags); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1364
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1415
   def serialize(*args, &block); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#625
+  # source://nokogiri//lib/nokogiri/xml/node.rb#676
   def set_attribute(name, value); end
 
   # source://nokogiri//lib/nokogiri/xml/node.rb#439
@@ -2076,59 +2083,60 @@ class Nokogiri::XML::Node
 
   def text; end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1239
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1290
   def text?; end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1391
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1442
   def to_html(options = T.unsafe(nil)); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1274
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1325
   def to_s; end
 
   def to_str; end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1412
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1463
   def to_xhtml(options = T.unsafe(nil)); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1401
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1452
   def to_xml(options = T.unsafe(nil)); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1317
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1368
   def traverse(&block); end
 
   def type; end
   def unlink; end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#698
+  # source://nokogiri//lib/nokogiri/xml/node.rb#749
   def value?(value); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#692
+  # source://nokogiri//lib/nokogiri/xml/node.rb#743
   def values; end
 
   # source://nokogiri//lib/nokogiri/xml/node.rb#259
   def wrap(node_or_tags); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1469
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1520
   def write_html_to(io, options = T.unsafe(nil)); end
 
   # source://nokogiri//lib/nokogiri/html5/node.rb#39
   def write_to(io, *options); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1477
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1528
   def write_xhtml_to(io, options = T.unsafe(nil)); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1487
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1538
   def write_xml_to(io, options = T.unsafe(nil)); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1219
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1270
   def xml?; end
 
   protected
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1567
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1618
   def coerce(data); end
 
   def initialize_copy_with_args(_arg0, _arg1, _arg2); end
+  def safe_process_xinclude(_arg0); end
 
   private
 
@@ -2140,7 +2148,7 @@ class Nokogiri::XML::Node
   def add_next_sibling_node(_arg0); end
   def add_previous_sibling_node(_arg0); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1601
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1652
   def add_sibling(next_or_previous, node_or_tags); end
 
   def compare(_arg0); end
@@ -2149,10 +2157,10 @@ class Nokogiri::XML::Node
   def html_standard_serialize(_arg0); end
   def in_context(_arg0, _arg1); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1633
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1684
   def inspect_attributes; end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1589
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1640
   def keywordify(keywords); end
 
   def native_write_to(_arg0, _arg1, _arg2, _arg3); end
@@ -2162,10 +2170,10 @@ class Nokogiri::XML::Node
   def set(_arg0, _arg1); end
   def set_namespace(_arg0); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1623
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1674
   def to_format(save_option, options); end
 
-  # source://nokogiri//lib/nokogiri/xml/node.rb#1628
+  # source://nokogiri//lib/nokogiri/xml/node.rb#1679
   def write_format_to(save_option, io, options); end
 
   class << self
@@ -2185,10 +2193,10 @@ Nokogiri::XML::Node::CDATA_SECTION_NODE = T.let(T.unsafe(nil), Integer)
 # source://nokogiri//lib/nokogiri/xml/node.rb#77
 Nokogiri::XML::Node::COMMENT_NODE = T.let(T.unsafe(nil), Integer)
 
-# source://nokogiri//lib/nokogiri/xml/node.rb#1500
+# source://nokogiri//lib/nokogiri/xml/node.rb#1551
 Nokogiri::XML::Node::DECONSTRUCT_KEYS = T.let(T.unsafe(nil), Array)
 
-# source://nokogiri//lib/nokogiri/xml/node.rb#1501
+# source://nokogiri//lib/nokogiri/xml/node.rb#1552
 Nokogiri::XML::Node::DECONSTRUCT_METHODS = T.let(T.unsafe(nil), Hash)
 
 # source://nokogiri//lib/nokogiri/xml/node.rb#103
@@ -2224,7 +2232,7 @@ Nokogiri::XML::Node::ENTITY_REF_NODE = T.let(T.unsafe(nil), Integer)
 # source://nokogiri//lib/nokogiri/xml/node.rb#87
 Nokogiri::XML::Node::HTML_DOCUMENT_NODE = T.let(T.unsafe(nil), Integer)
 
-# source://nokogiri//lib/nokogiri/xml/node.rb#1637
+# source://nokogiri//lib/nokogiri/xml/node.rb#1688
 Nokogiri::XML::Node::IMPLIED_XPATH_CONTEXTS = T.let(T.unsafe(nil), Array)
 
 # source://nokogiri//lib/nokogiri/xml/node.rb#97
@@ -2346,6 +2354,12 @@ Nokogiri::XML::Node::TEXT_NODE = T.let(T.unsafe(nil), Integer)
 
 # source://nokogiri//lib/nokogiri/xml/node.rb#101
 Nokogiri::XML::Node::XINCLUDE_END = T.let(T.unsafe(nil), Integer)
+
+# source://nokogiri//lib/nokogiri/xml/node.rb#526
+Nokogiri::XML::Node::XINCLUDE_NAMESPACES = T.let(T.unsafe(nil), Hash)
+
+# source://nokogiri//lib/nokogiri/xml/node.rb#535
+Nokogiri::XML::Node::XINCLUDE_QUERY = T.let(T.unsafe(nil), String)
 
 # source://nokogiri//lib/nokogiri/xml/node.rb#99
 Nokogiri::XML::Node::XINCLUDE_START = T.let(T.unsafe(nil), Integer)
