@@ -68,54 +68,54 @@ class Faraday::Adapter
   extend ::Faraday::MiddlewareRegistry
   extend ::Faraday::Adapter::Parallelism
 
-  # source://faraday//lib/faraday/adapter.rb#28
+  # source://faraday//lib/faraday/adapter.rb#35
   def initialize(_app = T.unsafe(nil), opts = T.unsafe(nil), &block); end
 
-  # source://faraday//lib/faraday/adapter.rb#55
+  # source://faraday//lib/faraday/adapter.rb#62
   def call(env); end
 
-  # source://faraday//lib/faraday/adapter.rb#50
+  # source://faraday//lib/faraday/adapter.rb#57
   def close; end
 
-  # source://faraday//lib/faraday/adapter.rb#41
+  # source://faraday//lib/faraday/adapter.rb#48
   def connection(env); end
 
   private
 
-  # source://faraday//lib/faraday/adapter.rb#85
+  # source://faraday//lib/faraday/adapter.rb#92
   def request_timeout(type, options); end
 
-  # source://faraday//lib/faraday/adapter.rb#62
+  # source://faraday//lib/faraday/adapter.rb#69
   def save_response(env, status, body, headers = T.unsafe(nil), reason_phrase = T.unsafe(nil), finished: T.unsafe(nil)); end
 end
 
 # source://faraday//lib/faraday/adapter.rb#9
 Faraday::Adapter::CONTENT_LENGTH = T.let(T.unsafe(nil), String)
 
-# source://faraday//lib/faraday/adapter.rb#12
+# source://faraday//lib/faraday/adapter.rb#18
 module Faraday::Adapter::Parallelism
-  # source://faraday//lib/faraday/adapter.rb#19
+  # source://faraday//lib/faraday/adapter.rb#25
   def inherited(subclass); end
 
-  # source://faraday//lib/faraday/adapter.rb#13
+  # source://faraday//lib/faraday/adapter.rb#19
   def supports_parallel=(_arg0); end
 
-  # source://faraday//lib/faraday/adapter.rb#15
+  # source://faraday//lib/faraday/adapter.rb#21
   def supports_parallel?; end
 end
 
-# source://faraday//lib/faraday/adapter.rb#93
+# source://faraday//lib/faraday/adapter.rb#11
 Faraday::Adapter::TIMEOUT_KEYS = T.let(T.unsafe(nil), Hash)
 
 # source://faraday//lib/faraday/adapter/test.rb#62
 class Faraday::Adapter::Test < ::Faraday::Adapter
-  # source://faraday//lib/faraday/adapter/test.rb#258
+  # source://faraday//lib/faraday/adapter/test.rb#266
   def initialize(app, stubs = T.unsafe(nil), &block); end
 
-  # source://faraday//lib/faraday/adapter/test.rb#269
+  # source://faraday//lib/faraday/adapter/test.rb#277
   def call(env); end
 
-  # source://faraday//lib/faraday/adapter/test.rb#264
+  # source://faraday//lib/faraday/adapter/test.rb#272
   def configure; end
 
   # source://faraday//lib/faraday/adapter/test.rb#63
@@ -125,35 +125,35 @@ class Faraday::Adapter::Test < ::Faraday::Adapter
   def stubs=(_arg0); end
 end
 
-# source://faraday//lib/faraday/adapter/test.rb#187
+# source://faraday//lib/faraday/adapter/test.rb#195
 class Faraday::Adapter::Test::Stub < ::Struct
   def block; end
   def block=(_); end
   def body; end
   def body=(_); end
 
-  # source://faraday//lib/faraday/adapter/test.rb#242
+  # source://faraday//lib/faraday/adapter/test.rb#250
   def body_match?(request_body); end
 
   def headers; end
   def headers=(_); end
 
-  # source://faraday//lib/faraday/adapter/test.rb#227
+  # source://faraday//lib/faraday/adapter/test.rb#235
   def headers_match?(request_headers); end
 
   def host; end
   def host=(_); end
 
-  # source://faraday//lib/faraday/adapter/test.rb#189
+  # source://faraday//lib/faraday/adapter/test.rb#197
   def matches?(env); end
 
-  # source://faraday//lib/faraday/adapter/test.rb#214
+  # source://faraday//lib/faraday/adapter/test.rb#222
   def params_match?(env); end
 
   def path; end
   def path=(_); end
 
-  # source://faraday//lib/faraday/adapter/test.rb#205
+  # source://faraday//lib/faraday/adapter/test.rb#213
   def path_match?(request_path, meta); end
 
   def query; end
@@ -161,7 +161,7 @@ class Faraday::Adapter::Test::Stub < ::Struct
   def strict_mode; end
   def strict_mode=(_); end
 
-  # source://faraday//lib/faraday/adapter/test.rb#253
+  # source://faraday//lib/faraday/adapter/test.rb#261
   def to_s; end
 
   class << self
@@ -177,6 +177,9 @@ end
 class Faraday::Adapter::Test::Stubs
   # source://faraday//lib/faraday/adapter/test.rb#70
   def initialize(strict_mode: T.unsafe(nil)); end
+
+  # source://faraday//lib/faraday/adapter/test.rb#131
+  def clear; end
 
   # source://faraday//lib/faraday/adapter/test.rb#122
   def delete(path, headers = T.unsafe(nil), &block); end
@@ -205,18 +208,18 @@ class Faraday::Adapter::Test::Stubs
   # source://faraday//lib/faraday/adapter/test.rb#114
   def put(path, body = T.unsafe(nil), headers = T.unsafe(nil), &block); end
 
-  # source://faraday//lib/faraday/adapter/test.rb#147
+  # source://faraday//lib/faraday/adapter/test.rb#155
   def strict_mode=(value); end
 
-  # source://faraday//lib/faraday/adapter/test.rb#131
+  # source://faraday//lib/faraday/adapter/test.rb#139
   def verify_stubbed_calls; end
 
   protected
 
-  # source://faraday//lib/faraday/adapter/test.rb#177
+  # source://faraday//lib/faraday/adapter/test.rb#185
   def matches?(stack, env); end
 
-  # source://faraday//lib/faraday/adapter/test.rb#158
+  # source://faraday//lib/faraday/adapter/test.rb#166
   def new_stub(request_method, path, headers = T.unsafe(nil), body = T.unsafe(nil), &block); end
 end
 
@@ -284,10 +287,10 @@ class Faraday::Connection
   # source://faraday//lib/faraday/connection.rb#199
   def delete(url = T.unsafe(nil), params = T.unsafe(nil), headers = T.unsafe(nil)); end
 
-  # source://faraday//lib/faraday/connection.rb#500
+  # source://faraday//lib/faraday/connection.rb#502
   def dup; end
 
-  # source://faraday//lib/faraday/connection.rb#543
+  # source://faraday//lib/faraday/connection.rb#545
   def find_default_proxy; end
 
   # source://faraday//lib/faraday/connection.rb#199
@@ -353,10 +356,10 @@ class Faraday::Connection
   # source://faraday//lib/faraday/connection.rb#341
   def proxy=(new_value); end
 
-  # source://faraday//lib/faraday/connection.rb#551
+  # source://faraday//lib/faraday/connection.rb#553
   def proxy_for_request(url); end
 
-  # source://faraday//lib/faraday/connection.rb#523
+  # source://faraday//lib/faraday/connection.rb#525
   def proxy_from_env(url); end
 
   # source://faraday//lib/faraday/connection.rb#279
@@ -383,7 +386,7 @@ class Faraday::Connection
   # source://faraday//lib/faraday/connection.rb#34
   def ssl; end
 
-  # source://faraday//lib/faraday/connection.rb#561
+  # source://faraday//lib/faraday/connection.rb#563
   def support_parallel?(adapter); end
 
   # source://faraday//lib/faraday/connection.rb#199
@@ -398,7 +401,7 @@ class Faraday::Connection
   # source://forwardable/1.3.3/forwardable.rb#231
   def use(*args, **_arg1, &block); end
 
-  # source://faraday//lib/faraday/connection.rb#517
+  # source://faraday//lib/faraday/connection.rb#519
   def with_uri_credentials(uri); end
 end
 
@@ -461,23 +464,26 @@ module Faraday::DecodeMethods
 
   protected
 
-  # source://faraday//lib/faraday/encoders/nested_params_encoder.rb#144
+  # source://faraday//lib/faraday/encoders/nested_params_encoder.rb#146
   def add_to_context(is_array, context, value, subkey); end
 
   # source://faraday//lib/faraday/encoders/nested_params_encoder.rb#107
   def decode_pair(key, value, context); end
 
-  # source://faraday//lib/faraday/encoders/nested_params_encoder.rb#151
+  # source://faraday//lib/faraday/encoders/nested_params_encoder.rb#159
   def dehash(hash, depth); end
 
-  # source://faraday//lib/faraday/encoders/nested_params_encoder.rb#139
+  # source://faraday//lib/faraday/encoders/nested_params_encoder.rb#141
   def match_context(context, subkey); end
 
-  # source://faraday//lib/faraday/encoders/nested_params_encoder.rb#129
+  # source://faraday//lib/faraday/encoders/nested_params_encoder.rb#131
   def new_context(subkey, is_array, context); end
 
-  # source://faraday//lib/faraday/encoders/nested_params_encoder.rb#119
+  # source://faraday//lib/faraday/encoders/nested_params_encoder.rb#121
   def prepare_context(context, subkey, is_array, last_subkey); end
+
+  # source://faraday//lib/faraday/encoders/nested_params_encoder.rb#150
+  def validate_params_depth!(depth); end
 end
 
 # source://faraday//lib/faraday/encoders/nested_params_encoder.rb#105
@@ -663,19 +669,19 @@ end
 # source://faraday//lib/faraday/encoders/flat_params_encoder.rb#6
 module Faraday::FlatParamsEncoder
   class << self
-    # source://faraday//lib/faraday/encoders/flat_params_encoder.rb#74
+    # source://faraday//lib/faraday/encoders/flat_params_encoder.rb#75
     def decode(query); end
 
-    # source://faraday//lib/faraday/encoders/flat_params_encoder.rb#23
+    # source://faraday//lib/faraday/encoders/flat_params_encoder.rb#24
     def encode(params); end
 
     # source://forwardable/1.3.3/forwardable.rb#231
     def escape(*args, **_arg1, &block); end
 
-    # source://faraday//lib/faraday/encoders/flat_params_encoder.rb#99
+    # source://faraday//lib/faraday/encoders/flat_params_encoder.rb#100
     def sort_params; end
 
-    # source://faraday//lib/faraday/encoders/flat_params_encoder.rb#99
+    # source://faraday//lib/faraday/encoders/flat_params_encoder.rb#100
     def sort_params=(_arg0); end
 
     # source://forwardable/1.3.3/forwardable.rb#231
@@ -830,25 +836,31 @@ module Faraday::MiddlewareRegistry
   def middleware_mutex(&block); end
 end
 
-# source://faraday//lib/faraday/encoders/nested_params_encoder.rb#168
+# source://faraday//lib/faraday/encoders/nested_params_encoder.rb#176
 module Faraday::NestedParamsEncoder
   extend ::Faraday::EncodeMethods
   extend ::Faraday::DecodeMethods
 
   class << self
-    # source://faraday//lib/faraday/encoders/nested_params_encoder.rb#170
+    # source://faraday//lib/faraday/encoders/nested_params_encoder.rb#178
     def array_indices; end
 
-    # source://faraday//lib/faraday/encoders/nested_params_encoder.rb#170
+    # source://faraday//lib/faraday/encoders/nested_params_encoder.rb#178
     def array_indices=(_arg0); end
 
     # source://forwardable/1.3.3/forwardable.rb#231
     def escape(*args, **_arg1, &block); end
 
-    # source://faraday//lib/faraday/encoders/nested_params_encoder.rb#170
+    # source://faraday//lib/faraday/encoders/nested_params_encoder.rb#178
+    def param_depth_limit; end
+
+    # source://faraday//lib/faraday/encoders/nested_params_encoder.rb#178
+    def param_depth_limit=(_arg0); end
+
+    # source://faraday//lib/faraday/encoders/nested_params_encoder.rb#178
     def sort_params; end
 
-    # source://faraday//lib/faraday/encoders/nested_params_encoder.rb#170
+    # source://faraday//lib/faraday/encoders/nested_params_encoder.rb#178
     def sort_params=(_arg0); end
 
     # source://forwardable/1.3.3/forwardable.rb#231
@@ -1004,7 +1016,7 @@ class Faraday::ProxyOptions < ::Faraday::Options
   class << self
     def [](*_arg0); end
 
-    # source://faraday//lib/faraday/options/proxy_options.rb#13
+    # source://faraday//lib/faraday/options/proxy_options.rb#14
     def from(value); end
 
     def inspect; end
@@ -1016,67 +1028,67 @@ end
 
 # source://faraday//lib/faraday/rack_builder.rb#14
 class Faraday::RackBuilder
-  # source://faraday//lib/faraday/rack_builder.rb#61
+  # source://faraday//lib/faraday/rack_builder.rb#66
   def initialize(&block); end
 
-  # source://faraday//lib/faraday/rack_builder.rb#179
+  # source://faraday//lib/faraday/rack_builder.rb#184
   def ==(other); end
 
-  # source://faraday//lib/faraday/rack_builder.rb#79
+  # source://faraday//lib/faraday/rack_builder.rb#84
   def [](idx); end
 
-  # source://faraday//lib/faraday/rack_builder.rb#110
+  # source://faraday//lib/faraday/rack_builder.rb#115
   def adapter(klass = T.unsafe(nil), *args, **kwargs, &block); end
 
-  # source://faraday//lib/faraday/rack_builder.rb#163
+  # source://faraday//lib/faraday/rack_builder.rb#168
   def app; end
 
-  # source://faraday//lib/faraday/rack_builder.rb#73
+  # source://faraday//lib/faraday/rack_builder.rb#78
   def build; end
 
-  # source://faraday//lib/faraday/rack_builder.rb#201
+  # source://faraday//lib/faraday/rack_builder.rb#206
   def build_env(connection, request); end
 
-  # source://faraday//lib/faraday/rack_builder.rb#152
+  # source://faraday//lib/faraday/rack_builder.rb#157
   def build_response(connection, request); end
 
-  # source://faraday//lib/faraday/rack_builder.rb#140
+  # source://faraday//lib/faraday/rack_builder.rb#145
   def delete(handler); end
 
-  # source://faraday//lib/faraday/rack_builder.rb#18
+  # source://faraday//lib/faraday/rack_builder.rb#23
   def handlers; end
 
-  # source://faraday//lib/faraday/rack_builder.rb#18
+  # source://faraday//lib/faraday/rack_builder.rb#23
   def handlers=(_arg0); end
 
-  # source://faraday//lib/faraday/rack_builder.rb#119
+  # source://faraday//lib/faraday/rack_builder.rb#124
   def insert(index, *_arg1, **_arg2, &_arg3); end
 
-  # source://faraday//lib/faraday/rack_builder.rb#128
+  # source://faraday//lib/faraday/rack_builder.rb#133
   def insert_after(index, *_arg1, **_arg2, &_arg3); end
 
-  # source://faraday//lib/faraday/rack_builder.rb#119
+  # source://faraday//lib/faraday/rack_builder.rb#124
   def insert_before(index, *_arg1, **_arg2, &_arg3); end
 
-  # source://faraday//lib/faraday/rack_builder.rb#84
+  # source://faraday//lib/faraday/rack_builder.rb#89
   def lock!; end
 
-  # source://faraday//lib/faraday/rack_builder.rb#88
+  # source://faraday//lib/faraday/rack_builder.rb#93
   def locked?; end
 
-  # source://faraday//lib/faraday/rack_builder.rb#102
+  # source://faraday//lib/faraday/rack_builder.rb#107
   def request(key, *_arg1, **_arg2, &_arg3); end
 
-  # source://faraday//lib/faraday/rack_builder.rb#106
+  # source://faraday//lib/faraday/rack_builder.rb#111
   def response(*_arg0, **_arg1, &_arg2); end
 
-  # source://faraday//lib/faraday/rack_builder.rb#133
+  # source://faraday//lib/faraday/rack_builder.rb#138
   def swap(index, *_arg1, **_arg2, &_arg3); end
 
-  # source://faraday//lib/faraday/rack_builder.rb#171
+  # source://faraday//lib/faraday/rack_builder.rb#176
   def to_app; end
 
-  # source://faraday//lib/faraday/rack_builder.rb#92
+  # source://faraday//lib/faraday/rack_builder.rb#97
   def use(klass, *_arg1, **_arg2, &_arg3); end
 
   private
@@ -1090,7 +1102,7 @@ class Faraday::RackBuilder
   # source://faraday//lib/faraday/rack_builder.rb#229
   def ensure_adapter!; end
 
-  # source://faraday//lib/faraday/rack_builder.rb#67
+  # source://faraday//lib/faraday/rack_builder.rb#72
   def initialize_dup(original); end
 
   # source://faraday//lib/faraday/rack_builder.rb#223
@@ -1103,40 +1115,40 @@ class Faraday::RackBuilder
   def use_symbol(mod, key, *_arg2, **_arg3, &_arg4); end
 end
 
-# source://faraday//lib/faraday/rack_builder.rb#25
+# source://faraday//lib/faraday/rack_builder.rb#30
 class Faraday::RackBuilder::Handler
-  # source://faraday//lib/faraday/rack_builder.rb#30
+  # source://faraday//lib/faraday/rack_builder.rb#35
   def initialize(klass, *args, **kwargs, &block); end
 
-  # source://faraday//lib/faraday/rack_builder.rb#46
+  # source://faraday//lib/faraday/rack_builder.rb#51
   def ==(other); end
 
-  # source://faraday//lib/faraday/rack_builder.rb#56
+  # source://faraday//lib/faraday/rack_builder.rb#61
   def build(app = T.unsafe(nil)); end
 
-  # source://faraday//lib/faraday/rack_builder.rb#42
+  # source://faraday//lib/faraday/rack_builder.rb#47
   def inspect; end
 
-  # source://faraday//lib/faraday/rack_builder.rb#38
+  # source://faraday//lib/faraday/rack_builder.rb#43
   def klass; end
 
-  # source://faraday//lib/faraday/rack_builder.rb#28
+  # source://faraday//lib/faraday/rack_builder.rb#33
   def name; end
 end
 
-# source://faraday//lib/faraday/rack_builder.rb#26
+# source://faraday//lib/faraday/rack_builder.rb#31
 Faraday::RackBuilder::Handler::REGISTRY = T.let(T.unsafe(nil), Faraday::AdapterRegistry)
 
-# source://faraday//lib/faraday/rack_builder.rb#214
+# source://faraday//lib/faraday/rack_builder.rb#18
 Faraday::RackBuilder::LOCK_ERR = T.let(T.unsafe(nil), String)
 
-# source://faraday//lib/faraday/rack_builder.rb#215
+# source://faraday//lib/faraday/rack_builder.rb#19
 Faraday::RackBuilder::MISSING_ADAPTER_ERROR = T.let(T.unsafe(nil), String)
 
 # source://faraday//lib/faraday/rack_builder.rb#16
 Faraday::RackBuilder::NO_ARGUMENT = T.let(T.unsafe(nil), Object)
 
-# source://faraday//lib/faraday/rack_builder.rb#21
+# source://faraday//lib/faraday/rack_builder.rb#26
 class Faraday::RackBuilder::StackLocked < ::RuntimeError; end
 
 # source://faraday//lib/faraday/request.rb#27
