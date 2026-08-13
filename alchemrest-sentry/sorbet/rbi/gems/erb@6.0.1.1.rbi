@@ -7,61 +7,61 @@
 
 # source://erb//lib/erb/version.rb#2
 class ERB
-  # source://erb//lib/erb.rb#334
-  def initialize(str, safe_level = T.unsafe(nil), legacy_trim_mode = T.unsafe(nil), legacy_eoutvar = T.unsafe(nil), trim_mode: T.unsafe(nil), eoutvar: T.unsafe(nil)); end
+  # source://erb//lib/erb.rb#832
+  def initialize(str, trim_mode: T.unsafe(nil), eoutvar: T.unsafe(nil)); end
 
-  # source://erb//lib/erb.rb#499
+  # source://erb//lib/erb.rb#1173
   def def_class(superklass = T.unsafe(nil), methodname = T.unsafe(nil)); end
 
-  # source://erb//lib/erb.rb#463
+  # source://erb//lib/erb.rb#1088
   def def_method(mod, methodname, fname = T.unsafe(nil)); end
 
-  # source://erb//lib/erb.rb#480
+  # source://erb//lib/erb.rb#1116
   def def_module(methodname = T.unsafe(nil)); end
 
-  # source://erb//lib/erb.rb#369
+  # source://erb//lib/erb.rb#909
   def encoding; end
 
-  # source://erb//lib/erb.rb#373
+  # source://erb//lib/erb.rb#917
   def filename; end
 
-  # source://erb//lib/erb.rb#373
+  # source://erb//lib/erb.rb#917
   def filename=(_arg0); end
 
-  # source://erb//lib/erb.rb#377
+  # source://erb//lib/erb.rb#925
   def lineno; end
 
-  # source://erb//lib/erb.rb#377
+  # source://erb//lib/erb.rb#925
   def lineno=(_arg0); end
 
-  # source://erb//lib/erb.rb#394
+  # source://erb//lib/erb.rb#937
   def location=(_arg0); end
 
-  # source://erb//lib/erb.rb#361
+  # source://erb//lib/erb.rb#854
   def make_compiler(trim_mode); end
 
-  # source://erb//lib/erb.rb#423
+  # source://erb//lib/erb.rb#1008
   def result(b = T.unsafe(nil)); end
 
-  # source://erb//lib/erb.rb#432
+  # source://erb//lib/erb.rb#1027
   def result_with_hash(hash); end
 
-  # source://erb//lib/erb.rb#412
+  # source://erb//lib/erb.rb#986
   def run(b = T.unsafe(nil)); end
 
-  # source://erb//lib/erb.rb#404
+  # source://erb//lib/erb.rb#972
   def set_eoutvar(compiler, eoutvar = T.unsafe(nil)); end
 
-  # source://erb//lib/erb.rb#366
+  # source://erb//lib/erb.rb#900
   def src; end
 
   private
 
-  # source://erb//lib/erb.rb#444
+  # source://erb//lib/erb.rb#1051
   def new_toplevel(vars = T.unsafe(nil)); end
 
   class << self
-    # source://erb//lib/erb.rb#266
+    # source://erb//lib/erb.rb#787
     def version; end
   end
 end
@@ -136,7 +136,7 @@ class ERB::Compiler
   # source://erb//lib/erb/compiler.rb#459
   def detect_magic_comment(s, enc = T.unsafe(nil)); end
 
-  # source://erb//lib/erb/compiler.rb#485
+  # source://erb//lib/erb/compiler.rb#484
   def warn_invalid_trim_mode(mode, uplevel:); end
 end
 
@@ -276,10 +276,7 @@ module ERB::Escape
   end
 end
 
-# source://erb//lib/erb.rb#355
-ERB::NOT_GIVEN = T.let(T.unsafe(nil), Object)
-
-# source://erb//lib/erb/util.rb#32
+# source://erb//lib/erb/util.rb#33
 module ERB::Util
   include ::ActiveSupport::CoreExt::ERBUtil
   include ::ERB::Escape
@@ -287,20 +284,20 @@ module ERB::Util
 
   private
 
-  # source://erb//lib/erb/util.rb#63
+  # source://erb//lib/erb/util.rb#64
   def u(s); end
 
-  # source://erb//lib/erb/util.rb#63
+  # source://erb//lib/erb/util.rb#64
   def url_encode(s); end
 
   class << self
-    # source://erb//lib/erb/util.rb#63
+    # source://erb//lib/erb/util.rb#64
     def u(s); end
 
-    # source://erb//lib/erb/util.rb#63
+    # source://erb//lib/erb/util.rb#64
     def url_encode(s); end
   end
 end
 
-# source://erb//lib/erb/version.rb#3
+# source://erb//lib/erb/version.rb#4
 ERB::VERSION = T.let(T.unsafe(nil), String)
