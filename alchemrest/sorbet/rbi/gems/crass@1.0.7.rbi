@@ -8,87 +8,90 @@
 # source://crass//lib/crass/token-scanner.rb#3
 module Crass
   class << self
-    # source://crass//lib/crass.rb#10
+    # source://crass//lib/crass.rb#22
     def parse(input, options = T.unsafe(nil)); end
 
-    # source://crass//lib/crass.rb#18
+    # source://crass//lib/crass.rb#30
     def parse_properties(input, options = T.unsafe(nil)); end
   end
 end
 
 # source://crass//lib/crass/parser.rb#10
 class Crass::Parser
-  # source://crass//lib/crass/parser.rb#126
+  # source://crass//lib/crass/parser.rb#140
   def initialize(input, options = T.unsafe(nil)); end
 
-  # source://crass//lib/crass/parser.rb#137
+  # source://crass//lib/crass/parser.rb#153
   def consume_at_rule(input = T.unsafe(nil)); end
 
-  # source://crass//lib/crass/parser.rb#184
+  # source://crass//lib/crass/parser.rb#200
   def consume_component_value(input = T.unsafe(nil)); end
 
-  # source://crass//lib/crass/parser.rb#209
+  # source://crass//lib/crass/parser.rb#225
   def consume_declaration(input = T.unsafe(nil)); end
 
-  # source://crass//lib/crass/parser.rb#276
+  # source://crass//lib/crass/parser.rb#292
   def consume_declarations(input = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # source://crass//lib/crass/parser.rb#326
+  # source://crass//lib/crass/parser.rb#342
   def consume_function(input = T.unsafe(nil)); end
 
-  # source://crass//lib/crass/parser.rb#357
+  # source://crass//lib/crass/parser.rb#383
   def consume_qualified_rule(input = T.unsafe(nil)); end
 
-  # source://crass//lib/crass/parser.rb#398
+  # source://crass//lib/crass/parser.rb#424
   def consume_rules(flags = T.unsafe(nil)); end
 
-  # source://crass//lib/crass/parser.rb#434
+  # source://crass//lib/crass/parser.rb#460
   def consume_simple_block(input = T.unsafe(nil)); end
 
-  # source://crass//lib/crass/parser.rb#458
+  # source://crass//lib/crass/parser.rb#526
   def create_node(type, properties = T.unsafe(nil)); end
 
-  # source://crass//lib/crass/parser.rb#466
+  # source://crass//lib/crass/parser.rb#534
   def create_selector(input); end
 
-  # source://crass//lib/crass/parser.rb#474
+  # source://crass//lib/crass/parser.rb#542
   def create_style_rule(rule); end
 
-  # source://crass//lib/crass/parser.rb#483
+  # source://crass//lib/crass/parser.rb#501
+  def discard_block(input); end
+
+  # source://crass//lib/crass/parser.rb#551
   def parse_component_value(input = T.unsafe(nil)); end
 
-  # source://crass//lib/crass/parser.rb#510
+  # source://crass//lib/crass/parser.rb#578
   def parse_component_values(input = T.unsafe(nil)); end
 
-  # source://crass//lib/crass/parser.rb#524
+  # source://crass//lib/crass/parser.rb#592
   def parse_declaration(input = T.unsafe(nil)); end
 
-  # source://crass//lib/crass/parser.rb#552
+  # source://crass//lib/crass/parser.rb#620
   def parse_declarations(input = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # source://crass//lib/crass/parser.rb#560
+  # source://crass//lib/crass/parser.rb#628
   def parse_properties(input = T.unsafe(nil)); end
 
-  # source://crass//lib/crass/parser.rb#586
+  # source://crass//lib/crass/parser.rb#654
   def parse_rule(input = T.unsafe(nil)); end
 
-  # source://crass//lib/crass/parser.rb#615
+  # source://crass//lib/crass/parser.rb#683
   def parse_value(nodes); end
 
-  # source://crass//lib/crass/parser.rb#120
+  # source://crass//lib/crass/parser.rb#134
   def tokens; end
 
   class << self
-    # source://crass//lib/crass/parser.rb#25
+    # source://crass//lib/crass/parser.rb#39
     def parse_properties(input, options = T.unsafe(nil)); end
 
-    # source://crass//lib/crass/parser.rb#36
+    # source://crass//lib/crass/parser.rb#50
     def parse_rules(input, options = T.unsafe(nil)); end
 
-    # source://crass//lib/crass/parser.rb#54
+    # source://crass//lib/crass/parser.rb#68
     def parse_stylesheet(input, options = T.unsafe(nil)); end
 
-    # source://crass//lib/crass/parser.rb#74
+    # source://crass//lib/crass/parser.rb#88
     def stringify(nodes, options = T.unsafe(nil)); end
   end
 end
@@ -96,27 +99,30 @@ end
 # source://crass//lib/crass/parser.rb#11
 Crass::Parser::BLOCK_END_TOKENS = T.let(T.unsafe(nil), Hash)
 
+# source://crass//lib/crass/parser.rb#29
+Crass::Parser::DEFAULT_MAXIMUM_DEPTH = T.let(T.unsafe(nil), Integer)
+
 # source://crass//lib/crass/scanner.rb#8
 class Crass::Scanner
-  # source://crass//lib/crass/scanner.rb#25
+  # source://crass//lib/crass/scanner.rb#29
   def initialize(input); end
 
-  # source://crass//lib/crass/scanner.rb#34
+  # source://crass//lib/crass/scanner.rb#38
   def consume; end
 
-  # source://crass//lib/crass/scanner.rb#46
+  # source://crass//lib/crass/scanner.rb#50
   def consume_rest; end
 
   # source://crass//lib/crass/scanner.rb#11
   def current; end
 
-  # source://crass//lib/crass/scanner.rb#57
+  # source://crass//lib/crass/scanner.rb#66
   def eos?; end
 
-  # source://crass//lib/crass/scanner.rb#63
+  # source://crass//lib/crass/scanner.rb#72
   def mark; end
 
-  # source://crass//lib/crass/scanner.rb#69
+  # source://crass//lib/crass/scanner.rb#79
   def marked; end
 
   # source://crass//lib/crass/scanner.rb#15
@@ -125,28 +131,28 @@ class Crass::Scanner
   # source://crass//lib/crass/scanner.rb#15
   def marker=(_arg0); end
 
-  # source://crass//lib/crass/scanner.rb#80
+  # source://crass//lib/crass/scanner.rb#91
   def peek(length = T.unsafe(nil)); end
 
-  # source://crass//lib/crass/scanner.rb#19
+  # source://crass//lib/crass/scanner.rb#23
   def pos; end
 
-  # source://crass//lib/crass/scanner.rb#19
+  # source://crass//lib/crass/scanner.rb#23
   def pos=(_arg0); end
 
-  # source://crass//lib/crass/scanner.rb#87
+  # source://crass//lib/crass/scanner.rb#103
   def reconsume; end
 
-  # source://crass//lib/crass/scanner.rb#93
+  # source://crass//lib/crass/scanner.rb#109
   def reset; end
 
-  # source://crass//lib/crass/scanner.rb#103
+  # source://crass//lib/crass/scanner.rb#122
   def scan(pattern); end
 
-  # source://crass//lib/crass/scanner.rb#115
+  # source://crass//lib/crass/scanner.rb#134
   def scan_until(pattern); end
 
-  # source://crass//lib/crass/scanner.rb#22
+  # source://crass//lib/crass/scanner.rb#26
   def string; end
 end
 
@@ -188,55 +194,55 @@ class Crass::Tokenizer
   # source://crass//lib/crass/tokenizer.rb#70
   def consume; end
 
-  # source://crass//lib/crass/tokenizer.rb#275
+  # source://crass//lib/crass/tokenizer.rb#276
   def consume_bad_url; end
 
-  # source://crass//lib/crass/tokenizer.rb#301
+  # source://crass//lib/crass/tokenizer.rb#302
   def consume_comments; end
 
-  # source://crass//lib/crass/tokenizer.rb#326
+  # source://crass//lib/crass/tokenizer.rb#327
   def consume_escaped; end
 
-  # source://crass//lib/crass/tokenizer.rb#350
+  # source://crass//lib/crass/tokenizer.rb#351
   def consume_ident; end
 
-  # source://crass//lib/crass/tokenizer.rb#375
+  # source://crass//lib/crass/tokenizer.rb#376
   def consume_name; end
 
-  # source://crass//lib/crass/tokenizer.rb#407
+  # source://crass//lib/crass/tokenizer.rb#408
   def consume_number; end
 
-  # source://crass//lib/crass/tokenizer.rb#430
+  # source://crass//lib/crass/tokenizer.rb#431
   def consume_numeric; end
 
-  # source://crass//lib/crass/tokenizer.rb#469
+  # source://crass//lib/crass/tokenizer.rb#470
   def consume_string(ending = T.unsafe(nil)); end
 
-  # source://crass//lib/crass/tokenizer.rb#510
+  # source://crass//lib/crass/tokenizer.rb#511
   def consume_unicode_range; end
 
-  # source://crass//lib/crass/tokenizer.rb#542
+  # source://crass//lib/crass/tokenizer.rb#543
   def consume_url; end
 
-  # source://crass//lib/crass/tokenizer.rb#590
+  # source://crass//lib/crass/tokenizer.rb#591
   def convert_string_to_number(str); end
 
-  # source://crass//lib/crass/tokenizer.rb#616
+  # source://crass//lib/crass/tokenizer.rb#643
   def create_token(type, properties = T.unsafe(nil)); end
 
-  # source://crass//lib/crass/tokenizer.rb#627
+  # source://crass//lib/crass/tokenizer.rb#654
   def preprocess(input); end
 
-  # source://crass//lib/crass/tokenizer.rb#642
+  # source://crass//lib/crass/tokenizer.rb#669
   def start_identifier?(text = T.unsafe(nil)); end
 
-  # source://crass//lib/crass/tokenizer.rb#666
+  # source://crass//lib/crass/tokenizer.rb#693
   def start_number?(text = T.unsafe(nil)); end
 
-  # source://crass//lib/crass/tokenizer.rb#685
+  # source://crass//lib/crass/tokenizer.rb#712
   def tokenize; end
 
-  # source://crass//lib/crass/tokenizer.rb#702
+  # source://crass//lib/crass/tokenizer.rb#729
   def valid_escape?(text = T.unsafe(nil)); end
 
   class << self
