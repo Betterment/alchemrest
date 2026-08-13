@@ -309,8 +309,7 @@ class Alchemrest::Data
     def graph; end
 
     # source://alchemrest//lib/alchemrest/data.rb#5
-    sig { void }
-    def schema; end
+    def schema(&_arg0); end
   end
 end
 
@@ -1503,36 +1502,47 @@ class Alchemrest::TransformError < ::Alchemrest::Error; end
 module Alchemrest::Transforms
   class << self
     # source://alchemrest//lib/alchemrest/transforms.rb#44
+    sig { returns(T.untyped) }
     def boolean; end
 
     # source://alchemrest//lib/alchemrest/transforms.rb#50
+    sig { returns(T.untyped) }
     def date; end
 
     # source://alchemrest//lib/alchemrest/transforms.rb#69
+    sig { params(enum: T::Array[T.untyped]).returns(T.untyped) }
     def enum(enum); end
 
     # source://alchemrest//lib/alchemrest/transforms.rb#29
+    sig { returns(T.untyped) }
     def float; end
 
     # source://alchemrest//lib/alchemrest/transforms.rb#33
+    sig { returns(T.untyped) }
     def from; end
 
     # source://alchemrest//lib/alchemrest/transforms.rb#16
+    sig { returns(T.untyped) }
     def integer; end
 
     # source://alchemrest//lib/alchemrest/transforms.rb#89
+    sig { params(klass: T.untyped).returns(T.untyped) }
     def many_of(klass); end
 
     # source://alchemrest//lib/alchemrest/transforms.rb#60
+    sig { params(unit: Symbol).returns(T.untyped) }
     def money(unit); end
 
     # source://alchemrest//lib/alchemrest/transforms.rb#39
+    sig { returns(T.untyped) }
     def number; end
 
     # source://alchemrest//lib/alchemrest/transforms.rb#80
+    sig { params(klass_or_hash: T.untyped).returns(T.untyped) }
     def one_of(klass_or_hash); end
 
     # source://alchemrest//lib/alchemrest/transforms.rb#22
+    sig { returns(T.untyped) }
     def string; end
   end
 end
