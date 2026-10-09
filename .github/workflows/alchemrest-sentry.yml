@@ -49,6 +49,8 @@ jobs:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       - name: rubocop
         run: bundle exec rubocop
+      - name: sorbet
+        run: bin/typecheck
 
   coverage:
     runs-on: ubuntu-latest

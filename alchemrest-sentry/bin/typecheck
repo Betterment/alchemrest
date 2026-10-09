@@ -2,6 +2,13 @@
 
 set -euo pipefail
 
+duplicate_gem_rbis=$(find sorbet/rbi/gems -name '*@*.rbi' | sed -E 's|.*/||; s|@[^@]*$||' | sort | uniq --repeated)
+if [ -n "$duplicate_gem_rbis" ]; then
+  echo "More than one RBI in sorbet/rbi/gems for these gems:" >&2
+  echo "$duplicate_gem_rbis" >&2
+  echo "Delete the ones that don't match Gemfile.lock. tapioca gems --verify does not detect these." >&2
+  exit 1
+fi
+
 bin/tapioca gems --verify
-bin/tapioca dsl
 bin/srb tc
