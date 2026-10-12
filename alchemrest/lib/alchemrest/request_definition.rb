@@ -5,7 +5,7 @@ module Alchemrest
   # we want to create, and block that can extract default parameters from an Alchemrest::Root. When we want to build an
   # instance of the request, call `build_request` and pass in the root as context, with any additional parameters.
   class RequestDefinition
-    attr_reader :name
+    attr_reader :name, :request_class, :builder_block
 
     def initialize(name, request_class, &block)
       @name = name

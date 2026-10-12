@@ -17,6 +17,16 @@ and this project aims to adhere to [Semantic Versioning](http://semver.org/spec/
 
 ### Fixed <!-- for any bug fixes. -->
 
+## [3.3.0] - 2026-10-12
+
+### Added
+
+- `Alchemrest::RequestDefinition#request_class` and `#builder_block` readers, so request definitions can be introspected without reaching into instance variables.
+
+### Changed
+
+- The `Alchemrest::Root` Tapioca compiler now generates keyword arguments for request methods instead of a single `params` hash. The keywords mirror the request's `initialize`, are typed from its `sig` when it has one, and become optional when the `define_request` block sets them via `request.defaults = { ... }`. Requests whose `initialize` takes anything other than keyword arguments (e.g. `ActiveModel::Model`) still take `params = {}`. Callers that pass a hash positionally (`root.get_user(params)`) will now fail type-checking, and need to splat it instead (`root.get_user(**params)`, or `**T.unsafe(params)` if the request has required keywords).
+
 ## [3.2.3] - 2026-06-18
 
 ### Fixed

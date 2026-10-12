@@ -28,6 +28,24 @@ RSpec.describe Alchemrest::RequestDefinition do
     end
   end
 
+  describe "#request_class" do
+    subject { described_class.new(:get_user, request_implementation) }
+
+    it "returns the request class" do
+      expect(subject.request_class).to eq(request_implementation)
+    end
+  end
+
+  describe "#builder_block" do
+    let(:builder_block) { proc { |request| request.defaults = { id: 1 } } }
+
+    subject { described_class.new(:get_user, request_implementation, &builder_block) }
+
+    it "returns the block passed to the definition" do
+      expect(subject.builder_block).to eq(builder_block)
+    end
+  end
+
   describe "#build_request" do
     subject { described_class.new(:get_user, request_implementation) }
 
