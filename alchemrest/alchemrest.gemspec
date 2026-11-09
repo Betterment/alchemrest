@@ -35,7 +35,7 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = %w(lib)
 
-  rails_constraints = [">= 7.2", "< 8.1"]
+  rails_constraints = [">= 7.2", "< 8.2"]
 
   spec.add_dependency 'activerecord', rails_constraints
   spec.add_dependency 'activesupport', rails_constraints
