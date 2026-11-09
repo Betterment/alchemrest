@@ -12,9 +12,7 @@ on:
       - alchemrest/**
       - .github/workflows/alchemrest.yml
 
-permissions:
-  contents: read
-  packages: read
+permissions: {}
 
 defaults:
   run:
@@ -24,6 +22,9 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     name: Lint
+    permissions:
+      contents: read
+      packages: read
     services:
       postgres:
         image: postgres:15.2
@@ -55,6 +56,9 @@ jobs:
   coverage:
     runs-on: ubuntu-latest
     name: Semantic Coverage (incremental)
+    permissions:
+      contents: read
+      packages: read
     services:
       postgres:
         image: postgres:15.2
@@ -95,6 +99,9 @@ jobs:
           - gemfiles/rails_8_1.gemfile
           - gemfiles/faraday_2_rails_8_1.gemfile
     name: Ruby ${{ matrix.ruby }} (${{ matrix.gemfile }})
+    permissions:
+      contents: read
+      packages: read
     services:
       postgres:
         image: postgres:15.2
