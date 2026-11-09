@@ -12,8 +12,20 @@ appraise 'rails-8-0' do
   gem 'faraday', '~> 1.10'
 end
 
+appraise 'rails-8-1' do
+  gem 'activerecord', '~> 8.1.0'
+  gem 'activesupport', '~> 8.1.0'
+  gem 'faraday', '~> 1.10'
+end
+
 appraise 'faraday-2' do
   gem 'activerecord', '~> 7.2.0'
   gem 'activesupport', '~> 7.2.0'
+  gem 'faraday', '~> 2.12'
+end
+
+appraise 'faraday-2-rails-8-1' do
+  gem 'activerecord', '~> 8.1.0'
+  gem 'activesupport', '~> 8.1.0'
   gem 'faraday', '~> 2.12'
 end
