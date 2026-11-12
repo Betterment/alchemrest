@@ -1218,58 +1218,58 @@ end
 
 # source://rack//lib/rack/multipart/parser.rb#53
 class Rack::Multipart::Parser
-  # source://rack//lib/rack/multipart/parser.rb#254
+  # source://rack//lib/rack/multipart/parser.rb#258
   def initialize(boundary, tempfile, bufsize, query_parser); end
 
-  # source://rack//lib/rack/multipart/parser.rb#275
+  # source://rack//lib/rack/multipart/parser.rb#279
   def parse(io); end
 
-  # source://rack//lib/rack/multipart/parser.rb#299
+  # source://rack//lib/rack/multipart/parser.rb#303
   def result; end
 
-  # source://rack//lib/rack/multipart/parser.rb#252
+  # source://rack//lib/rack/multipart/parser.rb#256
   def state; end
 
   private
 
-  # source://rack//lib/rack/multipart/parser.rb#534
+  # source://rack//lib/rack/multipart/parser.rb#539
   def consume_boundary; end
 
-  # source://rack//lib/rack/multipart/parser.rb#589
+  # source://rack//lib/rack/multipart/parser.rb#594
   def find_encoding(enc); end
 
-  # source://rack//lib/rack/multipart/parser.rb#358
+  # source://rack//lib/rack/multipart/parser.rb#362
   def handle_consume_token; end
 
-  # source://rack//lib/rack/multipart/parser.rb#604
+  # source://rack//lib/rack/multipart/parser.rb#609
   def handle_dummy_encoding(name, body); end
 
-  # source://rack//lib/rack/multipart/parser.rb#614
+  # source://rack//lib/rack/multipart/parser.rb#619
   def handle_empty_content!(content); end
 
-  # source://rack//lib/rack/multipart/parser.rb#331
+  # source://rack//lib/rack/multipart/parser.rb#335
   def handle_fast_forward; end
 
-  # source://rack//lib/rack/multipart/parser.rb#501
+  # source://rack//lib/rack/multipart/parser.rb#506
   def handle_mime_body; end
 
-  # source://rack//lib/rack/multipart/parser.rb#373
+  # source://rack//lib/rack/multipart/parser.rb#377
   def handle_mime_head; end
 
-  # source://rack//lib/rack/multipart/parser.rb#543
+  # source://rack//lib/rack/multipart/parser.rb#548
   def normalize_filename(filename); end
 
-  # source://rack//lib/rack/multipart/parser.rb#312
+  # source://rack//lib/rack/multipart/parser.rb#316
   def read_data(io, outbuf); end
 
-  # source://rack//lib/rack/multipart/parser.rb#556
+  # source://rack//lib/rack/multipart/parser.rb#561
   def tag_multipart_encoding(filename, content_type, name, body); end
 
-  # source://rack//lib/rack/multipart/parser.rb#523
+  # source://rack//lib/rack/multipart/parser.rb#528
   def update_retained_size(size); end
 
   class << self
-    # source://rack//lib/rack/multipart/parser.rb#137
+    # source://rack//lib/rack/multipart/parser.rb#141
     def parse(io, content_length, content_type, tmpfile, bufsize, qp); end
 
     # source://rack//lib/rack/multipart/parser.rb#122
@@ -1295,64 +1295,64 @@ class Rack::Multipart::Parser::BoundedIO
   def read(size, outbuf = T.unsafe(nil)); end
 end
 
-# source://rack//lib/rack/multipart/parser.rb#553
+# source://rack//lib/rack/multipart/parser.rb#558
 Rack::Multipart::Parser::CHARSET = T.let(T.unsafe(nil), String)
 
-# source://rack//lib/rack/multipart/parser.rb#369
+# source://rack//lib/rack/multipart/parser.rb#373
 Rack::Multipart::Parser::CONTENT_DISPOSITION_MAX_BYTES = T.let(T.unsafe(nil), Integer)
 
-# source://rack//lib/rack/multipart/parser.rb#368
+# source://rack//lib/rack/multipart/parser.rb#372
 Rack::Multipart::Parser::CONTENT_DISPOSITION_MAX_PARAMS = T.let(T.unsafe(nil), Integer)
 
 # source://rack//lib/rack/multipart/parser.rb#87
 Rack::Multipart::Parser::CONTENT_DISPOSITION_QUOTED_ESCAPES_LIMIT = T.let(T.unsafe(nil), Integer)
 
-# source://rack//lib/rack/multipart/parser.rb#161
+# source://rack//lib/rack/multipart/parser.rb#165
 class Rack::Multipart::Parser::Collector
   include ::Enumerable
 
-  # source://rack//lib/rack/multipart/parser.rb#197
+  # source://rack//lib/rack/multipart/parser.rb#201
   def initialize(tempfile); end
 
-  # source://rack//lib/rack/multipart/parser.rb#203
+  # source://rack//lib/rack/multipart/parser.rb#207
   def each; end
 
-  # source://rack//lib/rack/multipart/parser.rb#223
+  # source://rack//lib/rack/multipart/parser.rb#227
   def on_mime_body(mime_index, content); end
 
-  # source://rack//lib/rack/multipart/parser.rb#227
+  # source://rack//lib/rack/multipart/parser.rb#231
   def on_mime_finish(mime_index); end
 
-  # source://rack//lib/rack/multipart/parser.rb#207
+  # source://rack//lib/rack/multipart/parser.rb#211
   def on_mime_head(mime_index, head, filename, content_type, name); end
 
   private
 
-  # source://rack//lib/rack/multipart/parser.rb#232
+  # source://rack//lib/rack/multipart/parser.rb#236
   def check_part_limits; end
 end
 
-# source://rack//lib/rack/multipart/parser.rb#185
+# source://rack//lib/rack/multipart/parser.rb#189
 class Rack::Multipart::Parser::Collector::BufferPart < ::Rack::Multipart::Parser::Collector::MimePart
-  # source://rack//lib/rack/multipart/parser.rb#187
+  # source://rack//lib/rack/multipart/parser.rb#191
   def close; end
 
-  # source://rack//lib/rack/multipart/parser.rb#186
+  # source://rack//lib/rack/multipart/parser.rb#190
   def file?; end
 end
 
-# source://rack//lib/rack/multipart/parser.rb#162
+# source://rack//lib/rack/multipart/parser.rb#166
 class Rack::Multipart::Parser::Collector::MimePart < ::Struct
-  # source://rack//lib/rack/multipart/parser.rb#163
+  # source://rack//lib/rack/multipart/parser.rb#167
   def get_data; end
 end
 
-# source://rack//lib/rack/multipart/parser.rb#190
+# source://rack//lib/rack/multipart/parser.rb#194
 class Rack::Multipart::Parser::Collector::TempfilePart < ::Rack::Multipart::Parser::Collector::MimePart
-  # source://rack//lib/rack/multipart/parser.rb#192
+  # source://rack//lib/rack/multipart/parser.rb#196
   def close; end
 
-  # source://rack//lib/rack/multipart/parser.rb#191
+  # source://rack//lib/rack/multipart/parser.rb#195
   def file?; end
 end
 
@@ -1378,13 +1378,13 @@ class Rack::Multipart::Parser::MultipartInfo < ::Struct
   end
 end
 
-# source://rack//lib/rack/multipart/parser.rb#370
+# source://rack//lib/rack/multipart/parser.rb#374
 Rack::Multipart::Parser::OBS_UNFOLD = T.let(T.unsafe(nil), Regexp)
 
 # source://rack//lib/rack/multipart/parser.rb#84
 Rack::Multipart::Parser::PARSER_BYTESIZE_LIMIT = T.let(T.unsafe(nil), Integer)
 
-# source://rack//lib/rack/multipart/parser.rb#595
+# source://rack//lib/rack/multipart/parser.rb#600
 Rack::Multipart::Parser::REENCODE_DUMMY_ENCODINGS = T.let(T.unsafe(nil), Hash)
 
 # source://rack//lib/rack/multipart/parser.rb#56
@@ -1408,7 +1408,7 @@ class Rack::Multipart::UploadedFile
   def local_path; end
 
   # source://rack//lib/rack/multipart/uploaded_file.rb#77
-  def method_missing(method_name, *args, &block); end
+  def method_missing(method_name, *args, **_arg2, &block); end
 
   # source://rack//lib/rack/multipart/uploaded_file.rb#23
   def original_filename; end
@@ -1784,13 +1784,13 @@ class Rack::Request
   # source://rack//lib/rack/request.rb#76
   def update_param(k, v); end
 
-  # source://yard/0.9.37/lib/yard/server/rack_adapter.rb#94
+  # source://yard/0.9.44/lib/yard/server/rack_adapter.rb#94
   def version_supplied; end
 
-  # source://yard/0.9.37/lib/yard/server/rack_adapter.rb#94
+  # source://yard/0.9.44/lib/yard/server/rack_adapter.rb#94
   def version_supplied=(_arg0); end
 
-  # source://yard/0.9.37/lib/yard/server/rack_adapter.rb#96
+  # source://yard/0.9.44/lib/yard/server/rack_adapter.rb#96
   def xhr?; end
 
   class << self
@@ -1854,28 +1854,28 @@ end
 
 # source://rack//lib/rack/request.rb#154
 module Rack::Request::Helpers
-  # source://rack//lib/rack/request.rb#491
+  # source://rack//lib/rack/request.rb#493
   def GET; end
 
-  # source://rack//lib/rack/request.rb#542
+  # source://rack//lib/rack/request.rb#544
   def POST; end
 
-  # source://rack//lib/rack/request.rb#611
+  # source://rack//lib/rack/request.rb#614
   def accept_encoding; end
 
-  # source://rack//lib/rack/request.rb#615
+  # source://rack//lib/rack/request.rb#618
   def accept_language; end
 
   # source://rack//lib/rack/request.rb#271
   def authority; end
 
-  # source://rack//lib/rack/request.rb#594
+  # source://rack//lib/rack/request.rb#596
   def base_url; end
 
   # source://rack//lib/rack/request.rb#195
   def body; end
 
-  # source://rack//lib/rack/request.rb#465
+  # source://rack//lib/rack/request.rb#467
   def content_charset; end
 
   # source://rack//lib/rack/request.rb#204
@@ -1890,25 +1890,25 @@ module Rack::Request::Helpers
   # source://rack//lib/rack/request.rb#225
   def delete?; end
 
-  # source://rack//lib/rack/request.rb#589
+  # source://rack//lib/rack/request.rb#591
   def delete_param(k); end
 
-  # source://rack//lib/rack/request.rb#477
+  # source://rack//lib/rack/request.rb#479
   def form_data?; end
 
-  # source://rack//lib/rack/request.rb#499
+  # source://rack//lib/rack/request.rb#501
   def form_pairs; end
 
-  # source://rack//lib/rack/request.rb#398
+  # source://rack//lib/rack/request.rb#400
   def forwarded_authority; end
 
-  # source://rack//lib/rack/request.rb#358
+  # source://rack//lib/rack/request.rb#360
   def forwarded_for; end
 
-  # source://rack//lib/rack/request.rb#379
+  # source://rack//lib/rack/request.rb#381
   def forwarded_port; end
 
-  # source://rack//lib/rack/request.rb#607
+  # source://rack//lib/rack/request.rb#610
   def fullpath; end
 
   # source://rack//lib/rack/request.rb#228
@@ -1917,7 +1917,7 @@ module Rack::Request::Helpers
   # source://rack//lib/rack/request.rb#231
   def head?; end
 
-  # source://rack//lib/rack/request.rb#338
+  # source://rack//lib/rack/request.rb#340
   def host; end
 
   # source://rack//lib/rack/request.rb#323
@@ -1926,10 +1926,10 @@ module Rack::Request::Helpers
   # source://rack//lib/rack/request.rb#327
   def host_with_port(authority = T.unsafe(nil)); end
 
-  # source://rack//lib/rack/request.rb#346
+  # source://rack//lib/rack/request.rb#348
   def hostname; end
 
-  # source://rack//lib/rack/request.rb#419
+  # source://rack//lib/rack/request.rb#421
   def ip; end
 
   # source://rack//lib/rack/request.rb#237
@@ -1938,25 +1938,25 @@ module Rack::Request::Helpers
   # source://rack//lib/rack/request.rb#205
   def logger; end
 
-  # source://rack//lib/rack/request.rb#448
+  # source://rack//lib/rack/request.rb#450
   def media_type; end
 
-  # source://rack//lib/rack/request.rb#457
+  # source://rack//lib/rack/request.rb#459
   def media_type_params; end
 
   # source://rack//lib/rack/request.rb#234
   def options?; end
 
-  # source://rack//lib/rack/request.rb#556
+  # source://rack//lib/rack/request.rb#558
   def params; end
 
-  # source://rack//lib/rack/request.rb#486
+  # source://rack//lib/rack/request.rb#488
   def parseable_data?; end
 
   # source://rack//lib/rack/request.rb#240
   def patch?; end
 
-  # source://rack//lib/rack/request.rb#603
+  # source://rack//lib/rack/request.rb#606
   def path; end
 
   # source://rack//lib/rack/request.rb#199
@@ -1965,7 +1965,7 @@ module Rack::Request::Helpers
   # source://rack//lib/rack/request.rb#200
   def path_info=(s); end
 
-  # source://rack//lib/rack/request.rb#350
+  # source://rack//lib/rack/request.rb#352
   def port; end
 
   # source://rack//lib/rack/request.rb#243
@@ -1974,7 +1974,7 @@ module Rack::Request::Helpers
   # source://rack//lib/rack/request.rb#246
   def put?; end
 
-  # source://rack//lib/rack/request.rb#562
+  # source://rack//lib/rack/request.rb#564
   def query_parser=(_arg0); end
 
   # source://rack//lib/rack/request.rb#203
@@ -2013,22 +2013,22 @@ module Rack::Request::Helpers
   # source://rack//lib/rack/request.rb#218
   def session_options; end
 
-  # source://rack//lib/rack/request.rb#415
+  # source://rack//lib/rack/request.rb#417
   def ssl?; end
 
   # source://rack//lib/rack/request.rb#249
   def trace?; end
 
-  # source://rack//lib/rack/request.rb#619
+  # source://rack//lib/rack/request.rb#622
   def trusted_proxy?(ip); end
 
   # source://rack//lib/rack/request.rb#252
   def unlink?; end
 
-  # source://rack//lib/rack/request.rb#569
+  # source://rack//lib/rack/request.rb#571
   def update_param(k, v); end
 
-  # source://rack//lib/rack/request.rb#599
+  # source://rack//lib/rack/request.rb#602
   def url; end
 
   # source://rack//lib/rack/request.rb#206
@@ -2039,50 +2039,50 @@ module Rack::Request::Helpers
 
   private
 
-  # source://rack//lib/rack/request.rb#770
+  # source://rack//lib/rack/request.rb#773
   def allowed_scheme(header); end
 
-  # source://rack//lib/rack/request.rb#625
+  # source://rack//lib/rack/request.rb#628
   def default_session; end
 
-  # source://rack//lib/rack/request.rb#682
+  # source://rack//lib/rack/request.rb#685
   def expand_param_pairs(pairs, query_parser = T.unsafe(nil)); end
 
-  # source://rack//lib/rack/request.rb#774
+  # source://rack//lib/rack/request.rb#777
   def forwarded_priority; end
 
-  # source://rack//lib/rack/request.rb#746
+  # source://rack//lib/rack/request.rb#749
   def forwarded_scheme; end
 
-  # source://rack//lib/rack/request.rb#665
+  # source://rack//lib/rack/request.rb#668
   def get_http_forwarded(token); end
 
-  # source://rack//lib/rack/request.rb#641
+  # source://rack//lib/rack/request.rb#644
   def parse_http_accept_header(header); end
 
-  # source://rack//lib/rack/request.rb#677
+  # source://rack//lib/rack/request.rb#680
   def parse_multipart; end
 
-  # source://rack//lib/rack/request.rb#673
+  # source://rack//lib/rack/request.rb#676
   def parse_query(qs, d = T.unsafe(nil)); end
 
-  # source://rack//lib/rack/request.rb#669
+  # source://rack//lib/rack/request.rb#672
   def query_parser; end
 
-  # source://rack//lib/rack/request.rb#735
+  # source://rack//lib/rack/request.rb#738
   def split_authority(authority); end
 
-  # source://rack//lib/rack/request.rb#692
+  # source://rack//lib/rack/request.rb#695
   def split_header(value); end
 
-  # source://rack//lib/rack/request.rb#628
+  # source://rack//lib/rack/request.rb#631
   def wrap_ipv6(host); end
 
-  # source://rack//lib/rack/request.rb#778
+  # source://rack//lib/rack/request.rb#781
   def x_forwarded_proto_priority; end
 end
 
-# source://rack//lib/rack/request.rb#720
+# source://rack//lib/rack/request.rb#723
 Rack::Request::Helpers::AUTHORITY = T.let(T.unsafe(nil), Regexp)
 
 # source://rack//lib/rack/request.rb#173
@@ -2091,7 +2091,7 @@ Rack::Request::Helpers::DEFAULT_PORTS = T.let(T.unsafe(nil), Hash)
 # source://rack//lib/rack/request.rb#158
 Rack::Request::Helpers::FORM_DATA_MEDIA_TYPES = T.let(T.unsafe(nil), Array)
 
-# source://rack//lib/rack/request.rb#741
+# source://rack//lib/rack/request.rb#744
 Rack::Request::Helpers::FORWARDED_SCHEME_HEADERS = T.let(T.unsafe(nil), Hash)
 
 # source://rack//lib/rack/request.rb#181
@@ -2795,7 +2795,7 @@ module Rack::Utils
 end
 
 # source://rack//lib/rack/utils.rb#149
-Rack::Utils::ALLOWED_FORWARED_PARAMS = T.let(T.unsafe(nil), Hash)
+Rack::Utils::ALLOWED_FORWARDED_PARAMS = T.let(T.unsafe(nil), Hash)
 
 # source://rack//lib/rack/utils.rb#25
 Rack::Utils::COMMON_SEP = T.let(T.unsafe(nil), Hash)
