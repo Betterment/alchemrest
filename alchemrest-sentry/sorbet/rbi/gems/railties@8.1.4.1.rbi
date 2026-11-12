@@ -130,10 +130,10 @@ end
 module Rails::Initializable
   mixes_in_class_methods ::Rails::Initializable::ClassMethods
 
-  # source://railties//lib/rails/initializable.rb#66
+  # source://railties//lib/rails/initializable.rb#108
   def initializers; end
 
-  # source://railties//lib/rails/initializable.rb#58
+  # source://railties//lib/rails/initializable.rb#100
   def run_initializers(group = T.unsafe(nil), *args); end
 
   class << self
@@ -142,61 +142,98 @@ module Rails::Initializable
   end
 end
 
-# source://railties//lib/rails/initializable.rb#70
+# source://railties//lib/rails/initializable.rb#112
 module Rails::Initializable::ClassMethods
-  # source://railties//lib/rails/initializable.rb#88
+  # source://railties//lib/rails/initializable.rb#130
   def initializer(name, opts = T.unsafe(nil), &blk); end
 
-  # source://railties//lib/rails/initializable.rb#71
+  # source://railties//lib/rails/initializable.rb#113
   def initializers; end
 
-  # source://railties//lib/rails/initializable.rb#75
+  # source://railties//lib/rails/initializable.rb#117
   def initializers_chain; end
 
-  # source://railties//lib/rails/initializable.rb#84
+  # source://railties//lib/rails/initializable.rb#126
   def initializers_for(binding); end
 end
 
-# source://railties//lib/rails/initializable.rb#45
-class Rails::Initializable::Collection < ::Array
+# source://railties//lib/rails/initializable.rb#37
+class Rails::Initializable::Collection
+  include ::Enumerable
   include ::TSort
 
-  # source://railties//lib/rails/initializable.rb#53
+  # source://railties//lib/rails/initializable.rb#43
+  def initialize(initializers = T.unsafe(nil)); end
+
+  # source://railties//lib/rails/initializable.rb#69
   def +(other); end
 
-  # source://railties//lib/rails/initializable.rb#49
+  # source://railties//lib/rails/initializable.rb#73
+  def <<(initializer); end
+
+  # source://railties//lib/rails/initializable.rb#81
+  def append(*initializers); end
+
+  # source://railties//lib/rails/initializable.rb#88
+  def concat(*initializer_collections); end
+
+  # source://railties//lib/rails/initializable.rb#58
+  def each(&block); end
+
+  # source://railties//lib/rails/initializable.rb#95
+  def has?(name); end
+
+  # source://railties//lib/rails/initializable.rb#54
+  def last; end
+
+  # source://activesupport/8.1.4.1/lib/active_support/delegation.rb#169
+  def method_missing(method, *_arg1, **_arg2, &_arg3); end
+
+  # source://railties//lib/rails/initializable.rb#81
+  def push(*initializers); end
+
+  # source://railties//lib/rails/initializable.rb#50
+  def to_a; end
+
+  # source://railties//lib/rails/initializable.rb#63
   def tsort_each_child(initializer, &block); end
 
-  def tsort_each_node; end
+  # source://railties//lib/rails/initializable.rb#58
+  def tsort_each_node(&block); end
+
+  private
+
+  # source://activesupport/8.1.4.1/lib/active_support/delegation.rb#161
+  def respond_to_missing?(name, include_private = T.unsafe(nil)); end
 end
 
 # source://railties//lib/rails/initializable.rb#11
 class Rails::Initializable::Initializer
   # source://railties//lib/rails/initializable.rb#14
-  def initialize(name, context, options, &block); end
+  def initialize(name, context, before:, after:, group: T.unsafe(nil), &block); end
 
-  # source://railties//lib/rails/initializable.rb#23
+  # source://railties//lib/rails/initializable.rb#12
   def after; end
 
-  # source://railties//lib/rails/initializable.rb#19
+  # source://railties//lib/rails/initializable.rb#12
   def before; end
 
-  # source://railties//lib/rails/initializable.rb#27
+  # source://railties//lib/rails/initializable.rb#19
   def belongs_to?(group); end
 
-  # source://railties//lib/rails/initializable.rb#35
+  # source://railties//lib/rails/initializable.rb#27
   def bind(context); end
 
   # source://railties//lib/rails/initializable.rb#12
   def block; end
 
-  # source://railties//lib/rails/initializable.rb#40
+  # source://railties//lib/rails/initializable.rb#32
   def context_class; end
 
   # source://railties//lib/rails/initializable.rb#12
   def name; end
 
-  # source://railties//lib/rails/initializable.rb#31
+  # source://railties//lib/rails/initializable.rb#23
   def run(*args); end
 end
 
@@ -385,128 +422,128 @@ class Rails::Rack::Logger < ::ActiveSupport::LogSubscriber
   def started_request_message(request); end
 end
 
-# source://railties//lib/rails/rack/silence_request.rb#19
+# source://railties//lib/rails/rack/silence_request.rb#22
 class Rails::Rack::SilenceRequest
-  # source://railties//lib/rails/rack/silence_request.rb#20
+  # source://railties//lib/rails/rack/silence_request.rb#23
   def initialize(app, path:); end
 
-  # source://railties//lib/rails/rack/silence_request.rb#24
+  # source://railties//lib/rails/rack/silence_request.rb#27
   def call(env); end
 end
 
-# source://railties//lib/rails/railtie.rb#136
+# source://railties//lib/rails/railtie.rb#135
 class Rails::Railtie
   include ::Rails::Initializable
   extend ::ActiveSupport::DescendantsTracker
   extend ::Rails::Initializable::ClassMethods
 
-  # source://railties//lib/rails/railtie.rb#245
+  # source://railties//lib/rails/railtie.rb#244
   def initialize; end
 
-  # source://railties//lib/rails/railtie.rb#262
+  # source://railties//lib/rails/railtie.rb#261
   def config; end
 
-  # source://railties//lib/rails/railtie.rb#255
+  # source://railties//lib/rails/railtie.rb#254
   def configure(&block); end
 
-  # source://railties//lib/rails/railtie.rb#251
+  # source://railties//lib/rails/railtie.rb#250
   def inspect; end
 
-  # source://railties//lib/rails/railtie.rb#243
+  # source://railties//lib/rails/railtie.rb#242
   def railtie_name(*_arg0, **_arg1, &_arg2); end
 
-  # source://railties//lib/rails/railtie.rb#266
+  # source://railties//lib/rails/railtie.rb#265
   def railtie_namespace; end
 
   protected
 
-  # source://railties//lib/rails/railtie.rb#271
+  # source://railties//lib/rails/railtie.rb#270
   def run_console_blocks(app); end
 
-  # source://railties//lib/rails/railtie.rb#275
+  # source://railties//lib/rails/railtie.rb#274
   def run_generators_blocks(app); end
 
-  # source://railties//lib/rails/railtie.rb#279
+  # source://railties//lib/rails/railtie.rb#278
   def run_runner_blocks(app); end
 
-  # source://railties//lib/rails/railtie.rb#288
+  # source://railties//lib/rails/railtie.rb#287
   def run_server_blocks(app); end
 
-  # source://railties//lib/rails/railtie.rb#283
+  # source://railties//lib/rails/railtie.rb#282
   def run_tasks_blocks(app); end
 
   private
 
-  # source://railties//lib/rails/railtie.rb#294
+  # source://railties//lib/rails/railtie.rb#293
   def each_registered_block(type, &block); end
 
   class << self
-    # source://railties//lib/rails/railtie.rb#194
+    # source://railties//lib/rails/railtie.rb#193
     def <=>(other); end
 
-    # source://railties//lib/rails/railtie.rb#172
+    # source://railties//lib/rails/railtie.rb#171
     def abstract_railtie?; end
 
-    # source://railties//lib/rails/railtie.rb#146
+    # source://railties//lib/rails/railtie.rb#145
     def config(*_arg0, **_arg1, &_arg2); end
 
-    # source://railties//lib/rails/railtie.rb#190
+    # source://railties//lib/rails/railtie.rb#189
     def configure(&block); end
 
-    # source://railties//lib/rails/railtie.rb#156
+    # source://railties//lib/rails/railtie.rb#155
     def console(&blk); end
 
-    # source://railties//lib/rails/railtie.rb#164
+    # source://railties//lib/rails/railtie.rb#163
     def generators(&blk); end
 
-    # source://railties//lib/rails/railtie.rb#198
+    # source://railties//lib/rails/railtie.rb#197
     def inherited(subclass); end
 
-    # source://railties//lib/rails/railtie.rb#183
+    # source://railties//lib/rails/railtie.rb#182
     def instance; end
 
-    # source://railties//lib/rails/railtie.rb#176
+    # source://railties//lib/rails/railtie.rb#175
     def railtie_name(name = T.unsafe(nil)); end
 
-    # source://railties//lib/rails/railtie.rb#152
+    # source://railties//lib/rails/railtie.rb#151
     def rake_tasks(&blk); end
 
-    # source://railties//lib/rails/railtie.rb#160
+    # source://railties//lib/rails/railtie.rb#159
     def runner(&blk); end
 
-    # source://railties//lib/rails/railtie.rb#168
+    # source://railties//lib/rails/railtie.rb#167
     def server(&blk); end
 
-    # source://railties//lib/rails/railtie.rb#148
+    # source://railties//lib/rails/railtie.rb#147
     def subclasses; end
 
     protected
 
-    # source://railties//lib/rails/railtie.rb#206
+    # source://railties//lib/rails/railtie.rb#205
     def increment_load_index; end
 
-    # source://railties//lib/rails/railtie.rb#204
+    # source://railties//lib/rails/railtie.rb#203
     def load_index; end
 
     private
 
-    # source://railties//lib/rails/railtie.rb#212
+    # source://railties//lib/rails/railtie.rb#211
     def generate_railtie_name(string); end
 
-    # source://railties//lib/rails/railtie.rb#224
+    # source://railties//lib/rails/railtie.rb#223
     def method_missing(name, *_arg1, **_arg2, &_arg3); end
 
     def new(*_arg0); end
 
-    # source://railties//lib/rails/railtie.rb#235
+    # source://railties//lib/rails/railtie.rb#234
     def register_block_for(type, &blk); end
 
-    # source://railties//lib/rails/railtie.rb#216
+    # source://railties//lib/rails/railtie.rb#215
     def respond_to_missing?(name, _); end
   end
 end
 
-# source://railties//lib/rails/railtie.rb#142
+# source://railties//lib/rails/railtie.rb#141
 Rails::Railtie::ABSTRACT_RAILTIES = T.let(T.unsafe(nil), Array)
 
 # source://railties//lib/rails/railtie/configuration.rb#7
