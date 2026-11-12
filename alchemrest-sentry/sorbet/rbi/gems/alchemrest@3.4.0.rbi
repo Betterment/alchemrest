@@ -7,7 +7,7 @@
 
 # typed: true
 
-# source://alchemrest-sentry/1.1.1/lib/alchemrest/sentry.rb#5
+# source://alchemrest-sentry/1.2.0/lib/alchemrest/sentry.rb#5
 module Alchemrest
   class << self
     # source://alchemrest//lib/alchemrest.rb#103
@@ -784,16 +784,16 @@ class Alchemrest::KillSwitch::Adapters::ActiveRecord::Record < ::ActiveRecord::B
   class << self
     private
 
-    # source://activesupport/8.0.4.1/lib/active_support/class_attribute.rb#15
+    # source://activesupport/8.1.4.1/lib/active_support/class_attribute.rb#15
     def __class_attr__validators; end
 
-    # source://activesupport/8.0.4.1/lib/active_support/class_attribute.rb#17
+    # source://activesupport/8.1.4.1/lib/active_support/class_attribute.rb#17
     def __class_attr__validators=(new_value); end
 
-    # source://activesupport/8.0.4.1/lib/active_support/class_attribute.rb#15
+    # source://activesupport/8.1.4.1/lib/active_support/class_attribute.rb#15
     def __class_attr_defined_enums; end
 
-    # source://activesupport/8.0.4.1/lib/active_support/class_attribute.rb#17
+    # source://activesupport/8.1.4.1/lib/active_support/class_attribute.rb#17
     def __class_attr_defined_enums=(new_value); end
   end
 end
@@ -1007,7 +1007,13 @@ class Alchemrest::RequestDefinition
   def build_request(context, params = T.unsafe(nil)); end
 
   # source://alchemrest//lib/alchemrest/request_definition.rb#8
+  def builder_block; end
+
+  # source://alchemrest//lib/alchemrest/request_definition.rb#8
   def name; end
+
+  # source://alchemrest//lib/alchemrest/request_definition.rb#8
+  def request_class; end
 end
 
 # source://alchemrest//lib/alchemrest/request_definition/builder.rb#5
